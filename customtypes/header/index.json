@@ -1,0 +1,25 @@
+{
+  "format": "custom",
+  "id": "header",
+  "label": "header",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "menu": {
+              "type": "SharedSlice"
+            },
+            "logo": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

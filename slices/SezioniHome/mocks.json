@@ -1,0 +1,104 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"sezioni_home": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"titolo",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "element",
+									"type": "Text"
+								}
+							],
+							[
+								"foto",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+										"width": 4024,
+										"height": 4024
+									},
+									"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+									"width": 4024,
+									"height": 4024,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"spiega_servizio",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "mark",
+									"type": "Text"
+								}
+							],
+							[
+								"disegnino",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+										"width": 4752,
+										"height": 3168
+									},
+									"url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+									"width": 4752,
+									"height": 3168,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"testo_tasto",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "almost",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"link_tasto": {
+				"__TYPE__": "LinkContent",
+				"key": "0fa84b4a-7236-437b-bc0e-ac711cdfa5ca",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "driven"
+				}
+			}
+		},
+		"items": []
+	}
+]

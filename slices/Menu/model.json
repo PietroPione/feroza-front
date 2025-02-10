@@ -1,0 +1,46 @@
+{
+  "id": "menu",
+  "type": "SharedSlice",
+  "name": "Menu",
+  "description": "Menu",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "voci_menu": {
+          "type": "Group",
+          "config": {
+            "label": "Voci menu",
+            "repeat": true,
+            "fields": {
+              "testo": {
+                "type": "Text",
+                "config": {
+                  "label": "Testo",
+                  "placeholder": ""
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
