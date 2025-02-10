@@ -63,11 +63,7 @@ interface FerozaDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type FerozaDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<FerozaDocumentData>,
-    "feroza",
-    Lang
-  >;
+  prismic.PrismicDocumentWithUID<Simplify<FerozaDocumentData>, "feroza", Lang>;
 
 type HeaderDocumentDataSlicesSlice = MenuSlice | LogoSlice;
 
