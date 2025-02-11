@@ -9,7 +9,9 @@ module.exports = {
         tertiary: "#EE662B",
         quaternary: "#5CCFD6",
         five: "#F7EAC8",
-        gray: "#54595F",
+        gray: {
+          light: "#54595F",
+        dark: "#101010"},
         white: "#F2F2F2",
       },
       fontSize: {

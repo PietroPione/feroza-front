@@ -84,19 +84,29 @@
 									"value": "almost",
 									"type": "Text"
 								}
+							],
+							[
+								"link_tasto",
+								{
+									"key": "33629677-9712-4ac3-a264-3ad6864d0035",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "construction"
+									}
+								}
+							],
+							[
+								"testo_a_sinistra",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
 							]
 						]
 					}
 				]
-			},
-			"link_tasto": {
-				"__TYPE__": "LinkContent",
-				"key": "0fa84b4a-7236-437b-bc0e-ac711cdfa5ca",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "driven"
-				}
 			}
 		},
 		"items": []

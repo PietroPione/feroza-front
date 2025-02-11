@@ -1,0 +1,72 @@
+{
+  "id": "drink_list",
+  "type": "SharedSlice",
+  "name": "DrinkList",
+  "description": "DrinkList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "testo": {
+          "type": "Text",
+          "config": {
+            "label": "Testo",
+            "placeholder": ""
+          }
+        },
+        "cocktail": {
+          "type": "Group",
+          "config": {
+            "label": "Cocktail",
+            "repeat": true,
+            "fields": {
+              "nome_drink": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome drink",
+                  "placeholder": ""
+                }
+              },
+              "ingredienti": {
+                "type": "Text",
+                "config": {
+                  "label": "Ingredienti",
+                  "placeholder": ""
+                }
+              },
+              "prezzo": {
+                "type": "Number",
+                "config": {
+                  "label": "Prezzo",
+                  "placeholder": ""
+                }
+              },
+              "iconcina": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Iconcina",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "format": "custom",
+  "id": "drinklist",
+  "label": "DrinkList",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Uid",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "drink_list": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

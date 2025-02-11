@@ -4,6 +4,40 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type DrinklistDocumentDataSlicesSlice = DrinkListSlice;
+
+/**
+ * Content for DrinkList documents
+ */
+interface DrinklistDocumentData {
+  /**
+   * Slice Zone field in *DrinkList*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drinklist.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<DrinklistDocumentDataSlicesSlice>;
+}
+
+/**
+ * DrinkList document from Prismic
+ *
+ * - **API ID**: `drinklist`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DrinklistDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<DrinklistDocumentData>,
+    "drinklist",
+    Lang
+  >;
+
 type FerozaDocumentDataSlicesSlice = SezioniHomeSlice;
 
 /**
@@ -99,7 +133,123 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = FerozaDocument | HeaderDocument;
+export type AllDocumentTypes =
+  | DrinklistDocument
+  | FerozaDocument
+  | HeaderDocument;
+
+/**
+ * Item in *DrinkList → Default → Primary → Cocktail*
+ */
+export interface DrinkListSliceDefaultPrimaryCocktailItem {
+  /**
+   * Nome drink field in *DrinkList → Default → Primary → Cocktail*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.cocktail[].nome_drink
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome_drink: prismic.KeyTextField;
+
+  /**
+   * Ingredienti field in *DrinkList → Default → Primary → Cocktail*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.cocktail[].ingredienti
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  ingredienti: prismic.KeyTextField;
+
+  /**
+   * Prezzo field in *DrinkList → Default → Primary → Cocktail*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.cocktail[].prezzo
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  prezzo: prismic.NumberField;
+
+  /**
+   * Iconcina field in *DrinkList → Default → Primary → Cocktail*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: drink_list.default.primary.cocktail[].iconcina
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  iconcina: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *DrinkList → Default → Primary*
+ */
+export interface DrinkListSliceDefaultPrimary {
+  /**
+   * Titolo field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Testo field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.testo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo: prismic.KeyTextField;
+
+  /**
+   * Cocktail field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.cocktail[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cocktail: prismic.GroupField<
+    Simplify<DrinkListSliceDefaultPrimaryCocktailItem>
+  >;
+}
+
+/**
+ * Default variation for DrinkList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DrinkListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DrinkListSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *DrinkList*
+ */
+type DrinkListSliceVariation = DrinkListSliceDefault;
+
+/**
+ * DrinkList Shared Slice
+ *
+ * - **API ID**: `drink_list`
+ * - **Description**: DrinkList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DrinkListSlice = prismic.SharedSlice<
+  "drink_list",
+  DrinkListSliceVariation
+>;
 
 /**
  * Default variation for Logo Slice
@@ -248,6 +398,33 @@ export interface SezioniHomeSliceDefaultPrimarySezioniHomeItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   testo_tasto: prismic.KeyTextField;
+
+  /**
+   * Link tasto field in *SezioniHome → Default → Primary → Sezioni home*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sezioni_home.default.primary.sezioni_home[].link_tasto
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_tasto: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Testo a sinistra field in *SezioniHome → Default → Primary → Sezioni home*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: sezioni_home.default.primary.sezioni_home[].testo_a_sinistra
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  testo_a_sinistra: prismic.BooleanField;
 }
 
 /**
@@ -264,22 +441,6 @@ export interface SezioniHomeSliceDefaultPrimary {
    */
   sezioni_home: prismic.GroupField<
     Simplify<SezioniHomeSliceDefaultPrimarySezioniHomeItem>
-  >;
-
-  /**
-   * Link tasto field in *SezioniHome → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sezioni_home.default.primary.link_tasto
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link_tasto: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
   >;
 }
 
@@ -334,6 +495,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      DrinklistDocument,
+      DrinklistDocumentData,
+      DrinklistDocumentDataSlicesSlice,
       FerozaDocument,
       FerozaDocumentData,
       FerozaDocumentDataSlicesSlice,
@@ -341,6 +505,11 @@ declare module "@prismicio/client" {
       HeaderDocumentData,
       HeaderDocumentDataSlicesSlice,
       AllDocumentTypes,
+      DrinkListSlice,
+      DrinkListSliceDefaultPrimaryCocktailItem,
+      DrinkListSliceDefaultPrimary,
+      DrinkListSliceVariation,
+      DrinkListSliceDefault,
       LogoSlice,
       LogoSliceVariation,
       LogoSliceDefault,

@@ -1,0 +1,60 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "equipment",
+				"type": "Text"
+			},
+			"testo": {
+				"__TYPE__": "FieldContent",
+				"value": "street",
+				"type": "Text"
+			},
+			"cocktail": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"nome_drink",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "alone",
+									"type": "Text"
+								}
+							],
+							[
+								"ingredienti",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "grade",
+									"type": "Text"
+								}
+							],
+							[
+								"prezzo",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "32",
+									"type": "Number"
+								}
+							],
+							[
+								"iconcina",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

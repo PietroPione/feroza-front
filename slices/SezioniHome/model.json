@@ -54,19 +54,28 @@
                   "label": "Testo tasto",
                   "placeholder": ""
                 }
+              },
+              "link_tasto": {
+                "type": "Link",
+                "config": {
+                  "label": "Link tasto",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "testo_a_sinistra": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Testo a sinistra",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
               }
             }
-          }
-        },
-        "link_tasto": {
-          "type": "Link",
-          "config": {
-            "label": "Link tasto",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
           }
         }
       },
