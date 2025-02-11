@@ -1,34 +1,25 @@
-import React from "react";
+export default function DrinkList({ titolo, testo, cocktails }) {
+    return (
+      <div className="container mx-auto p-4 space-y-6">
+        <div className="space-y-2">
 
-export default function SezioniHome({ items }) {
-  return (
-    <div className="container">
-      {items.map((item, index) => (
-        <div key={index} className="flex justify-between gap-x-20 my-4">
-          {item.foto?.url && (
-            <img
-              src={item.foto.url}
-              alt={item.titolo}
-              className={`${item.testo_a_sinistra ? 'order-2' : 'order-1'} h-96 w-auto`}
-            />
-          )}
-          <div className={`${item.testo_a_sinistra ? 'order-1' : 'order-2'} flex`}>
-            <div>
-
-            <h2 className="text-2xl font-bold text-gray-dark">{item.titolo}</h2>
-            <p className="text-gray-light">{item.spiega_servizio}</p>
-            <button className="btn-primary">{item.testo_tasto}</button>
-            </div>
-          {item.disegnino?.url && (
-            <img
-              src={item.disegnino.url}
-              alt="Disegnino"
-              className="h-96 w-auto"
-            />
-          )}
-          </div>
+        <h1 className="text-3xl text-center font-bold">{titolo}</h1>
+        <p className="text-lg text-center italic">{testo}</p>
         </div>
-      ))}
-    </div>
-  );
-}
+  
+        <div className="space-y-6">
+          {cocktails.map((drink, index) => (
+            <div key={index} className=" p-4 space-y-2 flex justify-between">
+                <div>
+              <h2 className="text-xl font-semibold">{drink.nome_drink}</h2>
+              {drink.iconcina && <span>🍸</span>}
+              <p>{drink.ingredienti}</p>
+                </div>
+              <p className="font-bold">{drink.prezzo} €</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  
