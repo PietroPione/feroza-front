@@ -38,7 +38,7 @@ export type DrinklistDocument<Lang extends string = string> =
     Lang
   >;
 
-type FerozaDocumentDataSlicesSlice = SezioniHomeSlice;
+type FerozaDocumentDataSlicesSlice = HeroSlice | SezioniHomeSlice;
 
 /**
  * Content for Feroza documents
@@ -250,6 +250,94 @@ export type DrinkListSlice = prismic.SharedSlice<
   "drink_list",
   DrinkListSliceVariation
 >;
+
+/**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Immagine background field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.immagine_background
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_background: prismic.ImageField<never>;
+
+  /**
+   * Testo field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.testo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo: prismic.KeyTextField;
+
+  /**
+   * Spiega field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.spiega
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  spiega: prismic.KeyTextField;
+
+  /**
+   * Testo tasto field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.testo_tasto
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_tasto: prismic.KeyTextField;
+
+  /**
+   * Link tasto field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.link_tasto
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_tasto: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation = HeroSliceDefault;
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
  * Default variation for Logo Slice
@@ -510,6 +598,10 @@ declare module "@prismicio/client" {
       DrinkListSliceDefaultPrimary,
       DrinkListSliceVariation,
       DrinkListSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
       LogoSlice,
       LogoSliceVariation,
       LogoSliceDefault,

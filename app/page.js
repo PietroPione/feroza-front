@@ -1,5 +1,6 @@
 import { createClient } from "@/prismicio";
 import SezioniHome from "@/components/SezioniHome";
+import HeroHome from "@/components/HeroHome";
 
 export default async function HomePage() {
   const client = createClient();
@@ -12,21 +13,27 @@ export default async function HomePage() {
     return <p>Documento homepage non trovato</p>;
   }
 
-  // Mappiamo le slice per semplificarne l'accesso
   const mappedSlices = homepage.data.slices.map((slice) => ({
     type: slice.slice_type,
     primary: slice.primary,
   }));
 
-  // Troviamo la slice di tipo "sezioni_home" (campo ripetibile)
+
+  const heroSlice = mappedSlices.find(
+    (slice) => slice.type === "hero"
+  );
   const sezioniHomeSlice = mappedSlices.find(
     (slice) => slice.type === "sezioni_home"
   );
+
+
   // Se la slice esiste, estraiamo l'array contenuto in primary.sezioni_home, altrimenti usiamo un array vuoto
   const sezioniHomeItems = sezioniHomeSlice?.primary?.sezioni_home || [];
+  const heroHomeItems = heroSlice?.primary || [];
 
   return (
     <div>
+      <HeroHome items={heroHomeItems}></HeroHome>
       {/* Utilizzo del componente SezioniHome passando i dati tramite prop */}
       <SezioniHome items={sezioniHomeItems} />
     </div>

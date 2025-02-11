@@ -11,8 +11,11 @@ export default function DrinkList({ titolo, testo, cocktails }) {
           {cocktails.map((drink, index) => (
             <div key={index} className=" p-4 space-y-2 flex justify-between">
                 <div>
+                  <div className="flex space-x-2">
+
               <h2 className="text-xl font-semibold">{drink.nome_drink}</h2>
-              {drink.iconcina && <span>🍸</span>}
+              {drink.iconcina && <div>🍸</div>}
+                  </div>
               <p>{drink.ingredienti}</p>
                 </div>
               <p className="font-bold">{drink.prezzo} €</p>
