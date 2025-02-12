@@ -250,13 +250,12 @@ export interface AperitivoSliceDefaultPrimarySalseItem {
   /**
    * Vegetariano field in *Aperitivo → Default → Primary → Salse*
    *
-   * - **Field Type**: Boolean
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **Default Value**: false
    * - **API ID Path**: aperitivo.default.primary.salse[].vegetariano
-   * - **Documentation**: https://prismic.io/docs/field#boolean
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  vegetariano: prismic.BooleanField;
+  vegetariano: prismic.ImageField<never>;
 }
 
 /**
@@ -276,13 +275,12 @@ export interface AperitivoSliceDefaultPrimaryFalafelItem {
   /**
    * Vegetariano field in *Aperitivo → Default → Primary → Falafel*
    *
-   * - **Field Type**: Boolean
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **Default Value**: false
    * - **API ID Path**: aperitivo.default.primary.falafel[].vegetariano
-   * - **Documentation**: https://prismic.io/docs/field#boolean
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  vegetariano: prismic.BooleanField;
+  vegetariano: prismic.ImageField<never>;
 }
 
 /**

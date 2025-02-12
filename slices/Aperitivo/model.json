@@ -110,12 +110,11 @@
                 }
               },
               "vegetariano": {
-                "type": "Boolean",
+                "type": "Image",
                 "config": {
                   "label": "Vegetariano",
-                  "placeholder_false": "false",
-                  "placeholder_true": "true",
-                  "default_value": false
+                  "constraint": {},
+                  "thumbnails": []
                 }
               }
             }
@@ -135,12 +134,11 @@
                 }
               },
               "vegetariano": {
-                "type": "Boolean",
+                "type": "Image",
                 "config": {
                   "label": "Vegetariano",
-                  "placeholder_false": "false",
-                  "placeholder_true": "true",
-                  "default_value": false
+                  "constraint": {},
+                  "thumbnails": []
                 }
               }
             }

@@ -176,8 +176,27 @@
 							[
 								"vegetariano",
 								{
-									"__TYPE__": "BooleanContent",
-									"value": true
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+										"width": 3212,
+										"height": 3880
+									},
+									"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+									"width": 3212,
+									"height": 3880,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
 								}
 							]
 						]
@@ -211,8 +230,25 @@
 							[
 								"vegetariano",
 								{
-									"__TYPE__": "BooleanContent",
-									"value": false
+									"__TYPE__": "ImageContent",
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+										"width": 3024,
+										"height": 3778
+									},
+									"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+									"width": 3024,
+									"height": 3778,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"thumbnails": {}
 								}
 							]
 						]

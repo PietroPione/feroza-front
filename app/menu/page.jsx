@@ -32,8 +32,9 @@ export default async function MenuPage() {
   const iconaBevanda = nomeBevanda.map(bevanda => bevanda.icona?.url);
   const testoSalsa = aperitivoSlice?.primary?.testo_salsa || "";
   const salse = aperitivoSlice?.primary?.salse || [];
+  const salseVegetariano = salse.map(salse => salse.vegetariano?.url);
   const falafel = aperitivoSlice?.primary?.falafel || [];
-  const falafelVegetariano = falafel.map(falafel => falafel.vegetariano);
+  const falafelVegetariano = falafel.map(falafel => falafel.vegetariano?.url);
   const pane = aperitivoSlice?.primary?.pane || "";
   const prezzo = aperitivoSlice?.primary?.prezzo || "";
   const immagineTopSx = aperitivoSlice?.primary?.immagine_top_sx?.url;
@@ -61,6 +62,7 @@ export default async function MenuPage() {
           immagineTopSx={immagineTopSx}
           immagineBottomSx={immagineBottomSx}
           immagineBottomDx={immagineBottomDx}
+          salseVegetariano={salseVegetariano}
         />
       )}
     </>
