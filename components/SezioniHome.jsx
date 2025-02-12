@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonPrimary from "./buttonPrimary";
 
 export default function SezioniHome({ items }) {
   return (
@@ -13,19 +14,19 @@ export default function SezioniHome({ items }) {
             />
           )}
           <div className={`${item.testo_a_sinistra ? 'order-1' : 'order-2'} flex`}>
-            <div>
+            <div className="space-y-4">
 
-            <h2 className="text-2xl font-bold text-gray-dark">{item.titolo}</h2>
-            <p className="text-gray-light">{item.spiega_servizio}</p>
-            <button className="btn-primary">{item.testo_tasto}</button>
+              <h2 className="text-2xl font-bold text-gray-dark">{item.titolo}</h2>
+              <p className="text-gray-light">{item.spiega_servizio}</p>
+              <ButtonPrimary url={item.link_tasto} testo={item.testo_tasto} buttonSecondary></ButtonPrimary>
             </div>
-          {item.disegnino?.url && (
-            <img
-              src={item.disegnino.url}
-              alt="Disegnino"
-              className="h-96 w-auto"
-            />
-          )}
+            {item.disegnino?.url && (
+              <img
+                src={item.disegnino.url}
+                alt="Disegnino"
+                className="h-96 w-auto"
+              />
+            )}
           </div>
         </div>
       ))}

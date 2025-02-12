@@ -109,22 +109,41 @@
                   "placeholder": ""
                 }
               },
-              "immagine_salsa": {
-                "type": "Image",
+              "vegetariano": {
+                "type": "Boolean",
                 "config": {
-                  "label": "Immagine salsa",
-                  "constraint": {},
-                  "thumbnails": []
+                  "label": "Vegetariano",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
                 }
               }
             }
           }
         },
         "falafel": {
-          "type": "Text",
+          "type": "Group",
           "config": {
             "label": "Falafel",
-            "placeholder": ""
+            "repeat": true,
+            "fields": {
+              "nome_falafel": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome falafel",
+                  "placeholder": ""
+                }
+              },
+              "vegetariano": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Vegetariano",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              }
+            }
           }
         },
         "pane": {

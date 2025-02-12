@@ -30,7 +30,6 @@ export default async function HomePage() {
   // Se la slice esiste, estraiamo l'array contenuto in primary.sezioni_home, altrimenti usiamo un array vuoto
   const sezioniHomeItems = sezioniHomeSlice?.primary?.sezioni_home || [];
   const heroHomeItems = heroSlice?.primary || [];
-
   return (
     <div>
       <HeroHome items={heroHomeItems}></HeroHome>

@@ -248,14 +248,41 @@ export interface AperitivoSliceDefaultPrimarySalseItem {
   nome_salsa: prismic.KeyTextField;
 
   /**
-   * Immagine salsa field in *Aperitivo → Default → Primary → Salse*
+   * Vegetariano field in *Aperitivo → Default → Primary → Salse*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.salse[].immagine_salsa
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Default Value**: false
+   * - **API ID Path**: aperitivo.default.primary.salse[].vegetariano
+   * - **Documentation**: https://prismic.io/docs/field#boolean
    */
-  immagine_salsa: prismic.ImageField<never>;
+  vegetariano: prismic.BooleanField;
+}
+
+/**
+ * Item in *Aperitivo → Default → Primary → Falafel*
+ */
+export interface AperitivoSliceDefaultPrimaryFalafelItem {
+  /**
+   * Nome falafel field in *Aperitivo → Default → Primary → Falafel*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.falafel[].nome_falafel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome_falafel: prismic.KeyTextField;
+
+  /**
+   * Vegetariano field in *Aperitivo → Default → Primary → Falafel*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: aperitivo.default.primary.falafel[].vegetariano
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  vegetariano: prismic.BooleanField;
 }
 
 /**
@@ -367,12 +394,14 @@ export interface AperitivoSliceDefaultPrimary {
   /**
    * Falafel field in *Aperitivo → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.falafel
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: aperitivo.default.primary.falafel[]
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  falafel: prismic.KeyTextField;
+  falafel: prismic.GroupField<
+    Simplify<AperitivoSliceDefaultPrimaryFalafelItem>
+  >;
 
   /**
    * Pane field in *Aperitivo → Default → Primary*
@@ -1137,6 +1166,7 @@ declare module "@prismicio/client" {
       AperitivoSlice,
       AperitivoSliceDefaultPrimaryNomeBevandaItem,
       AperitivoSliceDefaultPrimarySalseItem,
+      AperitivoSliceDefaultPrimaryFalafelItem,
       AperitivoSliceDefaultPrimary,
       AperitivoSliceVariation,
       AperitivoSliceDefault,
