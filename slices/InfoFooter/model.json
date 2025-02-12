@@ -1,0 +1,84 @@
+{
+  "id": "info_footer",
+  "type": "SharedSlice",
+  "name": "InfoFooter",
+  "description": "InfoFooter",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "info": {
+          "type": "Text",
+          "config": {
+            "label": "Info",
+            "placeholder": ""
+          }
+        },
+        "social": {
+          "type": "Group",
+          "config": {
+            "label": "Social",
+            "repeat": true,
+            "fields": {
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "indirizzo": {
+          "type": "Text",
+          "config": {
+            "label": "Indirizzo",
+            "placeholder": ""
+          }
+        },
+        "orari": {
+          "type": "Group",
+          "config": {
+            "label": "Orari",
+            "repeat": true,
+            "fields": {
+              "giorno": {
+                "type": "Text",
+                "config": {
+                  "label": "Giorno",
+                  "placeholder": ""
+                }
+              },
+              "orari": {
+                "type": "Text",
+                "config": {
+                  "label": "Orari",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

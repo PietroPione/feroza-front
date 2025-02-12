@@ -1,0 +1,148 @@
+{
+  "id": "aperitivo",
+  "type": "SharedSlice",
+  "name": "Aperitivo",
+  "description": "Aperitivo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "immagine_top_sx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine top sx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_top_dx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine top dx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_bottom_sx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bottom sx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_bottom_dx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bottom dx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "sottotitolo": {
+          "type": "Text",
+          "config": {
+            "label": "Sottotitolo",
+            "placeholder": ""
+          }
+        },
+        "testo_bevande": {
+          "type": "Text",
+          "config": {
+            "label": "Testo bevande",
+            "placeholder": ""
+          }
+        },
+        "nome_bevanda": {
+          "type": "Group",
+          "config": {
+            "label": "Bevande",
+            "repeat": true,
+            "fields": {
+              "nome_bevanda": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome bevanda",
+                  "placeholder": ""
+                }
+              },
+              "icona": {
+                "type": "Image",
+                "config": {
+                  "label": "Icona",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "testo_salsa": {
+          "type": "Text",
+          "config": {
+            "label": "Testo salsa",
+            "placeholder": ""
+          }
+        },
+        "salse": {
+          "type": "Group",
+          "config": {
+            "label": "Salse",
+            "repeat": true,
+            "fields": {
+              "nome_salsa": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome salsa",
+                  "placeholder": ""
+                }
+              },
+              "immagine_salsa": {
+                "type": "Image",
+                "config": {
+                  "label": "Immagine salsa",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "falafel": {
+          "type": "Text",
+          "config": {
+            "label": "Falafel",
+            "placeholder": ""
+          }
+        },
+        "pane": {
+          "type": "Text",
+          "config": {
+            "label": "Pane",
+            "placeholder": ""
+          }
+        },
+        "prezzo": {
+          "type": "Text",
+          "config": {
+            "label": "Prezzo",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

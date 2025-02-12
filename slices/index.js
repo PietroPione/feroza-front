@@ -3,8 +3,10 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  aperitivo: dynamic(() => import("./Aperitivo")),
   drink_list: dynamic(() => import("./DrinkList")),
   hero: dynamic(() => import("./Hero")),
+  info_footer: dynamic(() => import("./InfoFooter")),
   logo: dynamic(() => import("./Logo")),
   menu: dynamic(() => import("./Menu")),
   sezioni_home: dynamic(() => import("./SezioniHome")),

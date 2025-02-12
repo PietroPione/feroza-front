@@ -1,0 +1,93 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"info": {
+				"__TYPE__": "FieldContent",
+				"value": "those",
+				"type": "Text"
+			},
+			"social": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"logo",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+										"width": 4380,
+										"height": 2895
+									},
+									"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+									"width": 4380,
+									"height": 2895,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"link",
+								{
+									"key": "288e6ffd-e09d-48e3-9a1d-32e5c3e24fc5",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "stems"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"indirizzo": {
+				"__TYPE__": "FieldContent",
+				"value": "diameter",
+				"type": "Text"
+			},
+			"orari": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"giorno",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "ants",
+									"type": "Text"
+								}
+							],
+							[
+								"orari",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "early",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

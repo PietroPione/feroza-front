@@ -4,6 +4,40 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AperitivoDocumentDataSlicesSlice = AperitivoSlice;
+
+/**
+ * Content for Aperitivo documents
+ */
+interface AperitivoDocumentData {
+  /**
+   * Slice Zone field in *Aperitivo*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AperitivoDocumentDataSlicesSlice>;
+}
+
+/**
+ * Aperitivo document from Prismic
+ *
+ * - **API ID**: `aperitivo`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AperitivoDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AperitivoDocumentData>,
+    "aperitivo",
+    Lang
+  >;
+
 type DrinklistDocumentDataSlicesSlice = DrinkListSlice;
 
 /**
@@ -99,6 +133,40 @@ interface FerozaDocumentData {
 export type FerozaDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FerozaDocumentData>, "feroza", Lang>;
 
+type FooterDocumentDataSlicesSlice = LogoSlice | InfoFooterSlice;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
 type HeaderDocumentDataSlicesSlice = MenuSlice | LogoSlice;
 
 /**
@@ -134,9 +202,228 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AperitivoDocument
   | DrinklistDocument
   | FerozaDocument
+  | FooterDocument
   | HeaderDocument;
+
+/**
+ * Item in *Aperitivo → Default → Primary → Bevande*
+ */
+export interface AperitivoSliceDefaultPrimaryNomeBevandaItem {
+  /**
+   * Nome bevanda field in *Aperitivo → Default → Primary → Bevande*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.nome_bevanda[].nome_bevanda
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome_bevanda: prismic.KeyTextField;
+
+  /**
+   * Icona field in *Aperitivo → Default → Primary → Bevande*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.nome_bevanda[].icona
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icona: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Aperitivo → Default → Primary → Salse*
+ */
+export interface AperitivoSliceDefaultPrimarySalseItem {
+  /**
+   * Nome salsa field in *Aperitivo → Default → Primary → Salse*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.salse[].nome_salsa
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome_salsa: prismic.KeyTextField;
+
+  /**
+   * Immagine salsa field in *Aperitivo → Default → Primary → Salse*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.salse[].immagine_salsa
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_salsa: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Aperitivo → Default → Primary*
+ */
+export interface AperitivoSliceDefaultPrimary {
+  /**
+   * Titolo field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Immagine top sx field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.immagine_top_sx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_sx: prismic.ImageField<never>;
+
+  /**
+   * Immagine top dx field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.immagine_top_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_dx: prismic.ImageField<never>;
+
+  /**
+   * Immagine bottom sx field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.immagine_bottom_sx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_sx: prismic.ImageField<never>;
+
+  /**
+   * Immagine bottom dx field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.immagine_bottom_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_dx: prismic.ImageField<never>;
+
+  /**
+   * Sottotitolo field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.sottotitolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sottotitolo: prismic.KeyTextField;
+
+  /**
+   * Testo bevande field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.testo_bevande
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_bevande: prismic.KeyTextField;
+
+  /**
+   * Bevande field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.nome_bevanda[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  nome_bevanda: prismic.GroupField<
+    Simplify<AperitivoSliceDefaultPrimaryNomeBevandaItem>
+  >;
+
+  /**
+   * Testo salsa field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.testo_salsa
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_salsa: prismic.KeyTextField;
+
+  /**
+   * Salse field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.salse[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  salse: prismic.GroupField<Simplify<AperitivoSliceDefaultPrimarySalseItem>>;
+
+  /**
+   * Falafel field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.falafel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  falafel: prismic.KeyTextField;
+
+  /**
+   * Pane field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.pane
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  pane: prismic.KeyTextField;
+
+  /**
+   * Prezzo field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.prezzo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  prezzo: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Aperitivo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AperitivoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AperitivoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Aperitivo*
+ */
+type AperitivoSliceVariation = AperitivoSliceDefault;
+
+/**
+ * Aperitivo Shared Slice
+ *
+ * - **API ID**: `aperitivo`
+ * - **Description**: Aperitivo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AperitivoSlice = prismic.SharedSlice<
+  "aperitivo",
+  AperitivoSliceVariation
+>;
 
 /**
  * Item in *DrinkList → Default → Primary → Cocktail*
@@ -340,6 +627,146 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Item in *InfoFooter → Default → Primary → Social*
+ */
+export interface InfoFooterSliceDefaultPrimarySocialItem {
+  /**
+   * Logo field in *InfoFooter → Default → Primary → Social*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.social[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Link field in *InfoFooter → Default → Primary → Social*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.social[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *InfoFooter → Default → Primary → Orari*
+ */
+export interface InfoFooterSliceDefaultPrimaryOrariItem {
+  /**
+   * Giorno field in *InfoFooter → Default → Primary → Orari*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.orari[].giorno
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  giorno: prismic.KeyTextField;
+
+  /**
+   * Orari field in *InfoFooter → Default → Primary → Orari*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.orari[].orari
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  orari: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *InfoFooter → Default → Primary*
+ */
+export interface InfoFooterSliceDefaultPrimary {
+  /**
+   * Info field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.info
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  info: prismic.KeyTextField;
+
+  /**
+   * Social field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.social[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social: prismic.GroupField<Simplify<InfoFooterSliceDefaultPrimarySocialItem>>;
+
+  /**
+   * Indirizzo field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.indirizzo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  indirizzo: prismic.KeyTextField;
+
+  /**
+   * Orari field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.orari[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  orari: prismic.GroupField<Simplify<InfoFooterSliceDefaultPrimaryOrariItem>>;
+}
+
+/**
+ * Default variation for InfoFooter Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoFooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InfoFooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InfoFooter*
+ */
+type InfoFooterSliceVariation = InfoFooterSliceDefault;
+
+/**
+ * InfoFooter Shared Slice
+ *
+ * - **API ID**: `info_footer`
+ * - **Description**: InfoFooter
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoFooterSlice = prismic.SharedSlice<
+  "info_footer",
+  InfoFooterSliceVariation
+>;
+
+/**
+ * Primary content in *Logo → Default → Primary*
+ */
+export interface LogoSliceDefaultPrimary {
+  /**
+   * Logo field in *Logo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logo.default.primary.logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
  * Default variation for Logo Slice
  *
  * - **API ID**: `default`
@@ -348,7 +775,7 @@ export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
  */
 export type LogoSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<LogoSliceDefaultPrimary>,
   never
 >;
 
@@ -583,16 +1010,28 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AperitivoDocument,
+      AperitivoDocumentData,
+      AperitivoDocumentDataSlicesSlice,
       DrinklistDocument,
       DrinklistDocumentData,
       DrinklistDocumentDataSlicesSlice,
       FerozaDocument,
       FerozaDocumentData,
       FerozaDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AperitivoSlice,
+      AperitivoSliceDefaultPrimaryNomeBevandaItem,
+      AperitivoSliceDefaultPrimarySalseItem,
+      AperitivoSliceDefaultPrimary,
+      AperitivoSliceVariation,
+      AperitivoSliceDefault,
       DrinkListSlice,
       DrinkListSliceDefaultPrimaryCocktailItem,
       DrinkListSliceDefaultPrimary,
@@ -602,7 +1041,14 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      InfoFooterSlice,
+      InfoFooterSliceDefaultPrimarySocialItem,
+      InfoFooterSliceDefaultPrimaryOrariItem,
+      InfoFooterSliceDefaultPrimary,
+      InfoFooterSliceVariation,
+      InfoFooterSliceDefault,
       LogoSlice,
+      LogoSliceDefaultPrimary,
       LogoSliceVariation,
       LogoSliceDefault,
       MenuSlice,
