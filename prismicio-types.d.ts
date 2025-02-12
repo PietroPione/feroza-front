@@ -533,6 +533,66 @@ export interface DrinkListSliceDefaultPrimary {
   cocktail: prismic.GroupField<
     Simplify<DrinkListSliceDefaultPrimaryCocktailItem>
   >;
+
+  /**
+   * Immagine top sx field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.immagine_top_sx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_sx: prismic.ImageField<never>;
+
+  /**
+   * Immagine top mid field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.immagine_top_mid
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_mid: prismic.ImageField<never>;
+
+  /**
+   * Immagine top dx field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.immagine_top_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_dx: prismic.ImageField<never>;
+
+  /**
+   * Immagine bottom sx field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.immagine_bottom_sx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_sx: prismic.ImageField<never>;
+
+  /**
+   * Immagine bottom mid field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.immagine_bottom_mid
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_mid: prismic.ImageField<never>;
+
+  /**
+   * Immagine bottom dx field in *DrinkList → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: drink_list.default.primary.immagine_bottom_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_dx: prismic.ImageField<never>;
 }
 
 /**

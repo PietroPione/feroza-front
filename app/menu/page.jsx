@@ -22,6 +22,12 @@ export default async function MenuPage() {
   const titoloDrink = drinkSlice?.primary?.titolo || "Drink List";
   const testoDrink = drinkSlice?.primary?.testo || "";
   const cocktails = drinkSlice?.primary?.cocktail || [];
+  const drinkTopSx = drinkSlice?.primary?.immagine_top_sx?.url;
+  const drinkTopDx = drinkSlice?.primary?.immagine_top_dx?.url;
+  const drinkTopMid = drinkSlice?.primary?.immagine_top_mid?.url;
+  const drinkBottomSx = drinkSlice?.primary?.immagine_bottom_sx?.url;
+  const drinkBottomMid = drinkSlice?.primary?.immagine_bottom_mid?.url;
+  const drinkBottomDx = drinkSlice?.primary?.immagine_bottom_dx?.url;
 
   // Dati per Aperitivo
   const aperitivoSlice = aperitivo?.data.slices.find(slice => slice.slice_type === "aperitivo");
@@ -44,7 +50,7 @@ export default async function MenuPage() {
 
   return (
     <>
-      {drinklist && <DrinkList titolo={titoloDrink} testo={testoDrink} cocktails={cocktails} />}
+      {drinklist && <DrinkList titolo={titoloDrink} testo={testoDrink} cocktails={cocktails} drinkBottomSx={drinkBottomSx} drinkBottomMid={drinkBottomMid} drinkBottomDx={drinkBottomDx} drinkTopSx={drinkTopSx} drinkTopMid={drinkTopMid} drinkTopDx={drinkTopDx} />}
       {aperitivo && (
         <Aperitivo
           titolo={titoloAperitivo}
