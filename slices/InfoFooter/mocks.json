@@ -86,6 +86,63 @@
 						]
 					}
 				]
+			},
+			"testo_tasto": {
+				"__TYPE__": "FieldContent",
+				"value": "battle",
+				"type": "Text"
+			},
+			"link_tasto": {
+				"key": "c79708c5-a5e5-4265-b1d4-574004746f2a",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "put"
+				}
+			},
+			"credits": {
+				"__TYPE__": "FieldContent",
+				"value": "explanation",
+				"type": "Text"
+			},
+			"link_credits": {
+				"key": "8bc29f26-0fd6-483e-87a0-be6568df9c8e",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "former"
+				}
+			},
+			"riservare_tavolo": {
+				"__TYPE__": "FieldContent",
+				"value": "wire",
+				"type": "Text"
+			},
+			"nome_ristorante": {
+				"__TYPE__": "FieldContent",
+				"value": "element",
+				"type": "Text"
+			},
+			"titolo_orari": {
+				"__TYPE__": "FieldContent",
+				"value": "near",
+				"type": "Text"
+			},
+			"seguici": {
+				"__TYPE__": "FieldContent",
+				"value": "wild",
+				"type": "Text"
+			},
+			"link_mappa": {
+				"key": "55747046-d99b-414e-b0b3-fa833da8ff8f",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "sent"
+				}
 			}
 		},
 		"items": []

@@ -10,7 +10,7 @@ export default function HeroHome({ items }) {
 <div className="text-60 font-bold">{items.testo}</div>
 <div className="text-32">{items.spiega}</div>
   </div>
-<ButtonPrimary url={items.link_tasto} testo={items.testo_tasto} />
+<ButtonPrimary url={items.link_tasto.text} testo={items.testo_tasto} externalLink  />
 </div>
 {items.immagine_background?.url && (
             <img

@@ -15,6 +15,8 @@ module.exports = {
         white: "#F2F2F2",
       },
       fontSize: {
+        10: "0.65rem",
+        12: "0.75rem",
         15: "0.938rem",
         17: "1.063rem",
         22: "1.375rem",

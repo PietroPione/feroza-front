@@ -12,10 +12,65 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "info": {
+        "nome_ristorante": {
           "type": "Text",
           "config": {
-            "label": "Info",
+            "label": "Nome ristorante",
+            "placeholder": ""
+          }
+        },
+        "indirizzo": {
+          "type": "Text",
+          "config": {
+            "label": "Indirizzo",
+            "placeholder": ""
+          }
+        },
+        "link_mappa": {
+          "type": "Link",
+          "config": {
+            "label": "Link a mappa",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "titolo_orari": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo orari",
+            "placeholder": ""
+          }
+        },
+        "orari": {
+          "type": "Group",
+          "config": {
+            "label": "Orari",
+            "repeat": true,
+            "fields": {
+              "giorno": {
+                "type": "Text",
+                "config": {
+                  "label": "Giorno",
+                  "placeholder": ""
+                }
+              },
+              "orari": {
+                "type": "Text",
+                "config": {
+                  "label": "Orari",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "seguici": {
+          "type": "Text",
+          "config": {
+            "label": "Seguici",
             "placeholder": ""
           }
         },
@@ -47,34 +102,54 @@
             }
           }
         },
-        "indirizzo": {
+        "riservare_tavolo": {
           "type": "Text",
           "config": {
-            "label": "Indirizzo",
+            "label": "Riservare tavolo",
             "placeholder": ""
           }
         },
-        "orari": {
-          "type": "Group",
+        "testo_tasto": {
+          "type": "Text",
           "config": {
-            "label": "Orari",
-            "repeat": true,
-            "fields": {
-              "giorno": {
-                "type": "Text",
-                "config": {
-                  "label": "Giorno",
-                  "placeholder": ""
-                }
-              },
-              "orari": {
-                "type": "Text",
-                "config": {
-                  "label": "Orari",
-                  "placeholder": ""
-                }
-              }
-            }
+            "label": "Testo tasto",
+            "placeholder": ""
+          }
+        },
+        "link_tasto": {
+          "type": "Link",
+          "config": {
+            "label": "Link tasto",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "info": {
+          "type": "Text",
+          "config": {
+            "label": "Info",
+            "placeholder": ""
+          }
+        },
+        "credits": {
+          "type": "Text",
+          "config": {
+            "label": "Credits",
+            "placeholder": ""
+          }
+        },
+        "link_credits": {
+          "type": "Link",
+          "config": {
+            "label": "Link credits",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
           }
         }
       },

@@ -1,11 +1,16 @@
 import Link from "next/link";
 
-const ButtonPrimary = ({ url, testo, buttonSecondary }) => {
+const ButtonPrimary = ({ url, testo, buttonSecondary, externalLink }) => {
   
 
   return (
     <Link
   href={url}
+  target={`${
+    externalLink
+      ? "_blank"
+      : ""
+  }`}
   className={`inline-block w-auto max-w-max px-8 py-4 border-2 transition ${
     buttonSecondary
       ? `text-secondary border-secondary hover:bg-secondary hover:text-white`

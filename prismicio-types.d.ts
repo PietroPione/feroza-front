@@ -627,31 +627,6 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
- * Item in *InfoFooter → Default → Primary → Social*
- */
-export interface InfoFooterSliceDefaultPrimarySocialItem {
-  /**
-   * Logo field in *InfoFooter → Default → Primary → Social*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: info_footer.default.primary.social[].logo
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  logo: prismic.ImageField<never>;
-
-  /**
-   * Link field in *InfoFooter → Default → Primary → Social*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: info_footer.default.primary.social[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
  * Item in *InfoFooter → Default → Primary → Orari*
  */
 export interface InfoFooterSliceDefaultPrimaryOrariItem {
@@ -677,28 +652,43 @@ export interface InfoFooterSliceDefaultPrimaryOrariItem {
 }
 
 /**
+ * Item in *InfoFooter → Default → Primary → Social*
+ */
+export interface InfoFooterSliceDefaultPrimarySocialItem {
+  /**
+   * Logo field in *InfoFooter → Default → Primary → Social*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.social[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Link field in *InfoFooter → Default → Primary → Social*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.social[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
  * Primary content in *InfoFooter → Default → Primary*
  */
 export interface InfoFooterSliceDefaultPrimary {
   /**
-   * Info field in *InfoFooter → Default → Primary*
+   * Nome ristorante field in *InfoFooter → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: info_footer.default.primary.info
+   * - **API ID Path**: info_footer.default.primary.nome_ristorante
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  info: prismic.KeyTextField;
-
-  /**
-   * Social field in *InfoFooter → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: info_footer.default.primary.social[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  social: prismic.GroupField<Simplify<InfoFooterSliceDefaultPrimarySocialItem>>;
+  nome_ristorante: prismic.KeyTextField;
 
   /**
    * Indirizzo field in *InfoFooter → Default → Primary*
@@ -711,6 +701,32 @@ export interface InfoFooterSliceDefaultPrimary {
   indirizzo: prismic.KeyTextField;
 
   /**
+   * Link a mappa field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.link_mappa
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_mappa: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Titolo orari field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.titolo_orari
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_orari: prismic.KeyTextField;
+
+  /**
    * Orari field in *InfoFooter → Default → Primary*
    *
    * - **Field Type**: Group
@@ -719,6 +735,98 @@ export interface InfoFooterSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   orari: prismic.GroupField<Simplify<InfoFooterSliceDefaultPrimaryOrariItem>>;
+
+  /**
+   * Seguici field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.seguici
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  seguici: prismic.KeyTextField;
+
+  /**
+   * Social field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.social[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social: prismic.GroupField<Simplify<InfoFooterSliceDefaultPrimarySocialItem>>;
+
+  /**
+   * Riservare tavolo field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.riservare_tavolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  riservare_tavolo: prismic.KeyTextField;
+
+  /**
+   * Testo tasto field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.testo_tasto
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_tasto: prismic.KeyTextField;
+
+  /**
+   * Link tasto field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.link_tasto
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_tasto: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Info field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.info
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  info: prismic.KeyTextField;
+
+  /**
+   * Credits field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.credits
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  credits: prismic.KeyTextField;
+
+  /**
+   * Link credits field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.link_credits
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_credits: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -1042,8 +1150,8 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       InfoFooterSlice,
-      InfoFooterSliceDefaultPrimarySocialItem,
       InfoFooterSliceDefaultPrimaryOrariItem,
+      InfoFooterSliceDefaultPrimarySocialItem,
       InfoFooterSliceDefaultPrimary,
       InfoFooterSliceVariation,
       InfoFooterSliceDefault,
