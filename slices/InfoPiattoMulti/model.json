@@ -1,0 +1,53 @@
+{
+  "id": "info_piatto_multi",
+  "type": "SharedSlice",
+  "name": "InfoPiattoMulti",
+  "description": "InfoPiattoMulti",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "infopiattomulti": {
+          "type": "Group",
+          "config": {
+            "label": "InfoPiattoMulti",
+            "repeat": true,
+            "fields": {
+              "testo": {
+                "type": "Text",
+                "config": {
+                  "label": "Testo",
+                  "placeholder": ""
+                }
+              },
+              "bold": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Bold",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "small": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Small",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

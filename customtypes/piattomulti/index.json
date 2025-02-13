@@ -1,0 +1,25 @@
+{
+  "format": "custom",
+  "id": "piattomulti",
+  "label": "PiattoMulti",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "ripetibile_menu": {
+              "type": "SharedSlice"
+            },
+            "info_piatto_multi": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

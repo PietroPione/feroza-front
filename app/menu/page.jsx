@@ -1,6 +1,8 @@
 import { createClient } from "@/prismicio";
 import DrinkList from "@/components/DrinkList";
 import Aperitivo from "@/components/Aperitivo";
+import { info } from "autoprefixer";
+import PiattoMulti from "@/components/PiattoMulti";
 
 export default async function MenuPage() {
   const client = createClient();
@@ -12,6 +14,10 @@ export default async function MenuPage() {
   // Recupera l'aperitivo
   const aperitivoResponse = await client.getByType("aperitivo");
   const aperitivo = aperitivoResponse.results[0];
+
+  // Recupera l'infoPiattoMulti
+  const piattoMultiResponse = await client.getByType("piattomulti");
+  const piattoMulti = piattoMultiResponse.results[0];
 
   if (!drinklist && !aperitivo) {
     return <p>Nessun contenuto trovato</p>;
@@ -48,8 +54,22 @@ export default async function MenuPage() {
   const immagineBottomSx = aperitivoSlice?.primary?.immagine_bottom_sx?.url;
   const immagineBottomDx = aperitivoSlice?.primary?.immagine_bottom_dx?.url;
 
+  // Dati per InfoPiattoMulti
+  const piattoMultiSlice = piattoMulti?.data.slices.find(slice => slice.slice_type === "info_piatto_multi");
+  const infoPiattoMulti = piattoMultiSlice.primary?.infopiattomulti || [];
+
+  // Recupera tutte le slice di tipo "ripetibile_menu"
+  const ripetibileMenuSlices = piattoMulti?.data.slices.filter(slice => slice.slice_type === "ripetibile_menu") || [];
+
+  const titoliSezione = ripetibileMenuSlices.map(slice => slice.primary.titolosezione || "");
+  const immaginiSezione = ripetibileMenuSlices.map(slice => slice.primary.immagine_sezione?.url || "");
+  const traduzioniSezione = ripetibileMenuSlices.map(slice => slice.primary.traduzione_titolo || "");
+  const elementiMenu = ripetibileMenuSlices.map(slice => slice.primary.elementi_menu || []);
+
+
   return (
     <>
+      {infoPiattoMulti && <PiattoMulti infoPiatti={infoPiattoMulti} titoliSezione={titoliSezione} traduzioniSezione={traduzioniSezione} immaginiSezione={immaginiSezione} elementiMenu={elementiMenu} />}
       {drinklist && <DrinkList titolo={titoloDrink} testo={testoDrink} cocktails={cocktails} drinkBottomSx={drinkBottomSx} drinkBottomMid={drinkBottomMid} drinkBottomDx={drinkBottomDx} drinkTopSx={drinkTopSx} drinkTopMid={drinkTopMid} drinkTopDx={drinkTopDx} />}
       {aperitivo && (
         <Aperitivo
@@ -71,6 +91,7 @@ export default async function MenuPage() {
           salseVegetariano={salseVegetariano}
         />
       )}
+
     </>
   );
 }

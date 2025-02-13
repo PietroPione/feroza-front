@@ -201,12 +201,49 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
+type PiattomultiDocumentDataSlicesSlice =
+  | RipetibileMenuSlice
+  | InfoPiattoMultiSlice;
+
+/**
+ * Content for PiattoMulti documents
+ */
+interface PiattomultiDocumentData {
+  /**
+   * Slice Zone field in *PiattoMulti*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: piattomulti.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PiattomultiDocumentDataSlicesSlice>;
+}
+
+/**
+ * PiattoMulti document from Prismic
+ *
+ * - **API ID**: `piattomulti`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PiattomultiDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PiattomultiDocumentData>,
+    "piattomulti",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | AperitivoDocument
   | DrinklistDocument
   | FerozaDocument
   | FooterDocument
-  | HeaderDocument;
+  | HeaderDocument
+  | PiattomultiDocument;
 
 /**
  * Item in *Aperitivo → Default → Primary → Bevande*
@@ -947,6 +984,90 @@ export type InfoFooterSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *InfoPiattoMulti → Default → Primary → InfoPiattoMulti*
+ */
+export interface InfoPiattoMultiSliceDefaultPrimaryInfopiattomultiItem {
+  /**
+   * Testo field in *InfoPiattoMulti → Default → Primary → InfoPiattoMulti*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_piatto_multi.default.primary.infopiattomulti[].testo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo: prismic.KeyTextField;
+
+  /**
+   * Bold field in *InfoPiattoMulti → Default → Primary → InfoPiattoMulti*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: info_piatto_multi.default.primary.infopiattomulti[].bold
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  bold: prismic.BooleanField;
+
+  /**
+   * Small field in *InfoPiattoMulti → Default → Primary → InfoPiattoMulti*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: info_piatto_multi.default.primary.infopiattomulti[].small
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  small: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *InfoPiattoMulti → Default → Primary*
+ */
+export interface InfoPiattoMultiSliceDefaultPrimary {
+  /**
+   * InfoPiattoMulti field in *InfoPiattoMulti → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_piatto_multi.default.primary.infopiattomulti[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  infopiattomulti: prismic.GroupField<
+    Simplify<InfoPiattoMultiSliceDefaultPrimaryInfopiattomultiItem>
+  >;
+}
+
+/**
+ * Default variation for InfoPiattoMulti Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoPiattoMultiSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InfoPiattoMultiSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InfoPiattoMulti*
+ */
+type InfoPiattoMultiSliceVariation = InfoPiattoMultiSliceDefault;
+
+/**
+ * InfoPiattoMulti Shared Slice
+ *
+ * - **API ID**: `info_piatto_multi`
+ * - **Description**: InfoPiattoMulti
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoPiattoMultiSlice = prismic.SharedSlice<
+  "info_piatto_multi",
+  InfoPiattoMultiSliceVariation
+>;
+
+/**
  * Primary content in *Logo → Default → Primary*
  */
 export interface LogoSliceDefaultPrimary {
@@ -1054,6 +1175,150 @@ type MenuSliceVariation = MenuSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type MenuSlice = prismic.SharedSlice<"menu", MenuSliceVariation>;
+
+/**
+ * Item in *RipetibileMenu → Default → Primary → Elementi menu*
+ */
+export interface RipetibileMenuSliceDefaultPrimaryElementiMenuItem {
+  /**
+   * Nome cibo field in *RipetibileMenu → Default → Primary → Elementi menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ripetibile_menu.default.primary.elementi_menu[].nome_cibo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome_cibo: prismic.KeyTextField;
+
+  /**
+   * Prezzo cibo field in *RipetibileMenu → Default → Primary → Elementi menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ripetibile_menu.default.primary.elementi_menu[].prezzo_cibo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  prezzo_cibo: prismic.KeyTextField;
+
+  /**
+   * Traduzione cibo field in *RipetibileMenu → Default → Primary → Elementi menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ripetibile_menu.default.primary.elementi_menu[].traduzione_cibo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  traduzione_cibo: prismic.KeyTextField;
+
+  /**
+   * Descrizione cibo field in *RipetibileMenu → Default → Primary → Elementi menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ripetibile_menu.default.primary.elementi_menu[].descrizione_cibo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  descrizione_cibo: prismic.KeyTextField;
+
+  /**
+   * Vegetariano field in *RipetibileMenu → Default → Primary → Elementi menu*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: ripetibile_menu.default.primary.elementi_menu[].vegetariano
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  vegetariano: prismic.BooleanField;
+
+  /**
+   * Piccante field in *RipetibileMenu → Default → Primary → Elementi menu*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: ripetibile_menu.default.primary.elementi_menu[].piccante
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  piccante: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *RipetibileMenu → Default → Primary*
+ */
+export interface RipetibileMenuSliceDefaultPrimary {
+  /**
+   * Titolo sezione field in *RipetibileMenu → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ripetibile_menu.default.primary.titolosezione
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolosezione: prismic.KeyTextField;
+
+  /**
+   * Immagine sezione field in *RipetibileMenu → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ripetibile_menu.default.primary.immagine_sezione
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_sezione: prismic.ImageField<never>;
+
+  /**
+   * Traduzione titolo field in *RipetibileMenu → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ripetibile_menu.default.primary.traduzione_titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  traduzione_titolo: prismic.KeyTextField;
+
+  /**
+   * Elementi menu field in *RipetibileMenu → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ripetibile_menu.default.primary.elementi_menu[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  elementi_menu: prismic.GroupField<
+    Simplify<RipetibileMenuSliceDefaultPrimaryElementiMenuItem>
+  >;
+}
+
+/**
+ * Default variation for RipetibileMenu Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RipetibileMenuSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RipetibileMenuSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RipetibileMenu*
+ */
+type RipetibileMenuSliceVariation = RipetibileMenuSliceDefault;
+
+/**
+ * RipetibileMenu Shared Slice
+ *
+ * - **API ID**: `ripetibile_menu`
+ * - **Description**: RipetibileMenu
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RipetibileMenuSlice = prismic.SharedSlice<
+  "ripetibile_menu",
+  RipetibileMenuSliceVariation
+>;
 
 /**
  * Item in *SezioniHome → Default → Primary → Sezioni home*
@@ -1220,6 +1485,9 @@ declare module "@prismicio/client" {
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataSlicesSlice,
+      PiattomultiDocument,
+      PiattomultiDocumentData,
+      PiattomultiDocumentDataSlicesSlice,
       AllDocumentTypes,
       AperitivoSlice,
       AperitivoSliceDefaultPrimaryNomeBevandaItem,
@@ -1243,6 +1511,11 @@ declare module "@prismicio/client" {
       InfoFooterSliceDefaultPrimary,
       InfoFooterSliceVariation,
       InfoFooterSliceDefault,
+      InfoPiattoMultiSlice,
+      InfoPiattoMultiSliceDefaultPrimaryInfopiattomultiItem,
+      InfoPiattoMultiSliceDefaultPrimary,
+      InfoPiattoMultiSliceVariation,
+      InfoPiattoMultiSliceDefault,
       LogoSlice,
       LogoSliceDefaultPrimary,
       LogoSliceVariation,
@@ -1252,6 +1525,11 @@ declare module "@prismicio/client" {
       MenuSliceDefaultPrimary,
       MenuSliceVariation,
       MenuSliceDefault,
+      RipetibileMenuSlice,
+      RipetibileMenuSliceDefaultPrimaryElementiMenuItem,
+      RipetibileMenuSliceDefaultPrimary,
+      RipetibileMenuSliceVariation,
+      RipetibileMenuSliceDefault,
       SezioniHomeSlice,
       SezioniHomeSliceDefaultPrimarySezioniHomeItem,
       SezioniHomeSliceDefaultPrimary,

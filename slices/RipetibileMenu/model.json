@@ -1,0 +1,96 @@
+{
+  "id": "ripetibile_menu",
+  "type": "SharedSlice",
+  "name": "RipetibileMenu",
+  "description": "RipetibileMenu",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolosezione": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo sezione",
+            "placeholder": ""
+          }
+        },
+        "immagine_sezione": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine sezione",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "traduzione_titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Traduzione titolo",
+            "placeholder": ""
+          }
+        },
+        "elementi_menu": {
+          "type": "Group",
+          "config": {
+            "label": "Elementi menu",
+            "repeat": true,
+            "fields": {
+              "nome_cibo": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome cibo",
+                  "placeholder": ""
+                }
+              },
+              "prezzo_cibo": {
+                "type": "Text",
+                "config": {
+                  "label": "Prezzo cibo",
+                  "placeholder": ""
+                }
+              },
+              "traduzione_cibo": {
+                "type": "Text",
+                "config": {
+                  "label": "Traduzione cibo",
+                  "placeholder": ""
+                }
+              },
+              "descrizione_cibo": {
+                "type": "Text",
+                "config": {
+                  "label": "Descrizione cibo",
+                  "placeholder": ""
+                }
+              },
+              "vegetariano": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Vegetariano",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "piccante": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Piccante",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

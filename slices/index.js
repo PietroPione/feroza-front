@@ -7,7 +7,9 @@ export const components = {
   drink_list: dynamic(() => import("./DrinkList")),
   hero: dynamic(() => import("./Hero")),
   info_footer: dynamic(() => import("./InfoFooter")),
+  info_piatto_multi: dynamic(() => import("./InfoPiattoMulti")),
   logo: dynamic(() => import("./Logo")),
   menu: dynamic(() => import("./Menu")),
+  ripetibile_menu: dynamic(() => import("./RipetibileMenu")),
   sezioni_home: dynamic(() => import("./SezioniHome")),
 };
