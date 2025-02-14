@@ -1,0 +1,64 @@
+{
+  "id": "bevande",
+  "type": "SharedSlice",
+  "name": "Bevande",
+  "description": "Bevande",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "immagine_bevande": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bevande",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "titolo_bevande": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo bevande",
+            "placeholder": ""
+          }
+        },
+        "bevanda": {
+          "type": "Group",
+          "config": {
+            "label": "Bevanda",
+            "repeat": true,
+            "fields": {
+              "nome": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome",
+                  "placeholder": ""
+                }
+              },
+              "prezzo": {
+                "type": "Text",
+                "config": {
+                  "label": "Prezzo",
+                  "placeholder": ""
+                }
+              },
+              "dettagli": {
+                "type": "Text",
+                "config": {
+                  "label": "Dettagli",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

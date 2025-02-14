@@ -38,6 +38,40 @@ export type AperitivoDocument<Lang extends string = string> =
     Lang
   >;
 
+type BevandeDocumentDataSlicesSlice = BevandeSlice;
+
+/**
+ * Content for Bevande documents
+ */
+interface BevandeDocumentData {
+  /**
+   * Slice Zone field in *Bevande*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bevande.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BevandeDocumentDataSlicesSlice>;
+}
+
+/**
+ * Bevande document from Prismic
+ *
+ * - **API ID**: `bevande`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BevandeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BevandeDocumentData>,
+    "bevande",
+    Lang
+  >;
+
 type DrinklistDocumentDataSlicesSlice = DrinkListSlice;
 
 /**
@@ -239,6 +273,7 @@ export type PiattomultiDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AperitivoDocument
+  | BevandeDocument
   | DrinklistDocument
   | FerozaDocument
   | FooterDocument
@@ -487,6 +522,106 @@ type AperitivoSliceVariation = AperitivoSliceDefault;
 export type AperitivoSlice = prismic.SharedSlice<
   "aperitivo",
   AperitivoSliceVariation
+>;
+
+/**
+ * Item in *Bevande → Default → Primary → Bevanda*
+ */
+export interface BevandeSliceDefaultPrimaryBevandaItem {
+  /**
+   * Nome field in *Bevande → Default → Primary → Bevanda*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bevande.default.primary.bevanda[].nome
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome: prismic.KeyTextField;
+
+  /**
+   * Prezzo field in *Bevande → Default → Primary → Bevanda*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bevande.default.primary.bevanda[].prezzo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  prezzo: prismic.KeyTextField;
+
+  /**
+   * Dettagli field in *Bevande → Default → Primary → Bevanda*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bevande.default.primary.bevanda[].dettagli
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  dettagli: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Bevande → Default → Primary*
+ */
+export interface BevandeSliceDefaultPrimary {
+  /**
+   * Immagine bevande field in *Bevande → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bevande.default.primary.immagine_bevande
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bevande: prismic.ImageField<never>;
+
+  /**
+   * Titolo bevande field in *Bevande → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bevande.default.primary.titolo_bevande
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_bevande: prismic.KeyTextField;
+
+  /**
+   * Bevanda field in *Bevande → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bevande.default.primary.bevanda[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  bevanda: prismic.GroupField<Simplify<BevandeSliceDefaultPrimaryBevandaItem>>;
+}
+
+/**
+ * Default variation for Bevande Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BevandeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BevandeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Bevande*
+ */
+type BevandeSliceVariation = BevandeSliceDefault;
+
+/**
+ * Bevande Shared Slice
+ *
+ * - **API ID**: `bevande`
+ * - **Description**: Bevande
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BevandeSlice = prismic.SharedSlice<
+  "bevande",
+  BevandeSliceVariation
 >;
 
 /**
@@ -1473,6 +1608,9 @@ declare module "@prismicio/client" {
       AperitivoDocument,
       AperitivoDocumentData,
       AperitivoDocumentDataSlicesSlice,
+      BevandeDocument,
+      BevandeDocumentData,
+      BevandeDocumentDataSlicesSlice,
       DrinklistDocument,
       DrinklistDocumentData,
       DrinklistDocumentDataSlicesSlice,
@@ -1496,6 +1634,11 @@ declare module "@prismicio/client" {
       AperitivoSliceDefaultPrimary,
       AperitivoSliceVariation,
       AperitivoSliceDefault,
+      BevandeSlice,
+      BevandeSliceDefaultPrimaryBevandaItem,
+      BevandeSliceDefaultPrimary,
+      BevandeSliceVariation,
+      BevandeSliceDefault,
       DrinkListSlice,
       DrinkListSliceDefaultPrimaryCocktailItem,
       DrinkListSliceDefaultPrimary,

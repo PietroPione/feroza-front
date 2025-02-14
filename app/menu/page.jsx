@@ -68,30 +68,32 @@ export default async function MenuPage() {
 
 
   return (
-    <>
+    <div className="space-y-10">
       {infoPiattoMulti && <PiattoMulti infoPiatti={infoPiattoMulti} titoliSezione={titoliSezione} traduzioniSezione={traduzioniSezione} immaginiSezione={immaginiSezione} elementiMenu={elementiMenu} />}
       {drinklist && <DrinkList titolo={titoloDrink} testo={testoDrink} cocktails={cocktails} drinkBottomSx={drinkBottomSx} drinkBottomMid={drinkBottomMid} drinkBottomDx={drinkBottomDx} drinkTopSx={drinkTopSx} drinkTopMid={drinkTopMid} drinkTopDx={drinkTopDx} />}
-      {aperitivo && (
-        <Aperitivo
-          titolo={titoloAperitivo}
-          sottotitolo={sottotitolo}
-          testoBevande={testoBevande}
-          nomeBevanda={nomeBevanda}
-          iconaBevanda={iconaBevanda}
-          testoSalsa={testoSalsa}
-          salse={salse}
-          falafel={falafel}
-          falafelVegetariano={falafelVegetariano}
-          pane={pane}
-          prezzo={prezzo}
-          immagineTopDx={immagineTopDx}
-          immagineTopSx={immagineTopSx}
-          immagineBottomSx={immagineBottomSx}
-          immagineBottomDx={immagineBottomDx}
-          salseVegetariano={salseVegetariano}
-        />
-      )}
+      {
+        aperitivo && (
+          <Aperitivo
+            titolo={titoloAperitivo}
+            sottotitolo={sottotitolo}
+            testoBevande={testoBevande}
+            nomeBevanda={nomeBevanda}
+            iconaBevanda={iconaBevanda}
+            testoSalsa={testoSalsa}
+            salse={salse}
+            falafel={falafel}
+            falafelVegetariano={falafelVegetariano}
+            pane={pane}
+            prezzo={prezzo}
+            immagineTopDx={immagineTopDx}
+            immagineTopSx={immagineTopSx}
+            immagineBottomSx={immagineBottomSx}
+            immagineBottomDx={immagineBottomDx}
+            salseVegetariano={salseVegetariano}
+          />
+        )
+      }
 
-    </>
+    </div>
   );
 }

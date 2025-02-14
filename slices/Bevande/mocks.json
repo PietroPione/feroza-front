@@ -1,0 +1,71 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"immagine_bevande": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+					"width": 4272,
+					"height": 2848
+				},
+				"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+				"width": 4272,
+				"height": 2848,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"titolo_bevande": {
+				"__TYPE__": "FieldContent",
+				"value": "simplest",
+				"type": "Text"
+			},
+			"bevanda": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"nome",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "combine",
+									"type": "Text"
+								}
+							],
+							[
+								"prezzo",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "mission",
+									"type": "Text"
+								}
+							],
+							[
+								"dettagli",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "measure",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
