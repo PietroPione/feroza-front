@@ -72,6 +72,36 @@ export type BevandeDocument<Lang extends string = string> =
     Lang
   >;
 
+type BirreDocumentDataSlicesSlice = BirreSlice | BirreInfoSlice;
+
+/**
+ * Content for Birre documents
+ */
+interface BirreDocumentData {
+  /**
+   * Slice Zone field in *Birre*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BirreDocumentDataSlicesSlice>;
+}
+
+/**
+ * Birre document from Prismic
+ *
+ * - **API ID**: `birre`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BirreDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<BirreDocumentData>, "birre", Lang>;
+
 type ConclusioneMenuDocumentDataSlicesSlice = ConclusioneMenuSlice;
 
 /**
@@ -269,6 +299,40 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
+type InfofinalivinobirraDocumentDataSlicesSlice = InfoFinaliBirreVinoSlice;
+
+/**
+ * Content for InfoFinaliVinoBirra documents
+ */
+interface InfofinalivinobirraDocumentData {
+  /**
+   * Slice Zone field in *InfoFinaliVinoBirra*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: infofinalivinobirra.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<InfofinalivinobirraDocumentDataSlicesSlice>;
+}
+
+/**
+ * InfoFinaliVinoBirra document from Prismic
+ *
+ * - **API ID**: `infofinalivinobirra`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type InfofinalivinobirraDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<InfofinalivinobirraDocumentData>,
+    "infofinalivinobirra",
+    Lang
+  >;
+
 type PiattomultiDocumentDataSlicesSlice =
   | RipetibileMenuSlice
   | InfoPiattoMultiSlice;
@@ -305,15 +369,48 @@ export type PiattomultiDocument<Lang extends string = string> =
     Lang
   >;
 
+type ViniDocumentDataSlicesSlice = ViniInfoSlice | ViniSlice;
+
+/**
+ * Content for Vini documents
+ */
+interface ViniDocumentData {
+  /**
+   * Slice Zone field in *Vini*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ViniDocumentDataSlicesSlice>;
+}
+
+/**
+ * Vini document from Prismic
+ *
+ * - **API ID**: `vini`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ViniDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<ViniDocumentData>, "vini", Lang>;
+
 export type AllDocumentTypes =
   | AperitivoDocument
   | BevandeDocument
+  | BirreDocument
   | ConclusioneMenuDocument
   | DrinklistDocument
   | FerozaDocument
   | FooterDocument
   | HeaderDocument
-  | PiattomultiDocument;
+  | InfofinalivinobirraDocument
+  | PiattomultiDocument
+  | ViniDocument;
 
 /**
  * Item in *Aperitivo → Default → Primary → Bevande*
@@ -660,6 +757,168 @@ export type BevandeSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Birre → Default → Primary → Birre*
+ */
+export interface BirreSliceDefaultPrimaryBirreItem {
+  /**
+   * Nome field in *Birre → Default → Primary → Birre*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre.default.primary.birre[].nome
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome: prismic.KeyTextField;
+
+  /**
+   * Prezzo piccolo field in *Birre → Default → Primary → Birre*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre.default.primary.birre[].prezzo_piccolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  prezzo_piccolo: prismic.KeyTextField;
+
+  /**
+   * Prezzo grande field in *Birre → Default → Primary → Birre*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre.default.primary.birre[].prezzo_grande
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  prezzo_grande: prismic.KeyTextField;
+
+  /**
+   * Info field in *Birre → Default → Primary → Birre*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre.default.primary.birre[].info
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  info: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Birre → Default → Primary*
+ */
+export interface BirreSliceDefaultPrimary {
+  /**
+   * Icona piccola field in *Birre → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre.default.primary.icona_piccola
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icona_piccola: prismic.ImageField<never>;
+
+  /**
+   * Icona grande field in *Birre → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre.default.primary.icona_grande
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icona_grande: prismic.ImageField<never>;
+
+  /**
+   * Birre field in *Birre → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre.default.primary.birre[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  birre: prismic.GroupField<Simplify<BirreSliceDefaultPrimaryBirreItem>>;
+}
+
+/**
+ * Default variation for Birre Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BirreSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BirreSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Birre*
+ */
+type BirreSliceVariation = BirreSliceDefault;
+
+/**
+ * Birre Shared Slice
+ *
+ * - **API ID**: `birre`
+ * - **Description**: Birre
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BirreSlice = prismic.SharedSlice<"birre", BirreSliceVariation>;
+
+/**
+ * Primary content in *BirreInfo → Default → Primary*
+ */
+export interface BirreInfoSliceDefaultPrimary {
+  /**
+   * Titolo field in *BirreInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre_info.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Disclaimer field in *BirreInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: birre_info.default.primary.disclaimer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  disclaimer: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for BirreInfo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BirreInfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BirreInfoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BirreInfo*
+ */
+type BirreInfoSliceVariation = BirreInfoSliceDefault;
+
+/**
+ * BirreInfo Shared Slice
+ *
+ * - **API ID**: `birre_info`
+ * - **Description**: BirreInfo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BirreInfoSlice = prismic.SharedSlice<
+  "birre_info",
+  BirreInfoSliceVariation
+>;
+
+/**
  * Item in *ConclusioneMenu → Default → Primary → Altre info*
  */
 export interface ConclusioneMenuSliceDefaultPrimaryAltreInfoItem {
@@ -991,6 +1250,88 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *InfoFinaliBirreVino → Default → Primary → Info*
+ */
+export interface InfoFinaliBirreVinoSliceDefaultPrimaryInfoItem {
+  /**
+   * Testo field in *InfoFinaliBirreVino → Default → Primary → Info*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_finali_birre_vino.default.primary.info[].testo
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testo: prismic.RichTextField;
+
+  /**
+   * Immagine field in *InfoFinaliBirreVino → Default → Primary → Info*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_finali_birre_vino.default.primary.info[].immagine
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *InfoFinaliBirreVino → Default → Primary*
+ */
+export interface InfoFinaliBirreVinoSliceDefaultPrimary {
+  /**
+   * Info field in *InfoFinaliBirreVino → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_finali_birre_vino.default.primary.info[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  info: prismic.GroupField<
+    Simplify<InfoFinaliBirreVinoSliceDefaultPrimaryInfoItem>
+  >;
+
+  /**
+   * Chiusa field in *InfoFinaliBirreVino → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_finali_birre_vino.default.primary.chiusa
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  chiusa: prismic.RichTextField;
+}
+
+/**
+ * Default variation for InfoFinaliBirreVino Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoFinaliBirreVinoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InfoFinaliBirreVinoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InfoFinaliBirreVino*
+ */
+type InfoFinaliBirreVinoSliceVariation = InfoFinaliBirreVinoSliceDefault;
+
+/**
+ * InfoFinaliBirreVino Shared Slice
+ *
+ * - **API ID**: `info_finali_birre_vino`
+ * - **Description**: InfoFinaliBirreVino
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoFinaliBirreVinoSlice = prismic.SharedSlice<
+  "info_finali_birre_vino",
+  InfoFinaliBirreVinoSliceVariation
+>;
 
 /**
  * Item in *InfoFooter → Default → Primary → Orari*
@@ -1691,6 +2032,168 @@ export type SezioniHomeSlice = prismic.SharedSlice<
   SezioniHomeSliceVariation
 >;
 
+/**
+ * Item in *Vini → Default → Primary → Vini*
+ */
+export interface ViniSliceDefaultPrimaryViniItem {
+  /**
+   * Nome field in *Vini → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini.default.primary.vini[].nome
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome: prismic.KeyTextField;
+
+  /**
+   * Prezzo piccolo field in *Vini → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini.default.primary.vini[].prezzo_piccolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  prezzo_piccolo: prismic.KeyTextField;
+
+  /**
+   * Prezzo grande field in *Vini → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini.default.primary.vini[].prezzo_grande
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  prezzo_grande: prismic.KeyTextField;
+
+  /**
+   * Info field in *Vini → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini.default.primary.vini[].info
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  info: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Vini → Default → Primary*
+ */
+export interface ViniSliceDefaultPrimary {
+  /**
+   * Icona piccola field in *Vini → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini.default.primary.icona_piccola
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icona_piccola: prismic.ImageField<never>;
+
+  /**
+   * Icona grande field in *Vini → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini.default.primary.icona_grande
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icona_grande: prismic.ImageField<never>;
+
+  /**
+   * Vini field in *Vini → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini.default.primary.vini[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  vini: prismic.GroupField<Simplify<ViniSliceDefaultPrimaryViniItem>>;
+}
+
+/**
+ * Default variation for Vini Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ViniSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ViniSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Vini*
+ */
+type ViniSliceVariation = ViniSliceDefault;
+
+/**
+ * Vini Shared Slice
+ *
+ * - **API ID**: `vini`
+ * - **Description**: Vini
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ViniSlice = prismic.SharedSlice<"vini", ViniSliceVariation>;
+
+/**
+ * Primary content in *ViniInfo → Default → Primary*
+ */
+export interface ViniInfoSliceDefaultPrimary {
+  /**
+   * Titolo field in *ViniInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini_info.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Disclaimer field in *ViniInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini_info.default.primary.disclaimer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  disclaimer: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ViniInfo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ViniInfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ViniInfoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ViniInfo*
+ */
+type ViniInfoSliceVariation = ViniInfoSliceDefault;
+
+/**
+ * ViniInfo Shared Slice
+ *
+ * - **API ID**: `vini_info`
+ * - **Description**: ViniInfo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ViniInfoSlice = prismic.SharedSlice<
+  "vini_info",
+  ViniInfoSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1718,6 +2221,9 @@ declare module "@prismicio/client" {
       BevandeDocument,
       BevandeDocumentData,
       BevandeDocumentDataSlicesSlice,
+      BirreDocument,
+      BirreDocumentData,
+      BirreDocumentDataSlicesSlice,
       ConclusioneMenuDocument,
       ConclusioneMenuDocumentData,
       ConclusioneMenuDocumentDataSlicesSlice,
@@ -1733,9 +2239,15 @@ declare module "@prismicio/client" {
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataSlicesSlice,
+      InfofinalivinobirraDocument,
+      InfofinalivinobirraDocumentData,
+      InfofinalivinobirraDocumentDataSlicesSlice,
       PiattomultiDocument,
       PiattomultiDocumentData,
       PiattomultiDocumentDataSlicesSlice,
+      ViniDocument,
+      ViniDocumentData,
+      ViniDocumentDataSlicesSlice,
       AllDocumentTypes,
       AperitivoSlice,
       AperitivoSliceDefaultPrimaryNomeBevandaItem,
@@ -1749,6 +2261,15 @@ declare module "@prismicio/client" {
       BevandeSliceDefaultPrimary,
       BevandeSliceVariation,
       BevandeSliceDefault,
+      BirreSlice,
+      BirreSliceDefaultPrimaryBirreItem,
+      BirreSliceDefaultPrimary,
+      BirreSliceVariation,
+      BirreSliceDefault,
+      BirreInfoSlice,
+      BirreInfoSliceDefaultPrimary,
+      BirreInfoSliceVariation,
+      BirreInfoSliceDefault,
       ConclusioneMenuSlice,
       ConclusioneMenuSliceDefaultPrimaryAltreInfoItem,
       ConclusioneMenuSliceDefaultPrimary,
@@ -1763,6 +2284,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      InfoFinaliBirreVinoSlice,
+      InfoFinaliBirreVinoSliceDefaultPrimaryInfoItem,
+      InfoFinaliBirreVinoSliceDefaultPrimary,
+      InfoFinaliBirreVinoSliceVariation,
+      InfoFinaliBirreVinoSliceDefault,
       InfoFooterSlice,
       InfoFooterSliceDefaultPrimaryOrariItem,
       InfoFooterSliceDefaultPrimarySocialItem,
@@ -1793,6 +2319,15 @@ declare module "@prismicio/client" {
       SezioniHomeSliceDefaultPrimary,
       SezioniHomeSliceVariation,
       SezioniHomeSliceDefault,
+      ViniSlice,
+      ViniSliceDefaultPrimaryViniItem,
+      ViniSliceDefaultPrimary,
+      ViniSliceVariation,
+      ViniSliceDefault,
+      ViniInfoSlice,
+      ViniInfoSliceDefaultPrimary,
+      ViniInfoSliceVariation,
+      ViniInfoSliceDefault,
     };
   }
 }

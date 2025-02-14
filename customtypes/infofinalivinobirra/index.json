@@ -1,0 +1,22 @@
+{
+  "format": "custom",
+  "id": "infofinalivinobirra",
+  "label": "InfoFinaliVinoBirra",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "info_finali_birre_vino": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

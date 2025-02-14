@@ -1,0 +1,25 @@
+{
+  "format": "custom",
+  "id": "vini",
+  "label": "Vini",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "vini_info": {
+              "type": "SharedSlice"
+            },
+            "vini": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

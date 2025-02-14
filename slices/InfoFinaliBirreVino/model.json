@@ -1,0 +1,54 @@
+{
+  "id": "info_finali_birre_vino",
+  "type": "SharedSlice",
+  "name": "InfoFinaliBirreVino",
+  "description": "InfoFinaliBirreVino",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "info": {
+          "type": "Group",
+          "config": {
+            "label": "Info",
+            "repeat": true,
+            "fields": {
+              "testo": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Testo",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "immagine": {
+                "type": "Image",
+                "config": {
+                  "label": "Immagine",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "chiusa": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Chiusa",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

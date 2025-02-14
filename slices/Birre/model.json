@@ -1,0 +1,72 @@
+{
+  "id": "birre",
+  "type": "SharedSlice",
+  "name": "Birre",
+  "description": "Birre",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "icona_piccola": {
+          "type": "Image",
+          "config": {
+            "label": "Icona piccola",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "icona_grande": {
+          "type": "Image",
+          "config": {
+            "label": "Icona grande",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "birre": {
+          "type": "Group",
+          "config": {
+            "label": "Birre",
+            "repeat": true,
+            "fields": {
+              "nome": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome",
+                  "placeholder": ""
+                }
+              },
+              "prezzo_piccolo": {
+                "type": "Text",
+                "config": {
+                  "label": "Prezzo piccolo",
+                  "placeholder": ""
+                }
+              },
+              "prezzo_grande": {
+                "type": "Text",
+                "config": {
+                  "label": "Prezzo grande",
+                  "placeholder": ""
+                }
+              },
+              "info": {
+                "type": "Text",
+                "config": {
+                  "label": "Info",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "vini_info",
+  "type": "SharedSlice",
+  "name": "ViniInfo",
+  "description": "ViniInfo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "disclaimer": {
+          "type": "Text",
+          "config": {
+            "label": "Disclaimer",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

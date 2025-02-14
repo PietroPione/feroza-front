@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "storm",
+				"type": "Text"
+			},
+			"disclaimer": {
+				"__TYPE__": "FieldContent",
+				"value": "born",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

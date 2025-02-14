@@ -1,0 +1,33 @@
+{
+  "id": "birre_info",
+  "type": "SharedSlice",
+  "name": "BirreInfo",
+  "description": "BirreInfo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "disclaimer": {
+          "type": "Text",
+          "config": {
+            "label": "Disclaimer",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
