@@ -1,0 +1,22 @@
+{
+  "format": "custom",
+  "id": "conclusione_menu",
+  "label": "Conclusione menu",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "conclusione_menu": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

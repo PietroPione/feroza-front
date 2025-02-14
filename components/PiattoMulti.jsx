@@ -1,12 +1,12 @@
 export default function PiattoMulti({ infoPiatti, titoliSezione, traduzioniSezione, immaginiSezione, elementiMenu }) {
   return (
-    <div className="container space-y-20">
+    <div className="container mx-auto p-4 space-y-20">
       {/* Ciclo per i piatti info */}
       <div className="text-center">
         {infoPiatti.map((info, index) => (
           <p
             key={index}
-            className={`${info.bold ? "font-bold pt-2" : ""} ${info.small ? "text-16 pt-2" : "text-22"}`}
+            className={`${info.bold ? "font-bold pt-2" : ""} ${info.small ? "text-17 pt-2" : "text-22"}`}
           >
             {info.testo}
           </p>

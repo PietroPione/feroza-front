@@ -1,0 +1,42 @@
+{
+  "id": "conclusione_menu",
+  "type": "SharedSlice",
+  "name": "ConclusioneMenu",
+  "description": "ConclusioneMenu",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "coperto": {
+          "type": "Text",
+          "config": {
+            "label": "Coperto",
+            "placeholder": ""
+          }
+        },
+        "altre_info": {
+          "type": "Group",
+          "config": {
+            "label": "Altre info",
+            "repeat": true,
+            "fields": {
+              "info": {
+                "type": "Text",
+                "config": {
+                  "label": "Info",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

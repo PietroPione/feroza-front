@@ -72,6 +72,40 @@ export type BevandeDocument<Lang extends string = string> =
     Lang
   >;
 
+type ConclusioneMenuDocumentDataSlicesSlice = ConclusioneMenuSlice;
+
+/**
+ * Content for Conclusione menu documents
+ */
+interface ConclusioneMenuDocumentData {
+  /**
+   * Slice Zone field in *Conclusione menu*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conclusione_menu.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ConclusioneMenuDocumentDataSlicesSlice>;
+}
+
+/**
+ * Conclusione menu document from Prismic
+ *
+ * - **API ID**: `conclusione_menu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ConclusioneMenuDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ConclusioneMenuDocumentData>,
+    "conclusione_menu",
+    Lang
+  >;
+
 type DrinklistDocumentDataSlicesSlice = DrinkListSlice;
 
 /**
@@ -274,6 +308,7 @@ export type PiattomultiDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AperitivoDocument
   | BevandeDocument
+  | ConclusioneMenuDocument
   | DrinklistDocument
   | FerozaDocument
   | FooterDocument
@@ -622,6 +657,78 @@ type BevandeSliceVariation = BevandeSliceDefault;
 export type BevandeSlice = prismic.SharedSlice<
   "bevande",
   BevandeSliceVariation
+>;
+
+/**
+ * Item in *ConclusioneMenu → Default → Primary → Altre info*
+ */
+export interface ConclusioneMenuSliceDefaultPrimaryAltreInfoItem {
+  /**
+   * Info field in *ConclusioneMenu → Default → Primary → Altre info*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conclusione_menu.default.primary.altre_info[].info
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  info: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ConclusioneMenu → Default → Primary*
+ */
+export interface ConclusioneMenuSliceDefaultPrimary {
+  /**
+   * Coperto field in *ConclusioneMenu → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conclusione_menu.default.primary.coperto
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  coperto: prismic.KeyTextField;
+
+  /**
+   * Altre info field in *ConclusioneMenu → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conclusione_menu.default.primary.altre_info[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  altre_info: prismic.GroupField<
+    Simplify<ConclusioneMenuSliceDefaultPrimaryAltreInfoItem>
+  >;
+}
+
+/**
+ * Default variation for ConclusioneMenu Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ConclusioneMenuSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ConclusioneMenuSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ConclusioneMenu*
+ */
+type ConclusioneMenuSliceVariation = ConclusioneMenuSliceDefault;
+
+/**
+ * ConclusioneMenu Shared Slice
+ *
+ * - **API ID**: `conclusione_menu`
+ * - **Description**: ConclusioneMenu
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ConclusioneMenuSlice = prismic.SharedSlice<
+  "conclusione_menu",
+  ConclusioneMenuSliceVariation
 >;
 
 /**
@@ -1611,6 +1718,9 @@ declare module "@prismicio/client" {
       BevandeDocument,
       BevandeDocumentData,
       BevandeDocumentDataSlicesSlice,
+      ConclusioneMenuDocument,
+      ConclusioneMenuDocumentData,
+      ConclusioneMenuDocumentDataSlicesSlice,
       DrinklistDocument,
       DrinklistDocumentData,
       DrinklistDocumentDataSlicesSlice,
@@ -1639,6 +1749,11 @@ declare module "@prismicio/client" {
       BevandeSliceDefaultPrimary,
       BevandeSliceVariation,
       BevandeSliceDefault,
+      ConclusioneMenuSlice,
+      ConclusioneMenuSliceDefaultPrimaryAltreInfoItem,
+      ConclusioneMenuSliceDefaultPrimary,
+      ConclusioneMenuSliceVariation,
+      ConclusioneMenuSliceDefault,
       DrinkListSlice,
       DrinkListSliceDefaultPrimaryCocktailItem,
       DrinkListSliceDefaultPrimary,

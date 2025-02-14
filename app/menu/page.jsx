@@ -3,6 +3,8 @@ import DrinkList from "@/components/DrinkList";
 import Aperitivo from "@/components/Aperitivo";
 import { info } from "autoprefixer";
 import PiattoMulti from "@/components/PiattoMulti";
+import Bevande from "@/components/Bevande";
+import FineMenu from "@/components/FineMenu";
 
 export default async function MenuPage() {
   const client = createClient();
@@ -18,6 +20,15 @@ export default async function MenuPage() {
   // Recupera l'infoPiattoMulti
   const piattoMultiResponse = await client.getByType("piattomulti");
   const piattoMulti = piattoMultiResponse.results[0];
+
+  // Recupera le bevande
+  const bevandeResponse = await client.getByType("bevande");
+  const bevande = bevandeResponse.results[0];
+
+  // Recupera le fine menu
+  const fineMenuResponse = await client.getByType("conclusione_menu");
+  const fineMenu = fineMenuResponse.results[0];
+
 
   if (!drinklist && !aperitivo) {
     return <p>Nessun contenuto trovato</p>;
@@ -60,16 +71,28 @@ export default async function MenuPage() {
 
   // Recupera tutte le slice di tipo "ripetibile_menu"
   const ripetibileMenuSlices = piattoMulti?.data.slices.filter(slice => slice.slice_type === "ripetibile_menu") || [];
-
   const titoliSezione = ripetibileMenuSlices.map(slice => slice.primary.titolosezione || "");
   const immaginiSezione = ripetibileMenuSlices.map(slice => slice.primary.immagine_sezione?.url || "");
   const traduzioniSezione = ripetibileMenuSlices.map(slice => slice.primary.traduzione_titolo || "");
   const elementiMenu = ripetibileMenuSlices.map(slice => slice.primary.elementi_menu || []);
 
+  // Recupera tutte le slice di tipo "bevande"
+  const bevandeSlices = bevande?.data.slices.filter(slice => slice.slice_type === "bevande") || [];
+
+  const titoloBevande = bevandeSlices.map(slice => slice.primary.titolo_bevande || "");
+  const immagineBevande = bevandeSlices.map(slice => slice.primary.immagine_bevande?.url || "");
+  const listaBevande = bevandeSlices.map(slice => slice.primary.bevanda || []);
+
+  // Recupera tutte le slice di tipo "conclusione_menu"
+  const fineMenuSlices = fineMenu?.data.slices.filter(slice => slice.slice_type === "conclusione_menu") || [];
+  const coperto = fineMenuSlices[0]?.primary?.coperto;  // Prendi il primo valore, se esiste
+  const altre_info = fineMenuSlices[0]?.primary?.altre_info || [];  // Prendi il primo array, se esiste
 
   return (
     <div className="space-y-10">
       {infoPiattoMulti && <PiattoMulti infoPiatti={infoPiattoMulti} titoliSezione={titoliSezione} traduzioniSezione={traduzioniSezione} immaginiSezione={immaginiSezione} elementiMenu={elementiMenu} />}
+      {bevande && (<Bevande titoloBevande={titoloBevande} immagineBevande={immagineBevande} listaBevande={listaBevande}></Bevande>)}
+      {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info}></FineMenu>)}
       {drinklist && <DrinkList titolo={titoloDrink} testo={testoDrink} cocktails={cocktails} drinkBottomSx={drinkBottomSx} drinkBottomMid={drinkBottomMid} drinkBottomDx={drinkBottomDx} drinkTopSx={drinkTopSx} drinkTopMid={drinkTopMid} drinkTopDx={drinkTopDx} />}
       {
         aperitivo && (

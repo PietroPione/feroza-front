@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 export const components = {
   aperitivo: dynamic(() => import("./Aperitivo")),
   bevande: dynamic(() => import("./Bevande")),
+  conclusione_menu: dynamic(() => import("./ConclusioneMenu")),
   drink_list: dynamic(() => import("./DrinkList")),
   hero: dynamic(() => import("./Hero")),
   info_footer: dynamic(() => import("./InfoFooter")),
