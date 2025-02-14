@@ -5,6 +5,7 @@ import { info } from "autoprefixer";
 import PiattoMulti from "@/components/PiattoMulti";
 import Bevande from "@/components/Bevande";
 import FineMenu from "@/components/FineMenu";
+import InfoFinaliVinoBirra from "@/components/InfoFinaliVinoBirra";
 
 export default async function MenuPage() {
   const client = createClient();
@@ -28,6 +29,10 @@ export default async function MenuPage() {
   // Recupera le fine menu
   const fineMenuResponse = await client.getByType("conclusione_menu");
   const fineMenu = fineMenuResponse.results[0];
+
+  // Recupera le info finali vino birra
+  const infoFinaliResponse = await client.getByType("infofinalivinobirra");
+  const infoFinali = infoFinaliResponse.results[0];
 
 
   if (!drinklist && !aperitivo) {
@@ -85,14 +90,21 @@ export default async function MenuPage() {
 
   // Recupera tutte le slice di tipo "conclusione_menu"
   const fineMenuSlices = fineMenu?.data.slices.filter(slice => slice.slice_type === "conclusione_menu") || [];
-  const coperto = fineMenuSlices[0]?.primary?.coperto;  // Prendi il primo valore, se esiste
-  const altre_info = fineMenuSlices[0]?.primary?.altre_info || [];  // Prendi il primo array, se esiste
+  const coperto = fineMenuSlices[0]?.primary?.coperto;
+  const altre_info = fineMenuSlices[0]?.primary?.altre_info || [];
+
+  // Recupera tutte le slice di tipo "conclusione_menu"
+  const infoFinaliSlices = infoFinali?.data.slices.filter(slice => slice.slice_type === "info_finali_birre_vino") || [];
+  const infoFinaliVino = infoFinaliSlices[0]?.primary?.info;
+  const chiusa = infoFinaliSlices[0]?.primary?.chiusa || [];
+
 
   return (
     <div className="space-y-10">
       {infoPiattoMulti && <PiattoMulti infoPiatti={infoPiattoMulti} titoliSezione={titoliSezione} traduzioniSezione={traduzioniSezione} immaginiSezione={immaginiSezione} elementiMenu={elementiMenu} />}
       {bevande && (<Bevande titoloBevande={titoloBevande} immagineBevande={immagineBevande} listaBevande={listaBevande}></Bevande>)}
       {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info}></FineMenu>)}
+      {infoFinali && (<InfoFinaliVinoBirra infoFinaliVino={infoFinaliVino} chiusa={chiusa}></InfoFinaliVinoBirra>)}
       {drinklist && <DrinkList titolo={titoloDrink} testo={testoDrink} cocktails={cocktails} drinkBottomSx={drinkBottomSx} drinkBottomMid={drinkBottomMid} drinkBottomDx={drinkBottomDx} drinkTopSx={drinkTopSx} drinkTopMid={drinkTopMid} drinkTopDx={drinkTopDx} />}
       {
         aperitivo && (
