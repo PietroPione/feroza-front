@@ -6,6 +6,7 @@ import PiattoMulti from "@/components/PiattoMulti";
 import Bevande from "@/components/Bevande";
 import FineMenu from "@/components/FineMenu";
 import InfoFinaliVinoBirra from "@/components/InfoFinaliVinoBirra";
+import Birre from "@/components/Birre";
 
 export default async function MenuPage() {
   const client = createClient();
@@ -33,6 +34,10 @@ export default async function MenuPage() {
   // Recupera le info finali vino birra
   const infoFinaliResponse = await client.getByType("infofinalivinobirra");
   const infoFinali = infoFinaliResponse.results[0];
+
+  // Recupera le info per le birre
+  const birreResponse = await client.getByType("birre");
+  const birre = birreResponse.results[0];
 
 
   if (!drinklist && !aperitivo) {
@@ -98,9 +103,26 @@ export default async function MenuPage() {
   const infoFinaliVino = infoFinaliSlices[0]?.primary?.info;
   const chiusa = infoFinaliSlices[0]?.primary?.chiusa || [];
 
+  // Recupera tutte le slice di tipo "ripetibile_menu"
+  const birreSlices = birre?.data.slices.filter(slice => slice.slice_type === "birre") || [];
+  const birreInfoSlices = birre?.data.slices.filter(slice => slice.slice_type === "birre_info") || [];
+  const titoloBirra = birreInfoSlices[0]?.primary.titolo
+  const disclaimerBirra = birreInfoSlices[0]?.primary.disclaimer
+  const birreData = birreSlices.map(slice => ({
+    iconaPiccola: slice.primary.icona_piccola?.url || "",
+    iconaGrande: slice.primary.icona_grande?.url || "",
+    birre: slice.primary.birre.map(birra => ({
+      nome: birra.nome || "",
+      prezzoPiccolo: birra.prezzo_piccolo || "",
+      prezzoGrande: birra.prezzo_grande || "",
+      info: birra.info || ""
+    }))
+  }));
+
 
   return (
     <div className="space-y-10">
+      {birre && <Birre titoloBirra={titoloBirra} disclaimerBirra={disclaimerBirra} birreData={birreData}></Birre>}
       {infoPiattoMulti && <PiattoMulti infoPiatti={infoPiattoMulti} titoliSezione={titoliSezione} traduzioniSezione={traduzioniSezione} immaginiSezione={immaginiSezione} elementiMenu={elementiMenu} />}
       {bevande && (<Bevande titoloBevande={titoloBevande} immagineBevande={immagineBevande} listaBevande={listaBevande}></Bevande>)}
       {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info}></FineMenu>)}
