@@ -20,7 +20,7 @@ export default async function LandingMenu() {
 
   // Se non troviamo il campo, impostiamo un array vuoto
   const navigazioneMenu = navigazionemenuSlice?.primary?.navigazionemenu || [];
-  console.log(navigazionemenuSlice)
+
   return (
     <div className="container mx-auto py-10">
       <h1 className="text-center text-3xl font-bold mb-6">Menu Landing Page</h1>
