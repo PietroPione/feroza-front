@@ -170,7 +170,11 @@ export type DrinklistDocument<Lang extends string = string> =
     Lang
   >;
 
-type FerozaDocumentDataSlicesSlice = HeroSlice | SezioniHomeSlice;
+type FerozaDocumentDataSlicesSlice =
+  | SimurghSlice
+  | FerozaSlice
+  | HeroSlice
+  | SezioniHomeSlice;
 
 /**
  * Content for Feroza documents
@@ -1226,6 +1230,73 @@ export type DrinkListSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Feroza → Default → Primary → Sezioni*
+ */
+export interface FerozaSliceDefaultPrimarySezioniItem {
+  /**
+   * Immagine field in *Feroza → Default → Primary → Sezioni*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feroza.default.primary.sezioni[].immagine
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine: prismic.ImageField<never>;
+
+  /**
+   * Testo field in *Feroza → Default → Primary → Sezioni*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feroza.default.primary.sezioni[].testo
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testo: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Feroza → Default → Primary*
+ */
+export interface FerozaSliceDefaultPrimary {
+  /**
+   * Sezioni field in *Feroza → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feroza.default.primary.sezioni[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  sezioni: prismic.GroupField<Simplify<FerozaSliceDefaultPrimarySezioniItem>>;
+}
+
+/**
+ * Default variation for Feroza Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FerozaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FerozaSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Feroza*
+ */
+type FerozaSliceVariation = FerozaSliceDefault;
+
+/**
+ * Feroza Shared Slice
+ *
+ * - **API ID**: `feroza`
+ * - **Description**: Feroza
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FerozaSlice = prismic.SharedSlice<"feroza", FerozaSliceVariation>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -2177,6 +2248,106 @@ export type SezioniHomeSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Simurgh → Default → Primary → Sezioni*
+ */
+export interface SimurghSliceDefaultPrimarySezioniItem {
+  /**
+   * Immagine field in *Simurgh → Default → Primary → Sezioni*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simurgh.default.primary.sezioni[].immagine
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine: prismic.ImageField<never>;
+
+  /**
+   * Testo field in *Simurgh → Default → Primary → Sezioni*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simurgh.default.primary.sezioni[].testo
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testo: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Simurgh → Default → Primary*
+ */
+export interface SimurghSliceDefaultPrimary {
+  /**
+   * Sezioni field in *Simurgh → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simurgh.default.primary.sezioni[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  sezioni: prismic.GroupField<Simplify<SimurghSliceDefaultPrimarySezioniItem>>;
+
+  /**
+   * Immagine absolute top field in *Simurgh → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simurgh.default.primary.immagine_absolute_top
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_absolute_top: prismic.ImageField<never>;
+
+  /**
+   * Immagine absolute top center field in *Simurgh → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simurgh.default.primary.immagine_absolute_top_center
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_absolute_top_center: prismic.ImageField<never>;
+
+  /**
+   * Immagine absolute bottom field in *Simurgh → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simurgh.default.primary.immagine_absolute_bottom
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_absolute_bottom: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Simurgh Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimurghSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SimurghSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Simurgh*
+ */
+type SimurghSliceVariation = SimurghSliceDefault;
+
+/**
+ * Simurgh Shared Slice
+ *
+ * - **API ID**: `simurgh`
+ * - **Description**: Simurgh
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimurghSlice = prismic.SharedSlice<
+  "simurgh",
+  SimurghSliceVariation
+>;
+
+/**
  * Item in *Vini → Default → Primary → Vini*
  */
 export interface ViniSliceDefaultPrimaryViniItem {
@@ -2427,6 +2598,11 @@ declare module "@prismicio/client" {
       DrinkListSliceDefaultPrimary,
       DrinkListSliceVariation,
       DrinkListSliceDefault,
+      FerozaSlice,
+      FerozaSliceDefaultPrimarySezioniItem,
+      FerozaSliceDefaultPrimary,
+      FerozaSliceVariation,
+      FerozaSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -2471,6 +2647,11 @@ declare module "@prismicio/client" {
       SezioniHomeSliceDefaultPrimary,
       SezioniHomeSliceVariation,
       SezioniHomeSliceDefault,
+      SimurghSlice,
+      SimurghSliceDefaultPrimarySezioniItem,
+      SimurghSliceDefaultPrimary,
+      SimurghSliceVariation,
+      SimurghSliceDefault,
       ViniSlice,
       ViniSliceDefaultPrimaryViniItem,
       ViniSliceDefaultPrimary,

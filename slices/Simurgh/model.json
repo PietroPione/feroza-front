@@ -1,0 +1,69 @@
+{
+  "id": "simurgh",
+  "type": "SharedSlice",
+  "name": "Simurgh",
+  "description": "Simurgh",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sezioni": {
+          "type": "Group",
+          "config": {
+            "label": "Sezioni",
+            "repeat": true,
+            "fields": {
+              "immagine": {
+                "type": "Image",
+                "config": {
+                  "label": "Immagine",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "testo": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Testo",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        },
+        "immagine_absolute_top": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine absolute top",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_absolute_top_center": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine absolute top center",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_absolute_bottom": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine absolute bottom",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

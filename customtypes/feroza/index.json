@@ -18,6 +18,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "simurgh": {
+              "type": "SharedSlice"
+            },
+            "feroza": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             },
