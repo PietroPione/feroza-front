@@ -10,20 +10,6 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"testo",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Incididunt voluptate quis cupidatat veniam nulla pariatur ipsum eu enim dolor."
-											}
-										}
-									]
-								}
-							],
-							[
 								"immagine",
 								{
 									"origin": {
@@ -47,6 +33,20 @@
 									"alt": null,
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
+								}
+							],
+							[
+								"testo",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Consectetur commodo sunt qui."
+											}
+										}
+									]
 								}
 							]
 						]

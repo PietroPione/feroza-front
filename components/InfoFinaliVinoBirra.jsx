@@ -3,30 +3,31 @@ import { PrismicRichText } from "@prismicio/react";
 
 export default function InfoFinaliVinoBirra({ infoFinaliVino, chiusa }) {
   return (
-    <div className="container mx-auto p-4 md:p-0 text-center space-y-6">
+    <div className="container mx-auto p-4 md:p-0 space-y-10 md:space-y-6">
       {infoFinaliVino.map((item, index) => (
         <div
           key={index}
-          className={`flex flex-col md:flex-row items-center gap-4 ${index % 2 === 0 ? "md:flex-row-reverse" : ""
+          className={`flex flex-col md:flex-row gap-4 items-center ${index % 2 === 0 ? "md:flex-row-reverse text-left" : "text-left md:text-right"
             }`}
         >
           {item.immagine && (
             <img
               src={asImageSrc(item.immagine)}
               alt=""
-              className="w-1/2 md:w-1/3"
+              className="w-2/3 md:w-1/3"
             />
           )}
-          <div className="w-1/2 md:w-2/3">
-            {item.testo.map((paragrafo, pIndex) => (
-              <p key={pIndex} className="text-17">
-                {paragrafo.text}
-              </p>
-            ))}
+          <div className="pt-4 md:pt-0 md:w-2/3">
+            {/* Passa l'intero campo rich text invece di iterare sui paragrafi */}
+            <PrismicRichText field={item.testo} />
           </div>
         </div>
       ))}
-      {chiusa && <PrismicRichText field={chiusa} />}
+      {chiusa && (
+        <div className="text-center text-22">
+          <PrismicRichText field={chiusa} />
+        </div>
+      )}
     </div>
   );
 }
