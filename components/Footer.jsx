@@ -32,9 +32,10 @@ export default async function Footer() {
     const info = infoSlice?.primary?.info || "";
     const developer = infoSlice?.primary?.credits || "";
     const developer_link = infoSlice?.primary?.link_credits || "";
+
     return (
         <footer className="bg-primary py-10 text-white space-y-4">
-            <div className="flex justify-between container">
+            <div className="flex flex-col md:flex-row justify-between container space-y-10 md:space-y-0">
                 <div>
                     <div>
 

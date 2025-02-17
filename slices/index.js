@@ -15,6 +15,7 @@ export const components = {
   info_piatto_multi: dynamic(() => import("./InfoPiattoMulti")),
   logo: dynamic(() => import("./Logo")),
   menu: dynamic(() => import("./Menu")),
+  navigazione_menu: dynamic(() => import("./NavigazioneMenu")),
   ripetibile_menu: dynamic(() => import("./RipetibileMenu")),
   sezioni_home: dynamic(() => import("./SezioniHome")),
   vini: dynamic(() => import("./Vini")),

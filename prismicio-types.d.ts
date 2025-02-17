@@ -333,6 +333,67 @@ export type InfofinalivinobirraDocument<Lang extends string = string> =
     Lang
   >;
 
+type MenuDocumentDataSlicesSlice = NavigazioneMenuSlice;
+
+/**
+ * Content for Menu documents
+ */
+interface MenuDocumentData {
+  /**
+   * Slice Zone field in *Menu*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<MenuDocumentDataSlicesSlice> /**
+   * Meta Title field in *Menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: menu.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: menu.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Menu*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Menu document from Prismic
+ *
+ * - **API ID**: `menu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MenuDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
+
 type PiattomultiDocumentDataSlicesSlice =
   | RipetibileMenuSlice
   | InfoPiattoMultiSlice;
@@ -409,6 +470,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | HeaderDocument
   | InfofinalivinobirraDocument
+  | MenuDocument
   | PiattomultiDocument
   | ViniDocument;
 
@@ -1760,6 +1822,88 @@ type MenuSliceVariation = MenuSliceDefault;
 export type MenuSlice = prismic.SharedSlice<"menu", MenuSliceVariation>;
 
 /**
+ * Item in *NavigazioneMenu → Default → Primary → NavigazioneMenu*
+ */
+export interface NavigazioneMenuSliceDefaultPrimaryNavigazionemenuItem {
+  /**
+   * Titolo field in *NavigazioneMenu → Default → Primary → NavigazioneMenu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigazione_menu.default.primary.navigazionemenu[].titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Icona field in *NavigazioneMenu → Default → Primary → NavigazioneMenu*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigazione_menu.default.primary.navigazionemenu[].icona
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icona: prismic.ImageField<never>;
+
+  /**
+   * Link field in *NavigazioneMenu → Default → Primary → NavigazioneMenu*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigazione_menu.default.primary.navigazionemenu[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *NavigazioneMenu → Default → Primary*
+ */
+export interface NavigazioneMenuSliceDefaultPrimary {
+  /**
+   * NavigazioneMenu field in *NavigazioneMenu → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigazione_menu.default.primary.navigazionemenu[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  navigazionemenu: prismic.GroupField<
+    Simplify<NavigazioneMenuSliceDefaultPrimaryNavigazionemenuItem>
+  >;
+}
+
+/**
+ * Default variation for NavigazioneMenu Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigazioneMenuSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NavigazioneMenuSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NavigazioneMenu*
+ */
+type NavigazioneMenuSliceVariation = NavigazioneMenuSliceDefault;
+
+/**
+ * NavigazioneMenu Shared Slice
+ *
+ * - **API ID**: `navigazione_menu`
+ * - **Description**: NavigazioneMenu
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigazioneMenuSlice = prismic.SharedSlice<
+  "navigazione_menu",
+  NavigazioneMenuSliceVariation
+>;
+
+/**
  * Item in *RipetibileMenu → Default → Primary → Elementi menu*
  */
 export interface RipetibileMenuSliceDefaultPrimaryElementiMenuItem {
@@ -2242,6 +2386,9 @@ declare module "@prismicio/client" {
       InfofinalivinobirraDocument,
       InfofinalivinobirraDocumentData,
       InfofinalivinobirraDocumentDataSlicesSlice,
+      MenuDocument,
+      MenuDocumentData,
+      MenuDocumentDataSlicesSlice,
       PiattomultiDocument,
       PiattomultiDocumentData,
       PiattomultiDocumentDataSlicesSlice,
@@ -2309,6 +2456,11 @@ declare module "@prismicio/client" {
       MenuSliceDefaultPrimary,
       MenuSliceVariation,
       MenuSliceDefault,
+      NavigazioneMenuSlice,
+      NavigazioneMenuSliceDefaultPrimaryNavigazionemenuItem,
+      NavigazioneMenuSliceDefaultPrimary,
+      NavigazioneMenuSliceVariation,
+      NavigazioneMenuSliceDefault,
       RipetibileMenuSlice,
       RipetibileMenuSliceDefaultPrimaryElementiMenuItem,
       RipetibileMenuSliceDefaultPrimary,
