@@ -7,6 +7,7 @@ import Bevande from "@/components/Bevande";
 import FineMenu from "@/components/FineMenu";
 import InfoFinaliVinoBirra from "@/components/InfoFinaliVinoBirra";
 import Birre from "@/components/Birre";
+import Vini from "@/components/Vini";
 
 export default async function MenuPage() {
   const client = createClient();
@@ -38,6 +39,10 @@ export default async function MenuPage() {
   // Recupera le info per le birre
   const birreResponse = await client.getByType("birre");
   const birre = birreResponse.results[0];
+
+  // Recupera le info per i vini
+  const viniResponse = await client.getByType("vini");
+  const vini = viniResponse.results[0];
 
 
   if (!drinklist && !aperitivo) {
@@ -119,9 +124,26 @@ export default async function MenuPage() {
     }))
   }));
 
+  // Recupera tutte le slice di tipo "ripetibile_menu"
+  const viniSlices = vini?.data.slices.filter(slice => slice.slice_type === "vini") || [];
+  const viniInfoSlices = vini?.data.slices.filter(slice => slice.slice_type === "vini_info") || [];
+  const titoloVino = viniInfoSlices[0]?.primary.titolo
+  const disclaimerVino = viniInfoSlices[0]?.primary.disclaimer
+  const viniData = viniSlices.map(slice => ({
+    iconaPiccola: slice.primary.icona_piccola?.url || "",
+    iconaGrande: slice.primary.icona_grande?.url || "",
+    vini: slice.primary.vini.map(birra => ({
+      nome: birra.nome || "",
+      prezzoPiccolo: birra.prezzo_piccolo || "",
+      prezzoGrande: birra.prezzo_grande || "",
+      info: birra.info || ""
+    }))
+  }));
+
 
   return (
     <div className="space-y-10">
+      {vini && <Vini titoloVino={titoloVino} disclaimerVino={disclaimerVino} viniData={viniData}></Vini>}
       {birre && <Birre titoloBirra={titoloBirra} disclaimerBirra={disclaimerBirra} birreData={birreData}></Birre>}
       {infoPiattoMulti && <PiattoMulti infoPiatti={infoPiattoMulti} titoliSezione={titoliSezione} traduzioniSezione={traduzioniSezione} immaginiSezione={immaginiSezione} elementiMenu={elementiMenu} />}
       {bevande && (<Bevande titoloBevande={titoloBevande} immagineBevande={immagineBevande} listaBevande={listaBevande}></Bevande>)}
