@@ -12,40 +12,35 @@ export default async function LandingMenu() {
 
   const menuData = response.results[0];
 
-  // Estrai lo slice che contiene la navigazione del menu.
-  // Assumiamo che il tipo dello slice sia "navigazionemenu".
+  // Estrai lo slice con il tipo "navigazione_menu"
   const navigazionemenuSlice = menuData.data.slices.find(
     (slice) => slice.slice_type === "navigazione_menu"
   );
 
-  // Se non troviamo il campo, impostiamo un array vuoto
   const navigazioneMenu = navigazionemenuSlice?.primary?.navigazionemenu || [];
 
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-center text-3xl font-bold mb-6">Menu Landing Page</h1>
-      <div className="flex flex-col gap-4">
+    <div className="container py-10">
+      {/* Aggiungiamo items-stretch per forzare l'altezza uguale */}
+      <div className="grid grid-cols-2 md:grid-cols-1 gap-4 items-stretch">
         {navigazioneMenu.map((item, index) => (
-          <div key={index} className="flex items-center gap-4">
-            {/* Mostra l'icona se presente */}
-            {item.icona?.url && (
-              <Image
-                src={item.icona.url}
-                alt={item.icona.alt || item.titolo}
-                width={50}
-                height={50}
-                priority
-              />
-            )}
-            {/* Titolo della voce di menu */}
-            <h2 className="text-xl font-medium">{item.titolo}</h2>
-            {/* Link per la navigazione, se presente */}
-            {item.link?.url && (
-              <Link href={item.link.url}>
-                <div className="text-primary underline">Vai</div>
-              </Link>
-            )}
-          </div>
+          <Link key={index} href={item.link.url} className="group block h-full">
+            <div className="flex flex-col md:flex-row items-center gap-4 border border-primary px-4 py-6 space-y-4 justify-end md:justify-start group-hover:bg-gray-200 h-full">
+              {item.icona?.url && (
+                <img
+                  src={item.icona.url}
+                  alt={item.icona.alt || item.titolo}
+                  className="h-auto w-full md:w-72"
+                />
+              )}
+              {/* Div che contiene il testo, con flex-1 per occupare tutto lo spazio disponibile */}
+              <div className="flex md:flex-1 md:items-center md:justify-center">
+                <h2 className="text-22 md:text-32 leading-none text-center font-semibold group-hover:underline">
+                  {item.titolo}
+                </h2>
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
