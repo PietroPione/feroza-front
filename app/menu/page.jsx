@@ -20,21 +20,19 @@ export default async function LandingMenu() {
   const navigazioneMenu = navigazionemenuSlice?.primary?.navigazionemenu || [];
 
   return (
-    <div className="container py-10">
-      {/* Aggiungiamo items-stretch per forzare l'altezza uguale */}
-      <div className="grid grid-cols-2 md:grid-cols-1 gap-4 items-stretch">
+    <div className="container pb-10 md:py-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {navigazioneMenu.map((item, index) => (
-          <Link key={index} href={item.link.url} className="group block h-full">
-            <div className="flex flex-col md:flex-row items-center gap-4 border border-primary px-4 py-6 space-y-4 justify-end md:justify-start group-hover:bg-gray-200 h-full">
+          <Link key={index} href={item.link.url} className="group block">
+            <div className="aspect-square flex flex-col justify-between items-center border border-primary p-4 group-hover:bg-gray-200 h-full">
               {item.icona?.url && (
                 <img
                   src={item.icona.url}
                   alt={item.icona.alt || item.titolo}
-                  className="h-auto w-full md:w-72"
+                  className="h-1/2 w-auto"
                 />
               )}
-              {/* Div che contiene il testo, con flex-1 per occupare tutto lo spazio disponibile */}
-              <div className="flex md:flex-1 md:items-center md:justify-center">
+              <div className="flex items-center justify-center h-1/2 w-full">
                 <h2 className="text-22 md:text-32 leading-none text-center font-semibold group-hover:underline">
                   {item.titolo}
                 </h2>

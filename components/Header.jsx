@@ -25,11 +25,11 @@ export default async function Header() {
             <Link href="/">
                 <div className="cursor-pointer">
                     {logoUrl && (
-                        <Image 
-                            src={logoUrl} 
-                            alt="Logo" 
-                            width={150} 
-                            height={50}  
+                        <Image
+                            src={logoUrl}
+                            alt="Logo"
+                            width={150}
+                            height={50}
                             priority
                         />
                     )}
@@ -38,9 +38,9 @@ export default async function Header() {
 
             <nav className="flex space-x-6">
                 {menuItems.map((item, index) => (
-                    <Link 
-                        key={index} 
-                        href={item.link?.text || "#"} 
+                    <Link
+                        key={index}
+                        href={item.link?.text || "#"}
                         className="text-primary text-lg font-medium hover:underline"
                     >
                         {item.testo}
