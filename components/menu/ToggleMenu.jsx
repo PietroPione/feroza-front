@@ -78,7 +78,7 @@ const ToggleMenu = ({ nav = [] }) => {
             </button>
 
             {isOpen && (
-                <div className="fixed inset-0 z-50 bg-primary bg-opacity-90 text-secondary flex flex-col items-center justify-center">
+                <div className="fixed inset-0 z-50 bg-primary bg-opacity-100 text-secondary flex flex-col items-center justify-center">
                     <button
                         onClick={() => setOpen(false)}
                         aria-label="Close Navigation Menu"
