@@ -37,7 +37,7 @@ export default async function Footer() {
         <footer className="bg-primary py-10 text-white space-y-4">
             <div className="flex flex-col md:flex-row justify-between container space-y-10 md:space-y-0">
                 <div>
-                    <div>
+                    <div className="flex flex-col justify-center md:justify-start items-center md:items-start">
 
                         {/* Logo */}
                         {logoUrl && (
@@ -52,9 +52,12 @@ export default async function Footer() {
                     </div>
 
                     {/* Info generali */}
-                    <Link href={linkMaps} target="_blank" className="hover:underline">
-                        {indirizzo}
-                    </Link>
+                    <div className="flex justify-center md:justify-start">
+                        <Link href={linkMaps} target="_blank" className="hover:underline">
+                            {indirizzo}
+                        </Link>
+                    </div>
+
 
                 </div>
 

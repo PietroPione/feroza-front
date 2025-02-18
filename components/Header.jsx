@@ -21,7 +21,7 @@ export default async function Header() {
     const menuItems = menuSlice?.primary?.voci_menu || [];
 
     return (
-        <header className="container py-10 flex justify-between items-center">
+        <header className="container py-10 flex flex-col md:flex-row space-y-6 justify-between items-center">
             <Link href="/">
                 <div className="cursor-pointer">
                     {logoUrl && (
