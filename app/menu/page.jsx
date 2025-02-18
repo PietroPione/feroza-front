@@ -1,6 +1,7 @@
 import { createClient } from "@/prismicio";
 import Link from "next/link";
 import Image from "next/image";
+import FineMenu from "@/components/FineMenu";
 
 export default async function LandingMenu() {
   const client = createClient();
@@ -17,10 +18,20 @@ export default async function LandingMenu() {
     (slice) => slice.slice_type === "navigazione_menu"
   );
 
+
   const navigazioneMenu = navigazionemenuSlice?.primary?.navigazionemenu || [];
 
+  // Recupera le fine menu
+  const fineMenuResponse = await client.getByType("conclusione_menu");
+  const fineMenu = fineMenuResponse.results[0];
+
+  // Recupera tutte le slice di tipo "conclusione_menu"
+  const fineMenuSlices = fineMenu?.data.slices.filter(slice => slice.slice_type === "conclusione_menu") || [];
+  const coperto = fineMenuSlices[0]?.primary?.coperto;
+  const altre_info = fineMenuSlices[0]?.primary?.altre_info || [];
+
   return (
-    <div className="container pb-10 md:py-10">
+    <div className="container space-y-10 pb-10 md:py-10">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {navigazioneMenu.map((item, index) => (
           <Link key={index} href={item.link.url} className="group block">
@@ -41,6 +52,7 @@ export default async function LandingMenu() {
           </Link>
         ))}
       </div>
+      {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info}></FineMenu>)}
     </div>
   );
 }
