@@ -17,14 +17,14 @@ export default function InfoFinaliVinoBirra({ infoFinaliVino, chiusa }) {
               className="w-2/3 md:w-1/3"
             />
           )}
-          <div className="pt-4 md:pt-0 md:w-2/3">
+          <div className="pt-4 text-17 md:text-22 md:pt-0 md:w-2/3">
             {/* Passa l'intero campo rich text invece di iterare sui paragrafi */}
             <PrismicRichText field={item.testo} />
           </div>
         </div>
       ))}
       {chiusa && (
-        <div className="text-center text-22">
+        <div className="text-center text-32">
           <PrismicRichText field={chiusa} />
         </div>
       )}

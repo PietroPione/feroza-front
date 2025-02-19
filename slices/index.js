@@ -17,6 +17,7 @@ export const components = {
   logo: dynamic(() => import("./Logo")),
   menu: dynamic(() => import("./Menu")),
   navigazione_menu: dynamic(() => import("./NavigazioneMenu")),
+  prenota_tavolo: dynamic(() => import("./PrenotaTavolo")),
   ripetibile_menu: dynamic(() => import("./RipetibileMenu")),
   sezioni_home: dynamic(() => import("./SezioniHome")),
   simurgh: dynamic(() => import("./Simurgh")),

@@ -136,6 +136,71 @@ export type ConclusioneMenuDocument<Lang extends string = string> =
     Lang
   >;
 
+type ContattiDocumentDataSlicesSlice = PrenotaTavoloSlice;
+
+/**
+ * Content for Contatti documents
+ */
+interface ContattiDocumentData {
+  /**
+   * Slice Zone field in *Contatti*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ContattiDocumentDataSlicesSlice> /**
+   * Meta Title field in *Contatti*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: contatti.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Contatti*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: contatti.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Contatti*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Contatti document from Prismic
+ *
+ * - **API ID**: `contatti`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContattiDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ContattiDocumentData>,
+    "contatti",
+    Lang
+  >;
+
 type DrinklistDocumentDataSlicesSlice = DrinkListSlice;
 
 /**
@@ -469,6 +534,7 @@ export type AllDocumentTypes =
   | BevandeDocument
   | BirreDocument
   | ConclusioneMenuDocument
+  | ContattiDocument
   | DrinklistDocument
   | FerozaDocument
   | FooterDocument
@@ -1975,6 +2041,97 @@ export type NavigazioneMenuSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PrenotaTavolo → Default → Primary*
+ */
+export interface PrenotaTavoloSliceDefaultPrimary {
+  /**
+   * Titolo field in *PrenotaTavolo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prenota_tavolo.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Spiega field in *PrenotaTavolo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prenota_tavolo.default.primary.spiega
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  spiega: prismic.KeyTextField;
+
+  /**
+   * Testo tasto field in *PrenotaTavolo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prenota_tavolo.default.primary.testo_tasto
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_tasto: prismic.KeyTextField;
+
+  /**
+   * Link tasto field in *PrenotaTavolo → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prenota_tavolo.default.primary.link_tasto
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_tasto: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Immagine top dx field in *PrenotaTavolo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prenota_tavolo.default.primary.immagine_top_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_dx: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for PrenotaTavolo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PrenotaTavoloSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PrenotaTavoloSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PrenotaTavolo*
+ */
+type PrenotaTavoloSliceVariation = PrenotaTavoloSliceDefault;
+
+/**
+ * PrenotaTavolo Shared Slice
+ *
+ * - **API ID**: `prenota_tavolo`
+ * - **Description**: PrenotaTavolo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PrenotaTavoloSlice = prismic.SharedSlice<
+  "prenota_tavolo",
+  PrenotaTavoloSliceVariation
+>;
+
+/**
  * Item in *RipetibileMenu → Default → Primary → Elementi menu*
  */
 export interface RipetibileMenuSliceDefaultPrimaryElementiMenuItem {
@@ -2542,6 +2699,9 @@ declare module "@prismicio/client" {
       ConclusioneMenuDocument,
       ConclusioneMenuDocumentData,
       ConclusioneMenuDocumentDataSlicesSlice,
+      ContattiDocument,
+      ContattiDocumentData,
+      ContattiDocumentDataSlicesSlice,
       DrinklistDocument,
       DrinklistDocumentData,
       DrinklistDocumentDataSlicesSlice,
@@ -2637,6 +2797,10 @@ declare module "@prismicio/client" {
       NavigazioneMenuSliceDefaultPrimary,
       NavigazioneMenuSliceVariation,
       NavigazioneMenuSliceDefault,
+      PrenotaTavoloSlice,
+      PrenotaTavoloSliceDefaultPrimary,
+      PrenotaTavoloSliceVariation,
+      PrenotaTavoloSliceDefault,
       RipetibileMenuSlice,
       RipetibileMenuSliceDefaultPrimaryElementiMenuItem,
       RipetibileMenuSliceDefaultPrimary,

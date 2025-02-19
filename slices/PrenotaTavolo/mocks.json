@@ -1,0 +1,54 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "chose",
+				"type": "Text"
+			},
+			"spiega": {
+				"__TYPE__": "FieldContent",
+				"value": "proper",
+				"type": "Text"
+			},
+			"testo_tasto": {
+				"__TYPE__": "FieldContent",
+				"value": "still",
+				"type": "Text"
+			},
+			"link_tasto": {
+				"key": "95b908de-29d4-481c-a736-6af5e1c5779b",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "wire"
+				}
+			},
+			"immagine_top_dx": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+					"width": 3456,
+					"height": 4320
+				},
+				"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+				"width": 3456,
+				"height": 4320,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	}
+]
