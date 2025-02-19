@@ -4,6 +4,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ToggleMenu from "./menu/ToggleMenu";
+import LanguageSwitcher from "./LanguageSwitcher"; // Importa il componente
 
 export default function HeaderClient({ logoUrl, menuItems }) {
     return (
@@ -22,8 +23,10 @@ export default function HeaderClient({ logoUrl, menuItems }) {
                 </div>
             </Link>
 
-            <nav className="flex items-center">
+            <nav className="flex items-center space-x-4">
                 <ToggleMenu nav={menuItems} />
+                {/* Aggiungi il LanguageSwitcher */}
+                <LanguageSwitcher />
             </nav>
         </header>
     );

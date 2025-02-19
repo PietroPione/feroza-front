@@ -1,11 +1,12 @@
 import { createClient } from "@/prismicio";
 import Link from "next/link";
-import Image from "next/image";
 import FineMenu from "@/components/FineMenu";
 
-export default async function LandingMenu() {
+export default async function LandingMenu({ params }) {
   const client = createClient();
-  const response = await client.getByType("menu");
+  const locale = params.lang || "en-us"; // Usa la lingua dalla URL (default: IT)
+
+  const response = await client.getByType("menu", { lang: locale });
 
   if (!response || response.results.length === 0) {
     return <div>Nessun dato trovato</div>;
@@ -18,11 +19,10 @@ export default async function LandingMenu() {
     (slice) => slice.slice_type === "navigazione_menu"
   );
 
-
   const navigazioneMenu = navigazionemenuSlice?.primary?.navigazionemenu || [];
 
-  // Recupera le fine menu
-  const fineMenuResponse = await client.getByType("conclusione_menu");
+  // Recupera la parte "fine menu" nella lingua corretta
+  const fineMenuResponse = await client.getByType("conclusione_menu", { lang: locale });
   const fineMenu = fineMenuResponse.results[0];
 
   // Recupera tutte le slice di tipo "conclusione_menu"
@@ -34,7 +34,7 @@ export default async function LandingMenu() {
     <div className="container space-y-10 pb-10 md:py-10">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {navigazioneMenu.map((item, index) => (
-          <Link key={index} href={item.link.url} className="group block">
+          <Link key={index} href={`/${locale}${item.link.url}`} className="group block">
             <div className="aspect-square flex flex-col justify-between items-center border border-primary p-4 group-hover:bg-gray-200 h-full">
               {item.icona?.url && (
                 <img
@@ -52,7 +52,7 @@ export default async function LandingMenu() {
           </Link>
         ))}
       </div>
-      {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info}></FineMenu>)}
+      {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info} />)}
     </div>
   );
 }

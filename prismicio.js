@@ -8,13 +8,36 @@ export const repositoryName =
 
 // Definisci le rotte (se necessarie)
 const routes = [
-  // Esempio di una route per una homepage
-  // {
-  //   type: "homepage",
-  //   path: "/",
-  // },
-  // Aggiungi altre route se necessario
+  {
+    type: "menu",
+    path: "/:lang?/menu",
+  },
+  {
+    type: "piattomulti",
+    path: "/:lang?/piattomulti",
+  },
+  {
+    type: "drinklist",
+    path: "/:lang?/drinklist",
+  },
+  {
+    type: "feroza",
+    path: "/:lang?",
+  },
+  {
+    type: "footer",
+    path: "/:lang?/footer",
+  },
+  {
+    type: "birre",
+    path: "/:lang?/birre",
+  },
+  {
+    type: "vini",
+    path: "/:lang?/vini",
+  },
 ];
+
 
 /**
  * Crea un client per il progetto.
