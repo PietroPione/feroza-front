@@ -10,11 +10,7 @@ const ToggleMenu = ({ nav = [] }) => {
 
     // Disabilita lo scroll quando il menu è aperto
     useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
+        document.body.style.overflow = isOpen ? "hidden" : "";
         return () => {
             document.body.style.overflow = "";
         };
@@ -43,7 +39,7 @@ const ToggleMenu = ({ nav = [] }) => {
 
     return (
         <>
-            {/* Pulsante toggle senza posizionamento assoluto */}
+            {/* Pulsante toggle: se il menu è aperto diventa fixed per essere sempre visibile */}
             <button
                 ref={buttonRef}
                 onClick={(e) => {
@@ -53,7 +49,8 @@ const ToggleMenu = ({ nav = [] }) => {
                 role="button"
                 aria-expanded={isOpen}
                 aria-label="Toggle Navigation Menu"
-                className="z-[60] p-2 focus:outline-none" // Posizionamento rimosso
+                className={`z-[60] p-2 focus:outline-none ${isOpen ? "absolute top-4 right-4" : ""
+                    }`}
             >
                 <div className="w-6 h-6 flex flex-col justify-between">
                     <span
