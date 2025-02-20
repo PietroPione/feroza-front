@@ -1,0 +1,102 @@
+{
+  "id": "contatti",
+  "type": "SharedSlice",
+  "name": "Contatti",
+  "description": "Contatti",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "testo_mail": {
+          "type": "Text",
+          "config": {
+            "label": "Testo mail",
+            "placeholder": ""
+          }
+        },
+        "mail": {
+          "type": "Text",
+          "config": {
+            "label": "Mail",
+            "placeholder": ""
+          }
+        },
+        "mail_link": {
+          "type": "Link",
+          "config": {
+            "label": "Mail link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "testo_telefono": {
+          "type": "Text",
+          "config": {
+            "label": "Testo telefono",
+            "placeholder": ""
+          }
+        },
+        "numero_telefono": {
+          "type": "Text",
+          "config": {
+            "label": "Numero telefono",
+            "placeholder": ""
+          }
+        },
+        "link_telefono": {
+          "type": "Link",
+          "config": {
+            "label": "Link telefono",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "titolo_indirizzo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo indirizzo",
+            "placeholder": ""
+          }
+        },
+        "testo_indirizzo": {
+          "type": "Text",
+          "config": {
+            "label": "Testo indirizzo",
+            "placeholder": ""
+          }
+        },
+        "link_indirizzo": {
+          "type": "Link",
+          "config": {
+            "label": "Link indirizzo",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "immagine_mappa": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine mappa",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

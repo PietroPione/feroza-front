@@ -8,6 +8,7 @@ export const components = {
   birre: dynamic(() => import("./Birre")),
   birre_info: dynamic(() => import("./BirreInfo")),
   conclusione_menu: dynamic(() => import("./ConclusioneMenu")),
+  contatti: dynamic(() => import("./Contatti")),
   drink_list: dynamic(() => import("./DrinkList")),
   feroza: dynamic(() => import("./Feroza")),
   hero: dynamic(() => import("./Hero")),
@@ -21,6 +22,7 @@ export const components = {
   ripetibile_menu: dynamic(() => import("./RipetibileMenu")),
   sezioni_home: dynamic(() => import("./SezioniHome")),
   simurgh: dynamic(() => import("./Simurgh")),
+  social: dynamic(() => import("./Social")),
   vini: dynamic(() => import("./Vini")),
   vini_info: dynamic(() => import("./ViniInfo")),
 };

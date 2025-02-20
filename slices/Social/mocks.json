@@ -1,0 +1,33 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"token": {
+				"__TYPE__": "FieldContent",
+				"value": "tobacco",
+				"type": "Text"
+			},
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "sky",
+				"type": "Text"
+			},
+			"tasto_bottone": {
+				"__TYPE__": "FieldContent",
+				"value": "brick",
+				"type": "Text"
+			},
+			"link_bottone": {
+				"__TYPE__": "LinkContent",
+				"key": "1b6479ab-1fad-4bfd-91d7-eb4c576c8763",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "organized"
+				}
+			}
+		},
+		"items": []
+	}
+]

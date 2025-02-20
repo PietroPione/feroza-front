@@ -1,0 +1,51 @@
+{
+  "id": "social",
+  "type": "SharedSlice",
+  "name": "Social",
+  "description": "Social",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "token": {
+          "type": "Text",
+          "config": {
+            "label": "Token",
+            "placeholder": ""
+          }
+        },
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "tasto_bottone": {
+          "type": "Text",
+          "config": {
+            "label": "Tasto Bottone",
+            "placeholder": ""
+          }
+        },
+        "link_bottone": {
+          "type": "Link",
+          "config": {
+            "label": "Link Bottone",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

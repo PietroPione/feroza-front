@@ -1,0 +1,89 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"mail": {
+				"__TYPE__": "FieldContent",
+				"value": "warn",
+				"type": "Text"
+			},
+			"testo_telefono": {
+				"__TYPE__": "FieldContent",
+				"value": "fifty",
+				"type": "Text"
+			},
+			"numero_telefono": {
+				"__TYPE__": "FieldContent",
+				"value": "paragraph",
+				"type": "Text"
+			},
+			"testo_mail": {
+				"__TYPE__": "FieldContent",
+				"value": "compass",
+				"type": "Text"
+			},
+			"titolo_indirizzo": {
+				"__TYPE__": "FieldContent",
+				"value": "differ",
+				"type": "Text"
+			},
+			"testo_indirizzo": {
+				"__TYPE__": "FieldContent",
+				"value": "sail",
+				"type": "Text"
+			},
+			"link_indirizzo": {
+				"key": "abca9bf6-1ac8-42e7-ba8f-f6a6e0d30e58",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "union"
+				}
+			},
+			"mail_link": {
+				"key": "ee3cbd39-1ca3-40dd-a086-78143bb2cc62",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "see"
+				}
+			},
+			"immagine_mappa": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+					"width": 4000,
+					"height": 6000
+				},
+				"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+				"width": 4000,
+				"height": 6000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"link_telefono": {
+				"key": "5f0fe3ad-1841-4e1c-b598-1cfca91ed382",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "average"
+				}
+			}
+		},
+		"items": []
+	}
+]

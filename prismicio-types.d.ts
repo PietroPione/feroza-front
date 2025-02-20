@@ -136,7 +136,10 @@ export type ConclusioneMenuDocument<Lang extends string = string> =
     Lang
   >;
 
-type ContattiDocumentDataSlicesSlice = PrenotaTavoloSlice;
+type ContattiDocumentDataSlicesSlice =
+  | ContattiSlice
+  | SocialSlice
+  | PrenotaTavoloSlice;
 
 /**
  * Content for Contatti documents
@@ -1120,6 +1123,159 @@ type ConclusioneMenuSliceVariation = ConclusioneMenuSliceDefault;
 export type ConclusioneMenuSlice = prismic.SharedSlice<
   "conclusione_menu",
   ConclusioneMenuSliceVariation
+>;
+
+/**
+ * Primary content in *Contatti → Default → Primary*
+ */
+export interface ContattiSliceDefaultPrimary {
+  /**
+   * Testo mail field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.testo_mail
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_mail: prismic.KeyTextField;
+
+  /**
+   * Mail field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.mail
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mail: prismic.KeyTextField;
+
+  /**
+   * Mail link field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.mail_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  mail_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Testo telefono field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.testo_telefono
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_telefono: prismic.KeyTextField;
+
+  /**
+   * Numero telefono field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.numero_telefono
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  numero_telefono: prismic.KeyTextField;
+
+  /**
+   * Link telefono field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.link_telefono
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_telefono: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Titolo indirizzo field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.titolo_indirizzo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_indirizzo: prismic.KeyTextField;
+
+  /**
+   * Testo indirizzo field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.testo_indirizzo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_indirizzo: prismic.KeyTextField;
+
+  /**
+   * Link indirizzo field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.link_indirizzo
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_indirizzo: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Immagine mappa field in *Contatti → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contatti.default.primary.immagine_mappa
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_mappa: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Contatti Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContattiSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContattiSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Contatti*
+ */
+type ContattiSliceVariation = ContattiSliceDefault;
+
+/**
+ * Contatti Shared Slice
+ *
+ * - **API ID**: `contatti`
+ * - **Description**: Contatti
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContattiSlice = prismic.SharedSlice<
+  "contatti",
+  ContattiSliceVariation
 >;
 
 /**
@@ -2505,6 +2661,84 @@ export type SimurghSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Social → Default → Primary*
+ */
+export interface SocialSliceDefaultPrimary {
+  /**
+   * Token field in *Social → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social.default.primary.token
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  token: prismic.KeyTextField;
+
+  /**
+   * Titolo field in *Social → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Tasto Bottone field in *Social → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social.default.primary.tasto_bottone
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tasto_bottone: prismic.KeyTextField;
+
+  /**
+   * Link Bottone field in *Social → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social.default.primary.link_bottone
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_bottone: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for Social Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SocialSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SocialSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Social*
+ */
+type SocialSliceVariation = SocialSliceDefault;
+
+/**
+ * Social Shared Slice
+ *
+ * - **API ID**: `social`
+ * - **Description**: Social
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SocialSlice = prismic.SharedSlice<"social", SocialSliceVariation>;
+
+/**
  * Item in *Vini → Default → Primary → Vini*
  */
 export interface ViniSliceDefaultPrimaryViniItem {
@@ -2753,6 +2987,10 @@ declare module "@prismicio/client" {
       ConclusioneMenuSliceDefaultPrimary,
       ConclusioneMenuSliceVariation,
       ConclusioneMenuSliceDefault,
+      ContattiSlice,
+      ContattiSliceDefaultPrimary,
+      ContattiSliceVariation,
+      ContattiSliceDefault,
       DrinkListSlice,
       DrinkListSliceDefaultPrimaryCocktailItem,
       DrinkListSliceDefaultPrimary,
@@ -2816,6 +3054,10 @@ declare module "@prismicio/client" {
       SimurghSliceDefaultPrimary,
       SimurghSliceVariation,
       SimurghSliceDefault,
+      SocialSlice,
+      SocialSliceDefaultPrimary,
+      SocialSliceVariation,
+      SocialSliceDefault,
       ViniSlice,
       ViniSliceDefaultPrimaryViniItem,
       ViniSliceDefaultPrimary,

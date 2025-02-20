@@ -5,37 +5,30 @@ import Link from "next/link";
 
 const ToggleMenu = ({ nav = [] }) => {
     const [isOpen, setOpen] = useState(false);
-    const [isDesktop, setIsDesktop] = useState(false);
-    const nodeRef = useRef();
+    const overlayRef = useRef();
+    const buttonRef = useRef();
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsDesktop(window.innerWidth >= 1024);
-        };
-
-        handleResize(); // Controlla alla prima render
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
+    // Disabilita lo scroll quando il menu è aperto
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "";
         }
-
         return () => {
             document.body.style.overflow = "";
         };
     }, [isOpen]);
 
+    // Chiude il menu se si clicca fuori dall'overlay e fuori dal toggle button
     useEffect(() => {
         const handleOutsideClick = (e) => {
-            if (nodeRef.current && !nodeRef.current.contains(e.target)) {
+            if (
+                overlayRef.current &&
+                !overlayRef.current.contains(e.target) &&
+                buttonRef.current &&
+                !buttonRef.current.contains(e.target)
+            ) {
                 setOpen(false);
             }
         };
@@ -48,49 +41,47 @@ const ToggleMenu = ({ nav = [] }) => {
         };
     }, [isOpen]);
 
-    if (isDesktop) {
-        return (
-            <nav className="flex space-x-6">
-                {nav.map((item, index) => (
-                    <Link
-                        key={index}
-                        href={`${item.slug?.text ? item.slug.text : (item.link?.text || "")}`}
-                        className="text-primary hover:underline text-lg"
-                    >
-                        {item.testo}
-                    </Link>
-                ))}
-            </nav>
-        );
-    }
-
     return (
-        <div ref={nodeRef} className="relative">
-            {/* Bottone per aprire/chiudere il menu su mobile */}
+        <>
+            {/* Pulsante toggle senza posizionamento assoluto */}
             <button
-                onClick={() => setOpen((prev) => !prev)}
+                ref={buttonRef}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setOpen((prev) => !prev);
+                }}
                 role="button"
                 aria-expanded={isOpen}
                 aria-label="Toggle Navigation Menu"
-                className="p-2 bg-primary text-white rounded"
+                className="z-[60] p-2 focus:outline-none" // Posizionamento rimosso
             >
-                Menu
+                <div className="w-6 h-6 flex flex-col justify-between">
+                    <span
+                        className={`block h-1 transition-transform duration-300 ${isOpen ? "bg-white rotate-45 translate-y-2" : "bg-current"
+                            }`}
+                    ></span>
+                    <span
+                        className={`block h-1 transition-opacity duration-300 ${isOpen ? "bg-white opacity-0" : "bg-current opacity-100"
+                            }`}
+                    ></span>
+                    <span
+                        className={`block h-1 transition-transform duration-300 ${isOpen ? "bg-white -rotate-45 -translate-y-2" : "bg-current"
+                            }`}
+                    ></span>
+                </div>
             </button>
 
+            {/* Overlay del menu */}
             {isOpen && (
-                <div className="fixed inset-0 z-50 bg-primary bg-opacity-100 text-secondary flex flex-col items-center justify-center">
-                    <button
-                        onClick={() => setOpen(false)}
-                        aria-label="Close Navigation Menu"
-                        className="absolute top-8 right-24 text-white text-4xl p-2"
-                    >
-                        x
-                    </button>
+                <div
+                    ref={overlayRef}
+                    className="fixed inset-0 z-50 bg-primary text-secondary flex flex-col items-center justify-center"
+                >
                     <ul className="space-y-6">
                         {nav.map((item, index) => (
                             <li key={index} className="text-white">
                                 <Link
-                                    href={`${item.slug?.text ? item.slug.text : (item.link?.text || "")}`}
+                                    href={item.slug?.text ? item.slug.text : item.link?.text || "#"}
                                     onClick={() => setOpen(false)}
                                     className="hover:underline text-white text-2xl"
                                 >
@@ -101,7 +92,7 @@ const ToggleMenu = ({ nav = [] }) => {
                     </ul>
                 </div>
             )}
-        </div>
+        </>
     );
 };
 

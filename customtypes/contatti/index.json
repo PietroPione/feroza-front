@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "contatti": {
+              "type": "SharedSlice"
+            },
+            "social": {
+              "type": "SharedSlice"
+            },
             "prenota_tavolo": {
               "type": "SharedSlice"
             }
