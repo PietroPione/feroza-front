@@ -29,8 +29,8 @@ export default async function Contatti() {
         <div className="container mx-auto p-4">
             {/* Sezione Contatti */}
             {contattiSlices && (
-                <div className="flex flex-col md:flex-row container justify-between items-center space-y-10 md:space-y-0">
-                    <div className="space-y-4 md:space-y-10">
+                <div className="flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0">
+                    <div className="space-y-4 md:space-y-6">
                         {/* Mail */}
                         <div>
 
@@ -74,7 +74,7 @@ export default async function Contatti() {
             {/* Sezione Prenota Tavolo */}
             {prenotaSlices && (
                 <div className="flex flex-col md:flex-row min-h-[33vh] justify-between mt-8 relative">
-                    <div className="flex-1 flex items-center justify-center space-y-0 md:space-y-4">
+                    <div className="flex-1 flex items-center justify-center md:justify-start space-y-0 md:space-y-4">
                         <div className="space-y-4">
                             <h1 className="text-40 leading-none md:text-60 font-bold uppercase">{prenotaSlices.titolo}</h1>
                             <p className="text-17">{prenotaSlices.spiega}</p>
