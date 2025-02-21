@@ -8,7 +8,6 @@ const ToggleMenu = ({ nav = [] }) => {
     const overlayRef = useRef();
     const buttonRef = useRef();
 
-    // Disabilita lo scroll quando il menu è aperto
     useEffect(() => {
         document.body.style.overflow = isOpen ? "hidden" : "";
         return () => {
@@ -16,7 +15,6 @@ const ToggleMenu = ({ nav = [] }) => {
         };
     }, [isOpen]);
 
-    // Chiude il menu se si clicca fuori dall'overlay e fuori dal toggle button
     useEffect(() => {
         const handleOutsideClick = (e) => {
             if (
@@ -39,7 +37,7 @@ const ToggleMenu = ({ nav = [] }) => {
 
     return (
         <>
-            {/* Pulsante toggle: se il menu è aperto diventa fixed per essere sempre visibile */}
+            {/* Pulsante toggle senza posizione fixed */}
             <button
                 ref={buttonRef}
                 onClick={(e) => {
@@ -49,46 +47,49 @@ const ToggleMenu = ({ nav = [] }) => {
                 role="button"
                 aria-expanded={isOpen}
                 aria-label="Toggle Navigation Menu"
-                className={`z-[60] p-2 focus:outline-none ${isOpen ? "absolute top-4 right-4" : ""
-                    }`}
+                className={`p-2 focus:outline-none transition-opacity  ease-in-out 
+                    ${isOpen ? "fixed z-50 top-4 left-1/2 -translate-x-1/2" : "relative z-30"}`}
+
             >
-                <div className="w-6 h-6 flex flex-col justify-between">
+                <div className="w-8 h-8 flex flex-col justify-center items-center gap-1.5 relative">
                     <span
-                        className={`block h-1 transition-transform duration-300 ${isOpen ? "bg-white rotate-45 translate-y-2" : "bg-current"
+                        className={`block w-8 h-1 rounded transition-transform duration-300 ${isOpen
+                            ? "bg-white rotate-45 translate-y-3"
+                            : "bg-current translate-y-0"
                             }`}
                     ></span>
                     <span
-                        className={`block h-1 transition-opacity duration-300 ${isOpen ? "bg-white opacity-0" : "bg-current opacity-100"
+                        className={`block w-8 h-1 rounded transition-opacity duration-300 ${isOpen ? "opacity-0" : "bg-current opacity-100"
                             }`}
                     ></span>
                     <span
-                        className={`block h-1 transition-transform duration-300 ${isOpen ? "bg-white -rotate-45 -translate-y-2" : "bg-current"
+                        className={`block w-8 h-1 rounded transition-transform duration-300 ${isOpen
+                            ? "bg-white -rotate-45 -translate-y-2"
+                            : "bg-current translate-y-0"
                             }`}
                     ></span>
                 </div>
             </button>
 
-            {/* Overlay del menu */}
-            {isOpen && (
-                <div
-                    ref={overlayRef}
-                    className="fixed inset-0 z-50 bg-primary text-secondary flex flex-col items-center justify-center"
-                >
-                    <ul className="space-y-6">
-                        {nav.map((item, index) => (
-                            <li key={index} className="text-white">
-                                <Link
-                                    href={item.slug?.text ? item.slug.text : item.link?.text || "#"}
-                                    onClick={() => setOpen(false)}
-                                    className="hover:underline text-white text-2xl"
-                                >
-                                    {item.testo}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+            {/* Overlay del menu con transizione di opacità */}
+            <div
+                ref={overlayRef}
+                className={`fixed inset-0 z-10 bg-primary text-secondary flex flex-col items-center justify-center transition-opacity duration-500 ${isOpen ? "opacity-100 visible fixed" : "opacity-0 invisible fixed"}`}
+            >
+                <ul className="space-y-6">
+                    {nav.map((item, index) => (
+                        <li key={index} className="text-white text-center uppercase text-22 font-semibold">
+                            <Link
+                                href={item.slug?.text ? item.slug.text : item.link?.text || "#"}
+                                onClick={() => setOpen(false)}
+                                className="hover:underline text-white text-2xl"
+                            >
+                                {item.testo}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </>
     );
 };
