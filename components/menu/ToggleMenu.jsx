@@ -74,7 +74,7 @@ const ToggleMenu = ({ nav = [] }) => {
             {/* Overlay del menu con transizione di opacità */}
             <div
                 ref={overlayRef}
-                className={`fixed inset-0 z-10 bg-primary text-secondary flex flex-col items-center justify-center transition-opacity duration-500 ${isOpen ? "opacity-100 visible fixed" : "opacity-0 invisible fixed"}`}
+                className={`fixed inset-0 z-20 bg-primary text-secondary flex flex-col items-center justify-center transition-opacity duration-500 ${isOpen ? "opacity-100 visible fixed" : "opacity-0 invisible fixed"}`}
             >
                 <ul className="space-y-6">
                     {nav.map((item, index) => (
