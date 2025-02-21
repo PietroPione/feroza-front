@@ -102,6 +102,71 @@ interface BirreDocumentData {
 export type BirreDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<BirreDocumentData>, "birre", Lang>;
 
+type CantinaDocumentDataSlicesSlice = CantinaSlice | HeroCantinaSlice;
+
+/**
+ * Content for La nostra cantina documents
+ */
+interface CantinaDocumentData {
+  /**
+   * Slice Zone field in *La nostra cantina*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CantinaDocumentDataSlicesSlice> /**
+   * Meta Title field in *La nostra cantina*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: cantina.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *La nostra cantina*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: cantina.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *La nostra cantina*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * La nostra cantina document from Prismic
+ *
+ * - **API ID**: `cantina`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CantinaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CantinaDocumentData>,
+    "cantina",
+    Lang
+  >;
+
 type ConclusioneMenuDocumentDataSlicesSlice = ConclusioneMenuSlice;
 
 /**
@@ -536,6 +601,7 @@ export type AllDocumentTypes =
   | AperitivoDocument
   | BevandeDocument
   | BirreDocument
+  | CantinaDocument
   | ConclusioneMenuDocument
   | ContattiDocument
   | DrinklistDocument
@@ -1051,6 +1117,201 @@ type BirreInfoSliceVariation = BirreInfoSliceDefault;
 export type BirreInfoSlice = prismic.SharedSlice<
   "birre_info",
   BirreInfoSliceVariation
+>;
+
+/**
+ * Item in *Cantina → Default → Primary → Valori*
+ */
+export interface CantinaSliceDefaultPrimaryValoriItem {
+  /**
+   * Valore field in *Cantina → Default → Primary → Valori*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.valori[].valore
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  valore: prismic.RichTextField;
+}
+
+/**
+ * Item in *Cantina → Default → Primary → Vini*
+ */
+export interface CantinaSliceDefaultPrimaryViniItem {
+  /**
+   * Nome vino field in *Cantina → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.vini[].nome_vino
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome_vino: prismic.KeyTextField;
+
+  /**
+   * Immagine vino field in *Cantina → Default → Primary → Vini*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.vini[].immagine_vino
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_vino: prismic.ImageField<never>;
+
+  /**
+   * Nome testuale field in *Cantina → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.vini[].nome_testuale
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome_testuale: prismic.KeyTextField;
+
+  /**
+   * Luogo field in *Cantina → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.vini[].luogo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  luogo: prismic.KeyTextField;
+
+  /**
+   * Uve field in *Cantina → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.vini[].uve
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uve: prismic.KeyTextField;
+
+  /**
+   * Desscrizione field in *Cantina → Default → Primary → Vini*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.vini[].desscrizione
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  desscrizione: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Cantina → Default → Primary*
+ */
+export interface CantinaSliceDefaultPrimary {
+  /**
+   * Nome field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.nome
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome: prismic.KeyTextField;
+
+  /**
+   * Tasto cantina testo field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.tasto_cantina_testo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tasto_cantina_testo: prismic.KeyTextField;
+
+  /**
+   * Tasto cantina link field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.tasto_cantina_link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tasto_cantina_link: prismic.KeyTextField;
+
+  /**
+   * Payoff field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.payoff
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  payoff: prismic.KeyTextField;
+
+  /**
+   * Valori field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.valori[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  valori: prismic.GroupField<Simplify<CantinaSliceDefaultPrimaryValoriItem>>;
+
+  /**
+   * Descrizione field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.descrizione
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descrizione: prismic.RichTextField;
+
+  /**
+   * Motto finale field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.motto_finale
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  motto_finale: prismic.KeyTextField;
+
+  /**
+   * Vini field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cantina.default.primary.vini[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  vini: prismic.GroupField<Simplify<CantinaSliceDefaultPrimaryViniItem>>;
+}
+
+/**
+ * Default variation for Cantina Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CantinaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CantinaSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Cantina*
+ */
+type CantinaSliceVariation = CantinaSliceDefault;
+
+/**
+ * Cantina Shared Slice
+ *
+ * - **API ID**: `cantina`
+ * - **Description**: Cantina
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CantinaSlice = prismic.SharedSlice<
+  "cantina",
+  CantinaSliceVariation
 >;
 
 /**
@@ -1605,6 +1866,71 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *HeroCantina → Default → Primary*
+ */
+export interface HeroCantinaSliceDefaultPrimary {
+  /**
+   * Titolo field in *HeroCantina → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_cantina.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Spiega field in *HeroCantina → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_cantina.default.primary.spiega
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  spiega: prismic.KeyTextField;
+
+  /**
+   * Immagine field in *HeroCantina → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_cantina.default.primary.immagine
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroCantina Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroCantinaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroCantinaSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroCantina*
+ */
+type HeroCantinaSliceVariation = HeroCantinaSliceDefault;
+
+/**
+ * HeroCantina Shared Slice
+ *
+ * - **API ID**: `hero_cantina`
+ * - **Description**: HeroCantina
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroCantinaSlice = prismic.SharedSlice<
+  "hero_cantina",
+  HeroCantinaSliceVariation
+>;
 
 /**
  * Item in *InfoFinaliBirreVino → Default → Primary → Info*
@@ -2930,6 +3256,9 @@ declare module "@prismicio/client" {
       BirreDocument,
       BirreDocumentData,
       BirreDocumentDataSlicesSlice,
+      CantinaDocument,
+      CantinaDocumentData,
+      CantinaDocumentDataSlicesSlice,
       ConclusioneMenuDocument,
       ConclusioneMenuDocumentData,
       ConclusioneMenuDocumentDataSlicesSlice,
@@ -2982,6 +3311,12 @@ declare module "@prismicio/client" {
       BirreInfoSliceDefaultPrimary,
       BirreInfoSliceVariation,
       BirreInfoSliceDefault,
+      CantinaSlice,
+      CantinaSliceDefaultPrimaryValoriItem,
+      CantinaSliceDefaultPrimaryViniItem,
+      CantinaSliceDefaultPrimary,
+      CantinaSliceVariation,
+      CantinaSliceDefault,
       ConclusioneMenuSlice,
       ConclusioneMenuSliceDefaultPrimaryAltreInfoItem,
       ConclusioneMenuSliceDefaultPrimary,
@@ -3005,6 +3340,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroCantinaSlice,
+      HeroCantinaSliceDefaultPrimary,
+      HeroCantinaSliceVariation,
+      HeroCantinaSliceDefault,
       InfoFinaliBirreVinoSlice,
       InfoFinaliBirreVinoSliceDefaultPrimaryInfoItem,
       InfoFinaliBirreVinoSliceDefaultPrimary,

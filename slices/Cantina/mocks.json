@@ -1,0 +1,145 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"nome": {
+				"__TYPE__": "FieldContent",
+				"value": "present",
+				"type": "Text"
+			},
+			"tasto_cantina_testo": {
+				"__TYPE__": "FieldContent",
+				"value": "plan",
+				"type": "Text"
+			},
+			"tasto_cantina_link": {
+				"__TYPE__": "FieldContent",
+				"value": "powder",
+				"type": "Text"
+			},
+			"payoff": {
+				"__TYPE__": "FieldContent",
+				"value": "frame",
+				"type": "Text"
+			},
+			"valori": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"valore",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Labore nostrud mollit minim occaecat ad voluptate magna reprehenderit exercitation eu nulla est tempor ex. Ex consequat incididunt aliquip duis esse. Adipisicing sint ut occaecat mollit."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"descrizione": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint cillum do non laboris adipisicing esse nulla eu dolor. Aliquip tempor laboris culpa nisi dolor aute labore excepteur amet Lorem non in. Occaecat labore deserunt sint fugiat cillum enim dolor exercitation veniam nulla esse mollit officia culpa pariatur."
+						}
+					}
+				]
+			},
+			"motto_finale": {
+				"__TYPE__": "FieldContent",
+				"value": "was",
+				"type": "Text"
+			},
+			"vini": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"nome_vino",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "wore",
+									"type": "Text"
+								}
+							],
+							[
+								"immagine_vino",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+										"width": 3277,
+										"height": 4092
+									},
+									"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+									"width": 3277,
+									"height": 4092,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"nome_testuale",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "real",
+									"type": "Text"
+								}
+							],
+							[
+								"luogo",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "follow",
+									"type": "Text"
+								}
+							],
+							[
+								"uve",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "stranger",
+									"type": "Text"
+								}
+							],
+							[
+								"desscrizione",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "silk",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

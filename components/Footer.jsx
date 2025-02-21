@@ -97,7 +97,7 @@ export default async function Footer() {
                     <ButtonPrimary url={buttonLink} testo={buttonText} externalLink />
                 </div>
             </div>
-            <div className="container flex space-x-10">
+            <div className="container flex flex-col md:flex-row md:space-x-10">
                 <div className="text-10 ">{info}</div>
                 <Link href={developer_link.text} target="_blank">
                     <div className="text-10 ">{developer}</div>

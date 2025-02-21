@@ -1,0 +1,133 @@
+{
+  "id": "cantina",
+  "type": "SharedSlice",
+  "name": "Cantina",
+  "description": "Cantina",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "nome": {
+          "type": "Text",
+          "config": {
+            "label": "Nome",
+            "placeholder": ""
+          }
+        },
+        "tasto_cantina_testo": {
+          "type": "Text",
+          "config": {
+            "label": "Tasto cantina testo",
+            "placeholder": ""
+          }
+        },
+        "tasto_cantina_link": {
+          "type": "Text",
+          "config": {
+            "label": "Tasto cantina link",
+            "placeholder": ""
+          }
+        },
+        "payoff": {
+          "type": "Text",
+          "config": {
+            "label": "Payoff",
+            "placeholder": ""
+          }
+        },
+        "valori": {
+          "type": "Group",
+          "config": {
+            "label": "Valori",
+            "repeat": true,
+            "fields": {
+              "valore": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Valore",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        },
+        "descrizione": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrizione",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "motto_finale": {
+          "type": "Text",
+          "config": {
+            "label": "Motto finale",
+            "placeholder": ""
+          }
+        },
+        "vini": {
+          "type": "Group",
+          "config": {
+            "label": "Vini",
+            "repeat": true,
+            "fields": {
+              "nome_vino": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome vino",
+                  "placeholder": ""
+                }
+              },
+              "immagine_vino": {
+                "type": "Image",
+                "config": {
+                  "label": "Immagine vino",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "nome_testuale": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome testuale",
+                  "placeholder": ""
+                }
+              },
+              "luogo": {
+                "type": "Text",
+                "config": {
+                  "label": "Luogo",
+                  "placeholder": ""
+                }
+              },
+              "uve": {
+                "type": "Text",
+                "config": {
+                  "label": "Uve",
+                  "placeholder": ""
+                }
+              },
+              "desscrizione": {
+                "type": "Text",
+                "config": {
+                  "label": "Desscrizione",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
