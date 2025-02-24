@@ -1,0 +1,64 @@
+{
+  "id": "tasti",
+  "type": "SharedSlice",
+  "name": "Tasti",
+  "description": "Tasti",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "testo_internazionali": {
+          "type": "Text",
+          "config": {
+            "label": "Testo internazionali",
+            "placeholder": ""
+          }
+        },
+        "immagine_internazionali": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine internazionali",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "testo_nazionali": {
+          "type": "Text",
+          "config": {
+            "label": "Testo nazionali",
+            "placeholder": ""
+          }
+        },
+        "immagine_nazionali": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine nazionali",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "testo_tutti": {
+          "type": "Text",
+          "config": {
+            "label": "Testo tutti",
+            "placeholder": ""
+          }
+        },
+        "immagine_tutti": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine tutti",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

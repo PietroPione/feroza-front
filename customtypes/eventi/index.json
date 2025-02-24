@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "cantina",
-  "label": "La nostra cantina",
+  "id": "eventi",
+  "label": "Eventi",
   "repeatable": false,
   "status": true,
   "json": {
@@ -11,13 +11,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "tasti": {
+            "eventi_hero": {
               "type": "SharedSlice"
             },
-            "cantina": {
-              "type": "SharedSlice"
-            },
-            "hero_cantina": {
+            "eventi": {
               "type": "SharedSlice"
             }
           }

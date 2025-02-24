@@ -1,0 +1,41 @@
+{
+  "id": "eventi_hero",
+  "type": "SharedSlice",
+  "name": "EventiHero",
+  "description": "EventiHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "spiega": {
+          "type": "Text",
+          "config": {
+            "label": "Spiega",
+            "placeholder": ""
+          }
+        },
+        "immagine": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

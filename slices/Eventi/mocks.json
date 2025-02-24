@@ -1,0 +1,83 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"eventi": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"nome_evento",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "rhyme",
+									"type": "Text"
+								}
+							],
+							[
+								"data",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2020-03-31"
+								}
+							],
+							[
+								"orario",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "material",
+									"type": "Text"
+								}
+							],
+							[
+								"immagine",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+										"width": 3958,
+										"height": 3958
+									},
+									"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+									"width": 3958,
+									"height": 3958,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"spiega",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Do fugiat laborum do Lorem magna nisi adipisicing elit reprehenderit proident deserunt. Reprehenderit velit cupidatat ad proident nulla ullamco qui est consectetur exercitation."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -1,0 +1,66 @@
+{
+  "id": "eventi",
+  "type": "SharedSlice",
+  "name": "Eventi",
+  "description": "Eventi",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "eventi": {
+          "type": "Group",
+          "config": {
+            "label": "Eventi",
+            "repeat": true,
+            "fields": {
+              "nome_evento": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome_evento",
+                  "placeholder": ""
+                }
+              },
+              "data": {
+                "type": "Date",
+                "config": {
+                  "label": "Data",
+                  "placeholder": ""
+                }
+              },
+              "orario": {
+                "type": "Text",
+                "config": {
+                  "label": "Orario",
+                  "placeholder": ""
+                }
+              },
+              "immagine": {
+                "type": "Image",
+                "config": {
+                  "label": "Immagine",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "spiega": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Spiega",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

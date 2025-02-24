@@ -102,7 +102,10 @@ interface BirreDocumentData {
 export type BirreDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<BirreDocumentData>, "birre", Lang>;
 
-type CantinaDocumentDataSlicesSlice = CantinaSlice | HeroCantinaSlice;
+type CantinaDocumentDataSlicesSlice =
+  | TastiSlice
+  | CantinaSlice
+  | HeroCantinaSlice;
 
 /**
  * Content for La nostra cantina documents
@@ -300,6 +303,71 @@ export type DrinklistDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<DrinklistDocumentData>,
     "drinklist",
+    Lang
+  >;
+
+type EventiDocumentDataSlicesSlice = EventiHeroSlice | EventiSlice;
+
+/**
+ * Content for Eventi documents
+ */
+interface EventiDocumentData {
+  /**
+   * Slice Zone field in *Eventi*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<EventiDocumentDataSlicesSlice> /**
+   * Meta Title field in *Eventi*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: eventi.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Eventi*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: eventi.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Eventi*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Eventi document from Prismic
+ *
+ * - **API ID**: `eventi`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EventiDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<EventiDocumentData>,
+    "eventi",
     Lang
   >;
 
@@ -605,6 +673,7 @@ export type AllDocumentTypes =
   | ConclusioneMenuDocument
   | ContattiDocument
   | DrinklistDocument
+  | EventiDocument
   | FerozaDocument
   | FooterDocument
   | HeaderDocument
@@ -1282,6 +1351,17 @@ export interface CantinaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   vini: prismic.GroupField<Simplify<CantinaSliceDefaultPrimaryViniItem>>;
+
+  /**
+   * Cantina internazionale field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cantina.default.primary.cantina_internazionale
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  cantina_internazionale: prismic.BooleanField;
 }
 
 /**
@@ -1710,6 +1790,168 @@ type DrinkListSliceVariation = DrinkListSliceDefault;
 export type DrinkListSlice = prismic.SharedSlice<
   "drink_list",
   DrinkListSliceVariation
+>;
+
+/**
+ * Item in *Eventi → Default → Primary → Eventi*
+ */
+export interface EventiSliceDefaultPrimaryEventiItem {
+  /**
+   * Nome_evento field in *Eventi → Default → Primary → Eventi*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi.default.primary.eventi[].nome_evento
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome_evento: prismic.KeyTextField;
+
+  /**
+   * Data field in *Eventi → Default → Primary → Eventi*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi.default.primary.eventi[].data
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  data: prismic.DateField;
+
+  /**
+   * Orario field in *Eventi → Default → Primary → Eventi*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi.default.primary.eventi[].orario
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  orario: prismic.KeyTextField;
+
+  /**
+   * Immagine field in *Eventi → Default → Primary → Eventi*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi.default.primary.eventi[].immagine
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine: prismic.ImageField<never>;
+
+  /**
+   * Spiega field in *Eventi → Default → Primary → Eventi*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi.default.primary.eventi[].spiega
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  spiega: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Eventi → Default → Primary*
+ */
+export interface EventiSliceDefaultPrimary {
+  /**
+   * Eventi field in *Eventi → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi.default.primary.eventi[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  eventi: prismic.GroupField<Simplify<EventiSliceDefaultPrimaryEventiItem>>;
+}
+
+/**
+ * Default variation for Eventi Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventiSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EventiSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Eventi*
+ */
+type EventiSliceVariation = EventiSliceDefault;
+
+/**
+ * Eventi Shared Slice
+ *
+ * - **API ID**: `eventi`
+ * - **Description**: Eventi
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventiSlice = prismic.SharedSlice<"eventi", EventiSliceVariation>;
+
+/**
+ * Primary content in *EventiHero → Default → Primary*
+ */
+export interface EventiHeroSliceDefaultPrimary {
+  /**
+   * Titolo field in *EventiHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi_hero.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Spiega field in *EventiHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi_hero.default.primary.spiega
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  spiega: prismic.KeyTextField;
+
+  /**
+   * Immagine field in *EventiHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventi_hero.default.primary.immagine
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for EventiHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventiHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EventiHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *EventiHero*
+ */
+type EventiHeroSliceVariation = EventiHeroSliceDefault;
+
+/**
+ * EventiHero Shared Slice
+ *
+ * - **API ID**: `eventi_hero`
+ * - **Description**: EventiHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventiHeroSlice = prismic.SharedSlice<
+  "eventi_hero",
+  EventiHeroSliceVariation
 >;
 
 /**
@@ -3065,6 +3307,98 @@ type SocialSliceVariation = SocialSliceDefault;
 export type SocialSlice = prismic.SharedSlice<"social", SocialSliceVariation>;
 
 /**
+ * Primary content in *Tasti → Default → Primary*
+ */
+export interface TastiSliceDefaultPrimary {
+  /**
+   * Testo internazionali field in *Tasti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tasti.default.primary.testo_internazionali
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_internazionali: prismic.KeyTextField;
+
+  /**
+   * Immagine internazionali field in *Tasti → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tasti.default.primary.immagine_internazionali
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_internazionali: prismic.ImageField<never>;
+
+  /**
+   * Testo nazionali field in *Tasti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tasti.default.primary.testo_nazionali
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_nazionali: prismic.KeyTextField;
+
+  /**
+   * Immagine nazionali field in *Tasti → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tasti.default.primary.immagine_nazionali
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_nazionali: prismic.ImageField<never>;
+
+  /**
+   * Testo tutti field in *Tasti → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tasti.default.primary.testo_tutti
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_tutti: prismic.KeyTextField;
+
+  /**
+   * Immagine tutti field in *Tasti → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tasti.default.primary.immagine_tutti
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_tutti: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Tasti Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TastiSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TastiSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Tasti*
+ */
+type TastiSliceVariation = TastiSliceDefault;
+
+/**
+ * Tasti Shared Slice
+ *
+ * - **API ID**: `tasti`
+ * - **Description**: Tasti
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TastiSlice = prismic.SharedSlice<"tasti", TastiSliceVariation>;
+
+/**
  * Item in *Vini → Default → Primary → Vini*
  */
 export interface ViniSliceDefaultPrimaryViniItem {
@@ -3268,6 +3602,9 @@ declare module "@prismicio/client" {
       DrinklistDocument,
       DrinklistDocumentData,
       DrinklistDocumentDataSlicesSlice,
+      EventiDocument,
+      EventiDocumentData,
+      EventiDocumentDataSlicesSlice,
       FerozaDocument,
       FerozaDocumentData,
       FerozaDocumentDataSlicesSlice,
@@ -3331,6 +3668,15 @@ declare module "@prismicio/client" {
       DrinkListSliceDefaultPrimary,
       DrinkListSliceVariation,
       DrinkListSliceDefault,
+      EventiSlice,
+      EventiSliceDefaultPrimaryEventiItem,
+      EventiSliceDefaultPrimary,
+      EventiSliceVariation,
+      EventiSliceDefault,
+      EventiHeroSlice,
+      EventiHeroSliceDefaultPrimary,
+      EventiHeroSliceVariation,
+      EventiHeroSliceDefault,
       FerozaSlice,
       FerozaSliceDefaultPrimarySezioniItem,
       FerozaSliceDefaultPrimary,
@@ -3397,6 +3743,10 @@ declare module "@prismicio/client" {
       SocialSliceDefaultPrimary,
       SocialSliceVariation,
       SocialSliceDefault,
+      TastiSlice,
+      TastiSliceDefaultPrimary,
+      TastiSliceVariation,
+      TastiSliceDefault,
       ViniSlice,
       ViniSliceDefaultPrimaryViniItem,
       ViniSliceDefaultPrimary,

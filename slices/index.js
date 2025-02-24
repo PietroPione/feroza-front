@@ -11,6 +11,8 @@ export const components = {
   conclusione_menu: dynamic(() => import("./ConclusioneMenu")),
   contatti: dynamic(() => import("./Contatti")),
   drink_list: dynamic(() => import("./DrinkList")),
+  eventi: dynamic(() => import("./Eventi")),
+  eventi_hero: dynamic(() => import("./EventiHero")),
   feroza: dynamic(() => import("./Feroza")),
   hero: dynamic(() => import("./Hero")),
   hero_cantina: dynamic(() => import("./HeroCantina")),
@@ -25,6 +27,7 @@ export const components = {
   sezioni_home: dynamic(() => import("./SezioniHome")),
   simurgh: dynamic(() => import("./Simurgh")),
   social: dynamic(() => import("./Social")),
+  tasti: dynamic(() => import("./Tasti")),
   vini: dynamic(() => import("./Vini")),
   vini_info: dynamic(() => import("./ViniInfo")),
 };

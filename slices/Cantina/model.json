@@ -125,6 +125,15 @@
               }
             }
           }
+        },
+        "cantina_internazionale": {
+          "type": "Boolean",
+          "config": {
+            "label": "Cantina internazionale",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {}
