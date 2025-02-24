@@ -1,6 +1,6 @@
-import Image from "next/image";
 import ButtonPrimary from "./buttonPrimary";
 import { PrismicRichText } from "@prismicio/react";
+import CardWine from "./card/CardWine"
 
 export default function CantinaRipetibile({ slice, index }) {
     return (
@@ -56,25 +56,14 @@ export default function CantinaRipetibile({ slice, index }) {
                 </div>
 
                 {/* Mostra i vini */}
-                {slice.primary.vini && slice.primary.vini.length > 0 && (
-                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {slice.primary.vini && slice.primary.vini.length > 0 &&
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
                         {slice.primary.vini.map((vino, vinoIndex) => (
-                            <div key={vinoIndex} className="space-y-4">
-                                <Image
-                                    src={vino.immagine_vino.url}
-                                    alt={vino.nome_testuale || "Vino"}
-                                    width={300}
-                                    height={200}
-                                    className="rounded-lg w-full h-auto"
-                                />
-                                <h3 className="text-22 md:text-36 font-semibold">{vino.nome_testuale}</h3>
-                                <p>{vino.luogo}</p>
-                                <p>{vino.uve}</p>
-                                <p>{vino.desscrizione}</p>
-                            </div>
+                            <CardWine key={vinoIndex} vino={vino} vinoIndex={vinoIndex} />
                         ))}
+
                     </div>
-                )}
+                }
             </div>
         </div>
     );
