@@ -10,8 +10,8 @@ export default function InstagramFeed({ token }) {
     const feed = new Instafeed({
       accessToken,
       target: feedRef.current,
-      limit: 9,
-      template: "", // Gestiamo l'output nel callback success
+      limit: 16,
+      template: "",
       success: function (response) {
         let output = "";
         response.data.forEach((item) => {
@@ -46,5 +46,5 @@ export default function InstagramFeed({ token }) {
     feed.run();
   }, [accessToken]);
 
-  return <div ref={feedRef} className="grid grid-cols-2 md:grid-cols-3 gap-4 py-10"></div>;
+  return <div ref={feedRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 py-10"></div>;
 }

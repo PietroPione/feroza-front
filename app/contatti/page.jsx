@@ -30,7 +30,7 @@ export default async function Contatti() {
             {/* Sezione Contatti */}
             {contattiSlices && (
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0">
-                    <div className="space-y-4 md:space-y-6">
+                    <div className="space-y-2 md:space-y-4">
                         {/* Mail */}
                         <div>
 
