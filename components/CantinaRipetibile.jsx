@@ -4,8 +4,8 @@ import CardWine from "./card/CardWine"
 
 export default function CantinaRipetibile({ slice, index }) {
     return (
-        <div className="relative  flex items-center">
-            <div key={index} className="my-8">
+        <div className="relative flex items-center">
+            <div key={index} className="my-10 md:my-16">
                 <div className="space-y-4 md:space-y-6">
                     <div className="flex md:flex-row flex-col space-y-4 md:space-y-0 justify-between">
                         <h1 className="text-40 leading-none md:text-60 font-bold uppercase bg-secondary p-4 md:w-[50vw]">{slice.primary.nome}</h1>
