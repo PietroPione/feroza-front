@@ -1,11 +1,12 @@
 import { createClient } from "@/prismicio";
 import Link from "next/link";
-import Image from "next/image";
 import FineMenu from "@/components/FineMenu";
 
 export default async function LandingMenu() {
   const client = createClient();
-  const response = await client.getByType("menu");
+
+  // Recupera i dati del menu principale
+  const response = await client.getByType("menu", { lang: "it" }); // Imposta dinamicamente la lingua se necessario
 
   if (!response || response.results.length === 0) {
     return <div>Nessun dato trovato</div>;
@@ -18,16 +19,15 @@ export default async function LandingMenu() {
     (slice) => slice.slice_type === "navigazione_menu"
   );
 
-
   const navigazioneMenu = navigazionemenuSlice?.primary?.navigazionemenu || [];
 
-  // Recupera le fine menu
-  const fineMenuResponse = await client.getByType("conclusione_menu");
+  // Recupera le informazioni di FineMenu
+  const fineMenuResponse = await client.getByType("conclusione_menu", { lang: "it" });
   const fineMenu = fineMenuResponse.results[0];
 
   // Recupera tutte le slice di tipo "conclusione_menu"
   const fineMenuSlices = fineMenu?.data.slices.filter(slice => slice.slice_type === "conclusione_menu") || [];
-  const coperto = fineMenuSlices[0]?.primary?.coperto;
+  const coperto = fineMenuSlices[0]?.primary?.coperto || null;
   const altre_info = fineMenuSlices[0]?.primary?.altre_info || [];
 
   return (
@@ -52,7 +52,7 @@ export default async function LandingMenu() {
           </Link>
         ))}
       </div>
-      {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info}></FineMenu>)}
+      {coperto && <FineMenu coperto={coperto} altre_info={altre_info} />}
     </div>
   );
 }
