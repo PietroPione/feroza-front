@@ -46,13 +46,20 @@
 							[
 								"link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "6551b1f3-9b55-46ee-8925-261b323af0b4",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "http://twitter.com",
 										"text": "crowd"
 									}
+								}
+							],
+							[
+								"external_link",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
 								}
 							]
 						]

@@ -2715,6 +2715,17 @@ export interface NavigazioneMenuSliceDefaultPrimaryNavigazionemenuItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * External link field in *NavigazioneMenu → Default → Primary → NavigazioneMenu*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: navigazione_menu.default.primary.navigazionemenu[].external_link
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  external_link: prismic.BooleanField;
 }
 
 /**

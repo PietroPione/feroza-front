@@ -43,6 +43,15 @@
                   "allowText": true,
                   "repeat": false
                 }
+              },
+              "external_link": {
+                "type": "Boolean",
+                "config": {
+                  "label": "External link",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
               }
             }
           }
