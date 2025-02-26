@@ -1,0 +1,122 @@
+{
+  "id": "catering",
+  "type": "SharedSlice",
+  "name": "Catering",
+  "description": "Catering",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "titolo_catering": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo catering",
+            "placeholder": ""
+          }
+        },
+        "spiega_catering": {
+          "type": "Text",
+          "config": {
+            "label": "Spiega catering",
+            "placeholder": ""
+          }
+        },
+        "testo_tasto_catering": {
+          "type": "Text",
+          "config": {
+            "label": "Testo tasto catering",
+            "placeholder": ""
+          }
+        },
+        "link_catering": {
+          "type": "Link",
+          "config": {
+            "label": "Link catering",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "titolo_locale": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo locale",
+            "placeholder": ""
+          }
+        },
+        "spiega_locale": {
+          "type": "Text",
+          "config": {
+            "label": "Spiega locale",
+            "placeholder": ""
+          }
+        },
+        "testo_tasto_locale": {
+          "type": "Text",
+          "config": {
+            "label": "Testo tasto locale",
+            "placeholder": ""
+          }
+        },
+        "link_locale": {
+          "type": "Link",
+          "config": {
+            "label": "link locale",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "titolo_asporto": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo asporto",
+            "placeholder": ""
+          }
+        },
+        "spiega_asporto": {
+          "type": "Text",
+          "config": {
+            "label": "Spiega asporto",
+            "placeholder": ""
+          }
+        },
+        "testo_tasto_asporto": {
+          "type": "Text",
+          "config": {
+            "label": "Testo tasto asporto",
+            "placeholder": ""
+          }
+        },
+        "link_tasto_asporto": {
+          "type": "Link",
+          "config": {
+            "label": "Link tasto asporto",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

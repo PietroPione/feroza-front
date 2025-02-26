@@ -1,8 +1,8 @@
 import { createClient } from "@/prismicio";
-import SezioniHome from "@/components/SezioniHome";
 import HeroHome from "@/components/HeroHome";
 import FerozaInfo from "@/components/FerozaInfo";
 import Simurgh from "@/components/Simurgh";
+import MangiareHome from "@/components/MangiareHome";
 
 export default async function HomePage() {
   const client = createClient();
@@ -24,19 +24,19 @@ export default async function HomePage() {
   const sezioniHomeSlice = mappedSlices.find((slice) => slice.type === "sezioni_home");
   const ferozaSlices = mappedSlices.filter((slice) => slice.type === "feroza");
   const simurghSlices = mappedSlices.filter((slice) => slice.type === "simurgh");
+  const cateringSlice = mappedSlices.find((slice) => slice.type === "catering");
 
   const sezioniHomeItems = sezioniHomeSlice?.primary?.sezioni_home || [];
-  const heroHomeItems = heroSlice?.primary || [];
-
+  const heroHomeItems = heroSlice?.primary || {};
+  const cateringItems = cateringSlice?.primary || {};
 
   return (
     <div>
       <HeroHome items={heroHomeItems} />
-      {/* <SezioniHome items={sezioniHomeItems} /> */}
-      {/* Sezioni Feroza */}
-  {ferozaSlices && <FerozaInfo ferozaSlices={ferozaSlices}></FerozaInfo>}
-  {simurghSlices && <Simurgh simurgh={simurghSlices}></Simurgh>}
-  
+
+      {ferozaSlices && <FerozaInfo ferozaSlices={ferozaSlices} />}
+      {cateringSlice && <MangiareHome catering={cateringItems} />}
+      {simurghSlices && <Simurgh simurgh={simurghSlices} />}
     </div>
   );
 }

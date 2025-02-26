@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "catering": {
+              "type": "SharedSlice"
+            },
             "simurgh": {
               "type": "SharedSlice"
             },
@@ -25,9 +28,6 @@
               "type": "SharedSlice"
             },
             "hero": {
-              "type": "SharedSlice"
-            },
-            "sezioni_home": {
               "type": "SharedSlice"
             }
           }

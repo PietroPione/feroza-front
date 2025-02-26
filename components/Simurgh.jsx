@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Simurgh({ simurgh }) {
   return (
-    <div className="mx-auto space-y-10 pt-40 md:pt-20 pb-20 md:pb-60 relative">
+    <div className="mx-auto space-y-10 pt-40 md:mt-20 pb-20 md:pb-60 relative">
       {simurgh.map((slice, index) => {
         const {
           immagine_absolute_top,

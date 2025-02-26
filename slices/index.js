@@ -8,6 +8,7 @@ export const components = {
   birre: dynamic(() => import("./Birre")),
   birre_info: dynamic(() => import("./BirreInfo")),
   cantina: dynamic(() => import("./Cantina")),
+  catering: dynamic(() => import("./Catering")),
   conclusione_menu: dynamic(() => import("./ConclusioneMenu")),
   contatti: dynamic(() => import("./Contatti")),
   drink_list: dynamic(() => import("./DrinkList")),

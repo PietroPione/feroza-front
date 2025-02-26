@@ -372,10 +372,10 @@ export type EventiDocument<Lang extends string = string> =
   >;
 
 type FerozaDocumentDataSlicesSlice =
+  | CateringSlice
   | SimurghSlice
   | FerozaSlice
-  | HeroSlice
-  | SezioniHomeSlice;
+  | HeroSlice;
 
 /**
  * Content for Feroza documents
@@ -1392,6 +1392,189 @@ type CantinaSliceVariation = CantinaSliceDefault;
 export type CantinaSlice = prismic.SharedSlice<
   "cantina",
   CantinaSliceVariation
+>;
+
+/**
+ * Primary content in *Catering → Default → Primary*
+ */
+export interface CateringSliceDefaultPrimary {
+  /**
+   * Titolo field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Titolo catering field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.titolo_catering
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_catering: prismic.KeyTextField;
+
+  /**
+   * Spiega catering field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.spiega_catering
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  spiega_catering: prismic.KeyTextField;
+
+  /**
+   * Testo tasto catering field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.testo_tasto_catering
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_tasto_catering: prismic.KeyTextField;
+
+  /**
+   * Link catering field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.link_catering
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_catering: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Titolo locale field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.titolo_locale
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_locale: prismic.KeyTextField;
+
+  /**
+   * Spiega locale field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.spiega_locale
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  spiega_locale: prismic.KeyTextField;
+
+  /**
+   * Testo tasto locale field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.testo_tasto_locale
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_tasto_locale: prismic.KeyTextField;
+
+  /**
+   * link locale field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.link_locale
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_locale: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Titolo asporto field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.titolo_asporto
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_asporto: prismic.KeyTextField;
+
+  /**
+   * Spiega asporto field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.spiega_asporto
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  spiega_asporto: prismic.KeyTextField;
+
+  /**
+   * Testo tasto asporto field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.testo_tasto_asporto
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_tasto_asporto: prismic.KeyTextField;
+
+  /**
+   * Link tasto asporto field in *Catering → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catering.default.primary.link_tasto_asporto
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_tasto_asporto: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for Catering Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CateringSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CateringSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Catering*
+ */
+type CateringSliceVariation = CateringSliceDefault;
+
+/**
+ * Catering Shared Slice
+ *
+ * - **API ID**: `catering`
+ * - **Description**: Catering
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CateringSlice = prismic.SharedSlice<
+  "catering",
+  CateringSliceVariation
 >;
 
 /**
@@ -3665,6 +3848,10 @@ declare module "@prismicio/client" {
       CantinaSliceDefaultPrimary,
       CantinaSliceVariation,
       CantinaSliceDefault,
+      CateringSlice,
+      CateringSliceDefaultPrimary,
+      CateringSliceVariation,
+      CateringSliceDefault,
       ConclusioneMenuSlice,
       ConclusioneMenuSliceDefaultPrimaryAltreInfoItem,
       ConclusioneMenuSliceDefaultPrimary,
