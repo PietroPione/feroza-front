@@ -4,6 +4,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ToggleMenu from "./menu/ToggleMenu";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function HeaderClient({ logoUrl, menuItems }) {
     return (
@@ -26,6 +27,9 @@ export default function HeaderClient({ logoUrl, menuItems }) {
             </div>
             <div className="static md:absolute md:my-auto md:right-4">
                 <ToggleMenu nav={menuItems} />
+            </div>
+            <div className="pr-20">
+                <LanguageSwitcher />
             </div>
 
         </header>

@@ -1,29 +1,49 @@
+"use client";
+
+import { LanguageContext } from "@/context/LanguageContext";
 import { createClient } from "@/prismicio";
 import Link from "next/link";
 import Image from "next/image";
 import FineMenu from "@/components/FineMenu";
+import { useContext, useEffect, useState } from "react";
 
-export default async function LandingMenu() {
-  const client = createClient();
-  const response = await client.getByType("menu");
+export default function LandingMenu() {
+  const { language } = useContext(LanguageContext); // Recupera la lingua attuale
+  const [menuData, setMenuData] = useState(null);
+  const [fineMenu, setFineMenu] = useState(null);
 
-  if (!response || response.results.length === 0) {
+  useEffect(() => {
+    const fetchData = async () => {
+      const client = createClient();
+
+      // Ottieni il menu con la lingua attiva
+      const response = await client.getByType("menu", { lang: language });
+
+      if (!response || response.results.length === 0) {
+        setMenuData(null);
+        return;
+      }
+
+      const menu = response.results[0];
+      setMenuData(menu);
+
+      // Recupera fine menu
+      const fineMenuResponse = await client.getByType("conclusione_menu", { lang: language });
+      setFineMenu(fineMenuResponse.results[0] || null);
+    };
+
+    fetchData();
+  }, [language]); // Ricarica i dati quando cambia la lingua
+
+  if (!menuData) {
     return <div>Nessun dato trovato</div>;
   }
 
-  const menuData = response.results[0];
-
-  // Estrai lo slice con il tipo "navigazione_menu"
   const navigazionemenuSlice = menuData.data.slices.find(
     (slice) => slice.slice_type === "navigazione_menu"
   );
 
-
   const navigazioneMenu = navigazionemenuSlice?.primary?.navigazionemenu || [];
-
-  // Recupera le fine menu
-  const fineMenuResponse = await client.getByType("conclusione_menu");
-  const fineMenu = fineMenuResponse.results[0];
 
   // Recupera tutte le slice di tipo "conclusione_menu"
   const fineMenuSlices = fineMenu?.data.slices.filter(slice => slice.slice_type === "conclusione_menu") || [];
@@ -37,10 +57,11 @@ export default async function LandingMenu() {
           <Link key={index} href={item.link.url} className="group block">
             <div className="aspect-square flex flex-col justify-between items-center border border-primary p-4 group-hover:bg-gray-200 h-full">
               {item.icona?.url && (
-                <img
+                <Image
                   src={item.icona.url}
                   alt={item.icona.alt || item.titolo}
-                  className="h-1/2 w-auto"
+                  width={100}
+                  height={100}
                 />
               )}
               <div className="flex items-center justify-center h-1/2 w-full">
@@ -52,7 +73,7 @@ export default async function LandingMenu() {
           </Link>
         ))}
       </div>
-      {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info}></FineMenu>)}
+      {fineMenu && (<FineMenu coperto={coperto} altre_info={altre_info} />)}
     </div>
   );
 }
