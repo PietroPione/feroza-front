@@ -23,7 +23,11 @@ export default async function HeaderServer() {
         (slice) => slice.slice_type === "menu"
     );
     const menuItems = menuSlice?.primary?.voci_menu || [];
+    const immagineTopDx = menuSlice?.primary?.immagine_top_dx.url || [];
+    const immagineTopSx = menuSlice?.primary?.immagine_top_sx.url || [];
+    const immagineBottomDx = menuSlice?.primary?.immagine_bottom_dx.url || [];
+    const immagineBottomSx = menuSlice?.primary?.immagine_bottom_sx.url || [];
     return (
-        <HeaderClient logoUrl={logoUrl} menuItems={menuItems} />
+        <HeaderClient logoUrl={logoUrl} menuItems={menuItems} immagineTopDx={immagineTopDx} immagineTopSx={immagineTopSx} immagineBottomDx={immagineBottomDx} immagineBottomSx={immagineBottomSx} />
     );
 }

@@ -38,6 +38,38 @@
               }
             }
           }
+        },
+        "immagine_top_sx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine top sx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_top_dx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine top dx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_bottom_sx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bottom sx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_bottom_dx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bottom dx",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}

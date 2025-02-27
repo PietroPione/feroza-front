@@ -2842,6 +2842,46 @@ export interface MenuSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   voci_menu: prismic.GroupField<Simplify<MenuSliceDefaultPrimaryVociMenuItem>>;
+
+  /**
+   * Immagine top sx field in *Menu → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.default.primary.immagine_top_sx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_sx: prismic.ImageField<never>;
+
+  /**
+   * Immagine top dx field in *Menu → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.default.primary.immagine_top_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_dx: prismic.ImageField<never>;
+
+  /**
+   * Immagine bottom sx field in *Menu → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.default.primary.immagine_bottom_sx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_sx: prismic.ImageField<never>;
+
+  /**
+   * Immagine bottom dx field in *Menu → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.default.primary.immagine_bottom_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_dx: prismic.ImageField<never>;
 }
 
 /**

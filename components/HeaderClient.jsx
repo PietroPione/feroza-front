@@ -4,9 +4,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import ToggleMenu from "./menu/ToggleMenu";
-import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function HeaderClient({ logoUrl, menuItems }) {
+export default function HeaderClient({ logoUrl, menuItems, immagineTopSx, immagineTopDx, immagineBottomSx, immagineBottomDx }) {
     return (
         <header className="container py-10 flex flex-col md:flex-row justify-between items-center relative">
             <div className="flex-1 flex justify-center">
@@ -26,7 +25,7 @@ export default function HeaderClient({ logoUrl, menuItems }) {
                 </Link>
             </div>
             <div className="static md:absolute md:my-auto md:right-4">
-                <ToggleMenu nav={menuItems} />
+                <ToggleMenu nav={menuItems} immagineTopSx={immagineTopSx} immagineTopDx={immagineTopDx} immagineBottomSx={immagineBottomSx} immagineBottomDx={immagineBottomDx} />
             </div>
         </header>
     );
