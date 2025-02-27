@@ -12,7 +12,7 @@ module.exports = {
         gray: {
           light: "#54595F",
         dark: "#101010"},
-        white: "#F2F2F2",
+        white: "#ffffff",
       },
       fontSize: {
         10: "0.65rem",
