@@ -37,11 +37,11 @@ export default function LandingMenu() {
           {[1, 2, 3, 4, 5, 6].map((index) => (
             <div
               key={index}
-              className="aspect-square rounded-full border border-gray-300 p-4 animate-pulse bg-gray-100"
+              className="aspect-square rounded-full border border-gray-300 p-4 animate-pulse bg-white" // Modifica qui
             ></div>
           ))}
         </div>
-        <div className="animate-pulse bg-gray-100 h-20 rounded"></div>
+        <div className="animate-pulse bg-white h-20 rounded"></div> // Modifica qui
       </div>
     );
   }
