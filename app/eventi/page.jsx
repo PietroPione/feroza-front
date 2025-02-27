@@ -1,13 +1,40 @@
+"use client";
+
 import { createClient } from "@/prismicio";
 import CardEventi from "@/components/card/CardEventi";
 import { isEventoPassato } from "@/utils";
+import { LanguageContext } from "@/context/LanguageContext";
+import { useContext, useEffect, useState } from "react";
+import Image from "next/image";
 
-export default async function Eventi() {
-    const client = createClient();
+export default function Eventi() {
+    const { language } = useContext(LanguageContext);
+    const [eventi, setEventi] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    // Recupera il documento del custom type "eventi"
-    const response = await client.getByType("eventi");
-    const eventi = response.results[0];
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const client = createClient();
+            const response = await client.getByType("eventi", { lang: language });
+            if (response?.results.length > 0) {
+                setEventi(response.results[0]);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, [language]);
+
+    if (loading) {
+        return (
+            <div className="container space-y-10 pb-10 md:py-10">
+                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+            </div>
+        );
+    }
 
     if (!eventi) {
         return <div className="container">Nessun evento disponibile</div>;
@@ -18,16 +45,18 @@ export default async function Eventi() {
         primary: slice.primary,
     }));
 
-    // Trova le slice corrette
-    const heroEventiSlice = mappedSlices.find(slice => slice.type === "eventi_hero")?.primary;
-    const eventiSlices = mappedSlices.filter(slice => slice.type === "eventi");
-
+    const heroEventiSlice = mappedSlices.find(
+        (slice) => slice.type === "eventi_hero"
+    )?.primary;
+    const eventiSlices = mappedSlices.filter((slice) => slice.type === "eventi");
 
     return (
         <div className="container p-4 space-y-10">
             {heroEventiSlice && (
                 <div className="space-y-4 md:space-y-6">
-                    <h1 className="text-40 md:text-60 font-bold uppercase">{heroEventiSlice.titolo}</h1>
+                    <h1 className="text-40 md:text-60 font-bold uppercase">
+                        {heroEventiSlice.titolo}
+                    </h1>
                     <p className="text-17 md:text-22">{heroEventiSlice.spiega}</p>
                     {heroEventiSlice.immagine?.url && (
                         <Image
@@ -47,9 +76,10 @@ export default async function Eventi() {
                     eventiSlices.map((slice, index) => (
                         slice.primary.eventi.map((evento, eventoIndex) => (
                             <CardEventi
+                                key={`${index}-${eventoIndex}`} // Aggiunto key per React
                                 evento={evento}
                                 eventoIndex={eventoIndex}
-                                passato={isEventoPassato(evento.data)} // Aggiungi la prop passato
+                                passato={isEventoPassato(evento.data)}
                             />
                         ))
                     ))

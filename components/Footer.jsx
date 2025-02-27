@@ -1,23 +1,59 @@
+"use client";
+
 import { createClient } from "@/prismicio";
 import Link from "next/link";
 import ButtonPrimary from "./buttonPrimary";
+import { LanguageContext } from "@/context/LanguageContext";
+import { useContext, useEffect, useState } from "react";
 
-export default async function Footer() {
-    const client = createClient();
-    const response = await client.getByType("footer");
+export default function Footer() {
+    const { language } = useContext(LanguageContext);
+    const [footerData, setFooterData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    if (!response || response.results.length === 0) {
-        return <div>Nessun dato trovato</div>;
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const client = createClient();
+            const response = await client.getByType("footer", { lang: language });
+            if (response?.results.length > 0) {
+                setFooterData(response.results[0]);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, [language]);
+
+    if (loading) {
+        return (
+            <footer className="bg-primary py-10 text-white">
+                <div className="container space-y-4">
+                    <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                    <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                    <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                </div>
+            </footer>
+        );
     }
 
-    const footerData = response.results[0];
+    if (!footerData) {
+        return (
+            <footer className="bg-primary py-10 text-white">
+                <div className="container">Nessun dato trovato</div>
+            </footer>
+        );
+    }
 
     // Estrai il logo dai slices
-    const logoSlice = footerData.data.slices.find(slice => slice.slice_type === "logo");
+    const logoSlice = footerData.data.slices.find(
+        (slice) => slice.slice_type === "logo"
+    );
     const logoUrl = logoSlice?.primary?.logo?.url || null;
 
     // Estrai info generali
-    const infoSlice = footerData.data.slices.find(slice => slice.slice_type === "info_footer");
+    const infoSlice = footerData.data.slices.find(
+        (slice) => slice.slice_type === "info_footer"
+    );
     const indirizzo = infoSlice?.primary?.indirizzo || "";
     const linkMaps = infoSlice?.primary?.link_mappa.text || [];
     const nomeRistorante = infoSlice?.primary?.nome_ristorante || [];
@@ -43,15 +79,9 @@ export default async function Footer() {
             <div className="flex flex-col md:flex-row justify-between container space-y-10 md:space-y-0">
                 <div>
                     <div className="flex flex-col justify-center md:justify-start items-center md:items-start">
-
                         {/* Logo */}
                         {logoUrl && (
-                            <img
-                                src={logoUrl}
-                                alt="Logo"
-                                className="h-24 w-auto"
-
-                            />
+                            <img src={logoUrl} alt="Logo" className="h-24 w-auto" />
                         )}
                         <div className="text-26 font-semibold">{nomeRistorante}</div>
                     </div>
@@ -62,48 +92,35 @@ export default async function Footer() {
                             {indirizzo}
                         </Link>
                     </div>
-
-
                 </div>
 
                 {/* Orari */}
                 <div className="space-y-4 flex flex-col">
-                    <div className="text-22 font-semibold">
-                        {titoloOrari}
-                    </div>
+                    <div className="text-22 font-semibold">{titoloOrari}</div>
                     <ul>
                         {orari.map((item, index) => (
-                            <li key={index}>{item.giorno} {item.orari}</li>
+                            <li key={index}>
+                                {item.giorno} {item.orari}
+                            </li>
                         ))}
                     </ul>
-
                 </div>
 
                 {/* Info */}
-
                 <div className="space-y-4 flex flex-col">
                     <div className="space-y-4 flex flex-col">
-
-                        <div className="text-22 font-semibold">
-                            {telefonoTitolo}
-                        </div>
+                        <div className="text-22 font-semibold">{telefonoTitolo}</div>
                         <Link href={telefonoLink}>{telefonoTesto}</Link>
                     </div>
                     <div className="space-y-4 flex flex-col">
-
-                        <div className="text-22 font-semibold">
-                            {mailTitolo}
-                        </div>
+                        <div className="text-22 font-semibold">{mailTitolo}</div>
                         <Link href={mailLink}>{mailTesto}</Link>
                     </div>
-
                 </div>
 
                 {/* Social */}
                 <div className="space-y-4 flex flex-col">
-                    <div className="text-22 font-semibold" >
-                        {titoloSocial}
-                    </div>
+                    <div className="text-22 font-semibold">{titoloSocial}</div>
                     <div className="flex space-x-4">
                         {socialLinks.map((social, index) => (
                             <Link key={index} href={social.link?.text || "#"}>

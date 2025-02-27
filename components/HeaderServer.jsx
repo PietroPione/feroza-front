@@ -1,16 +1,46 @@
-// components/HeaderServer.jsx
+"use client";
+
 import { createClient } from "@/prismicio";
 import HeaderClient from "@/components/HeaderClient";
+import { LanguageContext } from "@/context/LanguageContext";
+import { useContext, useEffect, useState } from "react";
 
-export default async function HeaderServer() {
-    const client = createClient();
-    const response = await client.getByType("header");
+export default function HeaderServer() {
+    const { language } = useContext(LanguageContext);
+    const [headerData, setHeaderData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    if (!response || response.results.length === 0) {
-        return <div>Nessun dato trovato</div>;
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const client = createClient();
+            const response = await client.getByType("header", { lang: language });
+            if (response?.results.length > 0) {
+                setHeaderData(response.results[0]);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, [language]);
+
+    if (loading) {
+        return (
+            <header className="py-4">
+                <div className="container space-y-4">
+                    <div className="animate-pulse bg-white invisible h-16 rounded"></div>
+                    <div className="animate-pulse bg-white invisible h-10 rounded"></div>
+                </div>
+            </header>
+        );
     }
 
-    const headerData = response.results[0];
+    if (!headerData) {
+        return (
+            <header className="py-4">
+                <div className="container">Nessun dato trovato</div>
+            </header>
+        );
+    }
 
     // Estrai il logo dai slices
     const logoSlice = headerData.data.slices.find(
@@ -23,11 +53,19 @@ export default async function HeaderServer() {
         (slice) => slice.slice_type === "menu"
     );
     const menuItems = menuSlice?.primary?.voci_menu || [];
-    const immagineTopDx = menuSlice?.primary?.immagine_top_dx.url || [];
-    const immagineTopSx = menuSlice?.primary?.immagine_top_sx.url || [];
-    const immagineBottomDx = menuSlice?.primary?.immagine_bottom_dx.url || [];
-    const immagineBottomSx = menuSlice?.primary?.immagine_bottom_sx.url || [];
+    const immagineTopDx = menuSlice?.primary?.immagine_top_dx?.url || "";
+    const immagineTopSx = menuSlice?.primary?.immagine_top_sx?.url || "";
+    const immagineBottomDx = menuSlice?.primary?.immagine_bottom_dx?.url || "";
+    const immagineBottomSx = menuSlice?.primary?.immagine_bottom_sx?.url || "";
+
     return (
-        <HeaderClient logoUrl={logoUrl} menuItems={menuItems} immagineTopDx={immagineTopDx} immagineTopSx={immagineTopSx} immagineBottomDx={immagineBottomDx} immagineBottomSx={immagineBottomSx} />
+        <HeaderClient
+            logoUrl={logoUrl}
+            menuItems={menuItems}
+            immagineTopDx={immagineTopDx}
+            immagineTopSx={immagineTopSx}
+            immagineBottomDx={immagineBottomDx}
+            immagineBottomSx={immagineBottomSx}
+        />
     );
 }
