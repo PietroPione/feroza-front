@@ -7,25 +7,37 @@ import Bevande from "@/components/Bevande";
 import { useContext, useEffect, useState } from "react";
 
 export default function BevandePage() {
-    const { language } = useContext(LanguageContext);  // Recupera la lingua attuale
-    const [bevande, setBevande] = useState({ data: { slices: [] } });
+    const { language } = useContext(LanguageContext);
+    const [bevande, setBevande] = useState(null); // Inizializzato a null
+    const [loading, setLoading] = useState(true); // Stato di caricamento
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true); // Imposta il caricamento a true
             const client = createClient();
-
-            // Recupera le bevande con la lingua attiva
             const bevandeResponse = await client.getByType("bevande", { lang: language });
-
             if (bevandeResponse?.results.length > 0) {
                 setBevande(bevandeResponse.results[0]);
             }
+            setLoading(false); // Imposta il caricamento a false dopo il caricamento dei dati
         };
-
         fetchData();
-    }, [language]); // Ricarica i dati quando cambia la lingua
+    }, [language]);
 
-    // Recupera tutte le slice di tipo "bevande"
+    if (loading) {
+        // Mostra un placeholder o uno scheletro durante il caricamento
+        return (
+            <div className="space-y-10 py-10">
+                {/* Scheletro per il componente Bevande */}
+                <div className="animate-pulse bg-gray-100 h-64 rounded"></div>
+                {/* Scheletro per il bottone */}
+                <div className="text-center">
+                    <div className="animate-pulse bg-gray-100 w-40 h-12 mx-auto rounded"></div>
+                </div>
+            </div>
+        );
+    }
+
     const bevandeSlices = bevande.data.slices.filter(slice => slice.slice_type === "bevande") || [];
     const titoloBevande = bevandeSlices.map(slice => slice.primary.titolo_bevande || "");
     const immagineBevande = bevandeSlices.map(slice => slice.primary.immagine_bevande?.url || "");

@@ -9,11 +9,13 @@ import { useContext, useEffect, useState } from "react";
 
 export default function LandingMenu() {
   const { language } = useContext(LanguageContext);
-  const [menuData, setMenuData] = useState({ data: { slices: [] } });
-  const [fineMenu, setFineMenu] = useState({ data: { slices: [] } });
+  const [menuData, setMenuData] = useState(null); // Inizializzato a null
+  const [fineMenu, setFineMenu] = useState(null); // Inizializzato a null
+  const [loading, setLoading] = useState(true); // Stato di caricamento
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true); // Imposta il caricamento a true
       const client = createClient();
       const response = await client.getByType("menu", { lang: language });
       if (response?.results.length > 0) {
@@ -23,9 +25,29 @@ export default function LandingMenu() {
       if (fineMenuResponse?.results.length > 0) {
         setFineMenu(fineMenuResponse.results[0]);
       }
+      setLoading(false); // Imposta il caricamento a false dopo il caricamento dei dati
     };
     fetchData();
   }, [language]);
+
+  if (loading) {
+    // Mostra un placeholder o uno scheletro durante il caricamento
+    return (
+      <div className="container space-y-10 pb-10 md:py-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {/* Scheletri per gli elementi del menu */}
+          {[1, 2, 3, 4, 5, 6].map((index) => (
+            <div
+              key={index}
+              className="aspect-square rounded-full border border-gray-300 p-4 animate-pulse bg-gray-100"
+            ></div>
+          ))}
+        </div>
+        {/* Scheletro per FineMenu */}
+        <div className="animate-pulse bg-gray-100 h-20 rounded"></div>
+      </div>
+    );
+  }
 
   const navigazionemenuSlice = menuData.data.slices.find(
     (slice) => slice.slice_type === "navigazione_menu"
@@ -47,7 +69,7 @@ export default function LandingMenu() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="aspect-square rounded-full flex flex-col md:gap-y-4 justify-center items-center border border-primary p-4 group-hover:bg-gray-200 h-full"> {/*Aggiunto justify-center*/}
+              <div className="aspect-square rounded-full flex flex-col md:gap-y-4 justify-center items-center border border-primary p-4 group-hover:bg-gray-200 h-full">
                 {item.icona?.url && (
                   <div className="flex justify-center items-center">
                     <Image
@@ -68,7 +90,7 @@ export default function LandingMenu() {
             </Link>
           ) : (
             <Link key={index} href={item.link.url} className="group block">
-              <div className="aspect-square rounded-full flex flex-col justify-center items-center lg:gap-y-4 border border-primary p-4 group-hover:bg-gray-200 h-full"> {/*Aggiunto justify-center*/}
+              <div className="aspect-square rounded-full flex flex-col justify-center items-center lg:gap-y-4 border border-primary p-4 group-hover:bg-gray-200 h-full">
                 {item.icona?.url && (
                   <div className="flex justify-center items-center">
                     <Image
