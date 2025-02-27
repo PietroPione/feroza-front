@@ -27,7 +27,7 @@ export default function BevandePage() {
     if (loading) {
         // Mostra un placeholder o uno scheletro durante il caricamento
         return (
-            <div className="space-y-10 py-10">
+            <div className="space-y-10 py-10 min-h-[500px]"> {/* Altezza minima */}
                 {/* Scheletro per il componente Bevande */}
                 <div className="animate-pulse bg-gray-100 h-64 rounded"></div>
                 {/* Scheletro per il bottone */}
@@ -44,7 +44,7 @@ export default function BevandePage() {
     const listaBevande = bevandeSlices.map(slice => slice.primary.bevanda || []);
 
     return (
-        <div className="space-y-10 py-10">
+        <div className="space-y-10 py-10 min-h-[500px]"> {/* Altezza minima */}
             <Bevande
                 titoloBevande={titoloBevande}
                 immagineBevande={immagineBevande}

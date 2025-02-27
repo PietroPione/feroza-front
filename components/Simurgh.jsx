@@ -85,7 +85,7 @@ export default function Simurgh({ simurgh }) {
                   alt={immagine_absolute_bottom.alt || ""}
                   width={immagine_absolute_bottom.dimensions.width}
                   height={immagine_absolute_bottom.dimensions.height}
-                  className="absolute bottom-0 right-0"
+                  className="absolute w-full h-auto bottom-0 right-0"
                 />
               )}
           </div>
