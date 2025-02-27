@@ -8,77 +8,58 @@
 				"value": "promised",
 				"type": "Text"
 			},
-			"titolo_catering": {
-				"__TYPE__": "FieldContent",
-				"value": "quick",
-				"type": "Text"
-			},
-			"spiega_catering": {
-				"__TYPE__": "FieldContent",
-				"value": "swing",
-				"type": "Text"
-			},
-			"testo_tasto_catering": {
-				"__TYPE__": "FieldContent",
-				"value": "eight",
-				"type": "Text"
-			},
-			"titolo_locale": {
-				"__TYPE__": "FieldContent",
-				"value": "day",
-				"type": "Text"
-			},
-			"spiega_locale": {
-				"__TYPE__": "FieldContent",
-				"value": "person",
-				"type": "Text"
-			},
-			"testo_tasto_locale": {
-				"__TYPE__": "FieldContent",
-				"value": "treated",
-				"type": "Text"
-			},
-			"link_locale": {
-				"key": "9a251703-4bc0-4a77-b25f-7baf549f723a",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://google.com",
-					"text": "whistle"
-				}
-			},
-			"link_catering": {
-				"key": "24ce6ba2-639e-401b-9af7-364b67818b17",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://google.com",
-					"text": "onto"
-				}
-			},
-			"titolo_asporto": {
-				"__TYPE__": "FieldContent",
-				"value": "becoming",
-				"type": "Text"
-			},
-			"spiega_asporto": {
-				"__TYPE__": "FieldContent",
-				"value": "share",
-				"type": "Text"
-			},
-			"testo_tasto_asporto": {
-				"__TYPE__": "FieldContent",
-				"value": "crop",
-				"type": "Text"
-			},
-			"link_tasto_asporto": {
-				"__TYPE__": "LinkContent",
-				"key": "d105da5c-ec6a-4917-bd76-06cfdaf04ea3",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io",
-					"text": "signal"
-				}
+			"metodi": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"titolo_metodo",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "numeral",
+									"type": "Text"
+								}
+							],
+							[
+								"spiega_metodo",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "bean",
+									"type": "Text"
+								}
+							],
+							[
+								"testo_tasto",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "gone",
+									"type": "Text"
+								}
+							],
+							[
+								"link_tasto",
+								{
+									"key": "cd9573e3-4882-4919-9bef-828009687d6f",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "hardly"
+									}
+								}
+							],
+							[
+								"external_link",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": []
