@@ -26,7 +26,10 @@ export default function CardEventi({ evento, eventoIndex, passato }) {
                         <span>{dataFormattata.meseNome}</span>
                         <span>{dataFormattata.annoAbbreviato}</span>
                     </div>
-                    <div className="font-semibold text-26 pt-2"> h. {evento.orario}</div>
+                    {
+                        evento.orario && <div className="font-semibold text-26 pt-2"> h. {evento.orario}</div>
+                    }
+
 
                     {passato && <p className="mt-2 text-22 leading-none text-red-500">Evento passato</p>}
                 </div>
