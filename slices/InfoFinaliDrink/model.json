@@ -1,0 +1,45 @@
+{
+  "id": "info_finali_drink",
+  "type": "SharedSlice",
+  "name": "InfoFinaliDrink",
+  "description": "InfoFinaliDrink",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "immagine": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "chiusa": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Chiusa",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "testo": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testo",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

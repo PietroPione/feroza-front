@@ -7,7 +7,7 @@ export default function Birre({ titoloBirra, disclaimerBirra, birreData }) {
 
   return (
     <div className="container mx-auto space-y-6">
-      <div className="space-y-0 md: space-y-2">
+      <div className="space-y-0 md:space-y-2">
         <div className="text-center text-32 font-bold">{titoloBirra}</div>
         <div className="text-center text-22 text-gray-600 mb-4">{disclaimerBirra}</div>
       </div>

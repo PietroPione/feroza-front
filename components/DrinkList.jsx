@@ -1,3 +1,4 @@
+
 export default function DrinkList({ titolo, testo, cocktails, drinkTopSx, drinkTopMid, drinkTopDx, drinkBottomSx, drinkBottomMid, drinkBottomDx }) {
   return (
     <div className="relative">

@@ -272,7 +272,7 @@ export type ContattiDocument<Lang extends string = string> =
     Lang
   >;
 
-type DrinklistDocumentDataSlicesSlice = DrinkListSlice;
+type DrinklistDocumentDataSlicesSlice = InfoFinaliDrinkSlice | DrinkListSlice;
 
 /**
  * Content for DrinkList documents
@@ -2374,6 +2374,71 @@ export type InfoFinaliBirreVinoSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *InfoFinaliDrink → Default → Primary*
+ */
+export interface InfoFinaliDrinkSliceDefaultPrimary {
+  /**
+   * Immagine field in *InfoFinaliDrink → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_finali_drink.default.primary.immagine
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine: prismic.ImageField<never>;
+
+  /**
+   * Chiusa field in *InfoFinaliDrink → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_finali_drink.default.primary.chiusa
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  chiusa: prismic.RichTextField;
+
+  /**
+   * Testo field in *InfoFinaliDrink → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_finali_drink.default.primary.testo
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testo: prismic.RichTextField;
+}
+
+/**
+ * Default variation for InfoFinaliDrink Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoFinaliDrinkSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InfoFinaliDrinkSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InfoFinaliDrink*
+ */
+type InfoFinaliDrinkSliceVariation = InfoFinaliDrinkSliceDefault;
+
+/**
+ * InfoFinaliDrink Shared Slice
+ *
+ * - **API ID**: `info_finali_drink`
+ * - **Description**: InfoFinaliDrink
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoFinaliDrinkSlice = prismic.SharedSlice<
+  "info_finali_drink",
+  InfoFinaliDrinkSliceVariation
+>;
+
+/**
  * Item in *InfoFooter → Default → Primary → Orari*
  */
 export interface InfoFooterSliceDefaultPrimaryOrariItem {
@@ -3940,6 +4005,10 @@ declare module "@prismicio/client" {
       InfoFinaliBirreVinoSliceDefaultPrimary,
       InfoFinaliBirreVinoSliceVariation,
       InfoFinaliBirreVinoSliceDefault,
+      InfoFinaliDrinkSlice,
+      InfoFinaliDrinkSliceDefaultPrimary,
+      InfoFinaliDrinkSliceVariation,
+      InfoFinaliDrinkSliceDefault,
       InfoFooterSlice,
       InfoFooterSliceDefaultPrimaryOrariItem,
       InfoFooterSliceDefaultPrimarySocialItem,

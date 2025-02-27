@@ -18,7 +18,6 @@ export default function InfoFinaliVinoBirra({ infoFinaliVino, chiusa }) {
             />
           )}
           <div className="pt-4 text-17 md:text-22 md:pt-0 md:w-2/3">
-            {/* Passa l'intero campo rich text invece di iterare sui paragrafi */}
             <PrismicRichText field={item.testo} />
           </div>
         </div>

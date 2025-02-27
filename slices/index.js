@@ -18,6 +18,7 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   hero_cantina: dynamic(() => import("./HeroCantina")),
   info_finali_birre_vino: dynamic(() => import("./InfoFinaliBirreVino")),
+  info_finali_drink: dynamic(() => import("./InfoFinaliDrink")),
   info_footer: dynamic(() => import("./InfoFooter")),
   info_piatto_multi: dynamic(() => import("./InfoPiattoMulti")),
   logo: dynamic(() => import("./Logo")),

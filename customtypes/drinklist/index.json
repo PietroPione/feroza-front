@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "info_finali_drink": {
+              "type": "SharedSlice"
+            },
             "drink_list": {
               "type": "SharedSlice"
             }
