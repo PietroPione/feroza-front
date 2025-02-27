@@ -28,10 +28,6 @@ export default function HeaderClient({ logoUrl, menuItems }) {
             <div className="static md:absolute md:my-auto md:right-4">
                 <ToggleMenu nav={menuItems} />
             </div>
-            <div className="pr-20">
-                <LanguageSwitcher />
-            </div>
-
         </header>
     );
 }
