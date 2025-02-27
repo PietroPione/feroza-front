@@ -8,50 +8,63 @@ import { useContext, useEffect, useState } from "react";
 
 export default function BevandePage() {
     const { language } = useContext(LanguageContext);
-    const [bevande, setBevande] = useState(null); // Inizializzato a null
-    const [loading, setLoading] = useState(true); // Stato di caricamento
+    const [bevande, setBevande] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            setLoading(true); // Imposta il caricamento a true
+            setLoading(true);
             const client = createClient();
-            const bevandeResponse = await client.getByType("bevande", { lang: language });
+            const bevandeResponse = await client.getByType("bevande", {
+                lang: language,
+            });
             if (bevandeResponse?.results.length > 0) {
                 setBevande(bevandeResponse.results[0]);
             }
-            setLoading(false); // Imposta il caricamento a false dopo il caricamento dei dati
+            setLoading(false);
         };
         fetchData();
     }, [language]);
 
     if (loading) {
-        // Mostra un placeholder o uno scheletro durante il caricamento
         return (
-            <div className="space-y-10 py-10 min-h-[500px]"> {/* Altezza minima */}
-                {/* Scheletro per il componente Bevande */}
-                <div className="animate-pulse bg-gray-100 h-64 rounded"></div>
-                {/* Scheletro per il bottone */}
+            <div className="space-y-10 py-10 min-h-[500px]">
+                <div className="animate-pulse bg-white h-64 rounded"></div>
                 <div className="text-center">
-                    <div className="animate-pulse bg-gray-100 w-40 h-12 mx-auto rounded"></div>
+                    <div className="animate-pulse bg-white w-40 h-12 mx-auto rounded"></div>
                 </div>
             </div>
         );
     }
 
-    const bevandeSlices = bevande.data.slices.filter(slice => slice.slice_type === "bevande") || [];
-    const titoloBevande = bevandeSlices.map(slice => slice.primary.titolo_bevande || "");
-    const immagineBevande = bevandeSlices.map(slice => slice.primary.immagine_bevande?.url || "");
-    const listaBevande = bevandeSlices.map(slice => slice.primary.bevanda || []);
+    const bevandeSlices =
+        bevande.data.slices.filter((slice) => slice.slice_type === "bevande") || [];
+    const titoloBevande = bevandeSlices.map(
+        (slice) => slice.primary.titolo_bevande || ""
+    );
+    const immagineBevande = bevandeSlices.map(
+        (slice) => slice.primary.immagine_bevande?.url || ""
+    );
+    const listaBevande = bevandeSlices.map(
+        (slice) => slice.primary.bevanda || []
+    );
 
+    // Oggetto di traduzione
+    const testoBottone = {
+        "it-it": "Torna al menu",
+        "en-us": "Back to menu",
+        // Aggiungi altre lingue se necessario
+    };
+    console.log("Language:", language);
     return (
-        <div className="space-y-10 py-10 min-h-[500px]"> {/* Altezza minima */}
+        <div className="space-y-10 py-10 min-h-[500px]">
             <Bevande
                 titoloBevande={titoloBevande}
                 immagineBevande={immagineBevande}
                 listaBevande={listaBevande}
             />
             <div className="text-center">
-                <ButtonPrimary url="/menu/" testo="Torna al menu" />
+                <ButtonPrimary url="/menu/" testo={testoBottone[language]} />
             </div>
         </div>
     );

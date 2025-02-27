@@ -1,18 +1,43 @@
+"use client";
+
 import { createClient } from "@/prismicio";
 import Instajs from "@/components/Instajs";
 import Link from "next/link";
 import Image from "next/image";
 import ButtonPrimary from "@/components/buttonPrimary";
+import { LanguageContext } from "@/context/LanguageContext";
+import { useContext, useEffect, useState } from "react";
 
-export default async function Contatti() {
-    const client = createClient();
+export default function Contatti() {
+    const { language } = useContext(LanguageContext);
+    const [contatti, setContatti] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    // Recupera il documento del custom type "contatti"
-    const response = await client.getByType("contatti");
-    const contatti = response.results[0];
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const client = createClient();
+            const response = await client.getByType("contatti", { lang: language });
+            if (response?.results.length > 0) {
+                setContatti(response.results[0]);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, [language]);
+
+    if (loading) {
+        return (
+            <div className="container mx-auto p-4 space-y-10">
+                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+            </div>
+        );
+    }
 
     if (!contatti) {
-        return <div className="container">Nessun dato disponibile</div>;
+        return <div className="container mx-auto p-4">Nessun dato disponibile</div>;
     }
 
     const mappedSlices = contatti.data.slices.map((slice) => ({
@@ -20,10 +45,13 @@ export default async function Contatti() {
         primary: slice.primary,
     }));
 
-    // Trova le slice corrette
-    const prenotaSlices = mappedSlices.find(slice => slice.type === "prenota_tavolo")?.primary;
-    const socialSlices = mappedSlices.find(slice => slice.type === "social")?.primary;
-    const contattiSlices = mappedSlices.find(slice => slice.type === "contatti")?.primary;
+    const prenotaSlices = mappedSlices.find(
+        (slice) => slice.type === "prenota_tavolo"
+    )?.primary;
+    const socialSlices = mappedSlices.find((slice) => slice.type === "social")
+        ?.primary;
+    const contattiSlices = mappedSlices.find((slice) => slice.type === "contatti")
+        ?.primary;
 
     return (
         <div className="container mx-auto p-4">
@@ -33,30 +61,33 @@ export default async function Contatti() {
                     <div className="space-y-2 md:space-y-4">
                         {/* Mail */}
                         <div>
-
-                            <div className="text-17 md:text-22">
-                                {contattiSlices.testo_mail}
-                            </div>
-
+                            <div className="text-17 md:text-22">{contattiSlices.testo_mail}</div>
                             <Link href={contattiSlices.mail_link.url} target="_blank">
                                 <div className="text-22 md:text-36 text-primary hover:underline font-semibold">
                                     {contattiSlices.mail}
                                 </div>
                             </Link>
-
                         </div>
                         {/* Telefono */}
                         <div>
-                            <div className="text-17 md:text-22">{contattiSlices.testo_telefono}</div>
+                            <div className="text-17 md:text-22">
+                                {contattiSlices.testo_telefono}
+                            </div>
                             <Link href={contattiSlices.link_telefono.url} target="_blank">
-                                <div className="text-22 md:text-36 text-primary hover:underline font-semibold">{contattiSlices.numero_telefono}</div>
+                                <div className="text-22 md:text-36 text-primary hover:underline font-semibold">
+                                    {contattiSlices.numero_telefono}
+                                </div>
                             </Link>
                         </div>
                         {/* Indirizzo */}
                         <div>
-                            <div className="text-17 md:text-22">{contattiSlices.titolo_indirizzo}</div>
+                            <div className="text-17 md:text-22">
+                                {contattiSlices.titolo_indirizzo}
+                            </div>
                             <Link href={contattiSlices.link_indirizzo.url} target="_blank">
-                                <div className="text-22 md:text-36 text-primary hover:underline font-semibold">{contattiSlices.testo_indirizzo}</div>
+                                <div className="text-22 md:text-36 text-primary hover:underline font-semibold">
+                                    {contattiSlices.testo_indirizzo}
+                                </div>
                             </Link>
                         </div>
                     </div>
@@ -76,7 +107,9 @@ export default async function Contatti() {
                 <div className="flex flex-col md:flex-row min-h-[33vh] justify-between mt-8 relative">
                     <div className="flex-1 flex items-center justify-center md:justify-start space-y-0 md:space-y-4">
                         <div className="space-y-4">
-                            <h1 className="text-40 leading-none md:text-60 font-bold uppercase">{prenotaSlices.titolo}</h1>
+                            <h1 className="text-40 leading-none md:text-60 font-bold uppercase">
+                                {prenotaSlices.titolo}
+                            </h1>
                             <p className="text-17">{prenotaSlices.spiega}</p>
                         </div>
                     </div>
@@ -105,7 +138,9 @@ export default async function Contatti() {
             {/* Sezione Social */}
             {socialSlices && (
                 <div className="flex flex-col space-y-6 md:space-y-0 items-start justify-between mt-8">
-                    <h2 className="text-40 md:text-60 font-bold uppercase">{socialSlices.titolo}</h2>
+                    <h2 className="text-40 md:text-60 font-bold uppercase">
+                        {socialSlices.titolo}
+                    </h2>
                     <div className="flex w-full justify-center md:justify-start items-center">
                         <ButtonPrimary
                             url={socialSlices.link_bottone?.url}
