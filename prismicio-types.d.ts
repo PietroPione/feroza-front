@@ -2574,6 +2574,78 @@ export interface InfoFooterSliceDefaultPrimary {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Telefono titolo field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.telefono_titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  telefono_titolo: prismic.KeyTextField;
+
+  /**
+   * Telefono testo field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.telefono_testo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  telefono_testo: prismic.KeyTextField;
+
+  /**
+   * Telefono link field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.telefono_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  telefono_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Mail titolo field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.mail_titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mail_titolo: prismic.KeyTextField;
+
+  /**
+   * Mail testo field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.mail_testo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mail_testo: prismic.KeyTextField;
+
+  /**
+   * Mail link field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.mail_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  mail_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**

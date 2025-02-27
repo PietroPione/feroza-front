@@ -143,6 +143,44 @@
 					"url": "https://prismic.io",
 					"text": "sent"
 				}
+			},
+			"telefono_titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "shoot",
+				"type": "Text"
+			},
+			"telefono_testo": {
+				"__TYPE__": "FieldContent",
+				"value": "him",
+				"type": "Text"
+			},
+			"telefono_link": {
+				"key": "dcd95305-631e-4bc9-81cb-0676fabf61a9",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "also"
+				}
+			},
+			"mail_titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "variety",
+				"type": "Text"
+			},
+			"mail_testo": {
+				"__TYPE__": "FieldContent",
+				"value": "laid",
+				"type": "Text"
+			},
+			"mail_link": {
+				"__TYPE__": "LinkContent",
+				"key": "0880bea5-cc2b-4e77-87f2-d20b53230ded",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "perhaps"
+				}
 			}
 		},
 		"items": []

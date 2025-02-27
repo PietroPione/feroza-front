@@ -1,7 +1,6 @@
 import SimpleCard from "@/components/card/SimpleCard";
 
 export default function MangiareHome({ catering }) {
-    console.log(catering);
 
     return (
         <section className="py-10 bg-primary">

@@ -151,6 +151,56 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "telefono_titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Telefono titolo",
+            "placeholder": ""
+          }
+        },
+        "telefono_testo": {
+          "type": "Text",
+          "config": {
+            "label": "Telefono testo",
+            "placeholder": ""
+          }
+        },
+        "telefono_link": {
+          "type": "Link",
+          "config": {
+            "label": "Telefono link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "mail_titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Mail titolo",
+            "placeholder": ""
+          }
+        },
+        "mail_testo": {
+          "type": "Text",
+          "config": {
+            "label": "Mail testo",
+            "placeholder": ""
+          }
+        },
+        "mail_link": {
+          "type": "Link",
+          "config": {
+            "label": "Mail link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
         }
       },
       "items": {}

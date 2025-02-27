@@ -1,6 +1,5 @@
 import { createClient } from "@/prismicio";
 import Link from "next/link";
-import Image from "next/image";
 import ButtonPrimary from "./buttonPrimary";
 
 export default async function Footer() {
@@ -32,6 +31,12 @@ export default async function Footer() {
     const info = infoSlice?.primary?.info || "";
     const developer = infoSlice?.primary?.credits || "";
     const developer_link = infoSlice?.primary?.link_credits || "";
+    const telefonoTitolo = infoSlice?.primary?.telefono_titolo || "";
+    const telefonoTesto = infoSlice?.primary?.telefono_testo || "";
+    const telefonoLink = infoSlice?.primary?.telefono_link.url || "";
+    const mailTitolo = infoSlice?.primary?.mail_titolo || "";
+    const mailTesto = infoSlice?.primary?.mail_testo || "";
+    const mailLink = infoSlice?.primary?.mail_link.url || "";
 
     return (
         <footer className="bg-primary py-10 text-white space-y-4">
@@ -71,6 +76,27 @@ export default async function Footer() {
                             <li key={index}>{item.giorno} {item.orari}</li>
                         ))}
                     </ul>
+
+                </div>
+
+                {/* Info */}
+
+                <div className="space-y-4 flex flex-col">
+                    <div className="space-y-4 flex flex-col">
+
+                        <div className="text-22 font-semibold">
+                            {telefonoTitolo}
+                        </div>
+                        <Link href={telefonoLink}>{telefonoTesto}</Link>
+                    </div>
+                    <div className="space-y-4 flex flex-col">
+
+                        <div className="text-22 font-semibold">
+                            {mailTitolo}
+                        </div>
+                        <Link href={mailLink}>{mailTesto}</Link>
+                    </div>
+
                 </div>
 
                 {/* Social */}
