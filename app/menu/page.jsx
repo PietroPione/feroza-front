@@ -67,7 +67,7 @@ export default function LandingMenu() {
             target={item.external_link ? "_blank" : ""}
             rel={item.external_link ? "noopener noreferrer" : ""}
           >
-            <div className="aspect-square rounded-full flex flex-col justify-center items-center lg:gap-y-4 border border-primary p-4 group-hover:bg-gray-200 h-full">
+            <div className="aspect-square rounded-full flex flex-col justify-center items-center lg:gap-y-4 border border-primary p-4 group-hover:bg-primary h-full">
               {item.icona?.url && (
                 <div className="flex justify-center items-center">
                   <Image
