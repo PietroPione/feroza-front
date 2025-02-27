@@ -6,7 +6,7 @@ export default function MangiareHome({ catering }) {
         <section className="py-10 bg-primary">
             <div className="container">
                 <h2 className="text-46 md:text-60 text-white uppercase font-bold md:*:text-center mb-6">{catering.titolo}</h2>
-                <div className="flex flex-col md:flex-row justify-between">
+                <div className="flex flex-col md:flex-row justify-between gap-y-10">
                     {catering.metodi.map((metodo, index) => (
                         <SimpleCard
                             key={index}
