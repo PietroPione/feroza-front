@@ -76,6 +76,7 @@ export default function LandingMenu() {
                     width={200}
                     height={200}
                     className="w-auto h-20 md:h-32 lg:h-48 object-contain"
+                    fetchpriority="high"
                   />
                 </div>
               )}

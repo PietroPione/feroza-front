@@ -15,7 +15,6 @@ export default function FerozaInfo({ ferozaSlices }) {
               <PrismicRichText field={sezione.testo} />
             </div>
             <div className="flex justify-center items-center">
-
               <div className="w-full">
                 <Image
                   src={sezione.immagine.url}
@@ -23,6 +22,7 @@ export default function FerozaInfo({ ferozaSlices }) {
                   width={sezione.immagine.dimensions.width}
                   height={sezione.immagine.dimensions.height}
                   className="w-auto h-72 md:h-96"
+                  fetchpriority={index === 0 && subIndex === 0 ? "high" : "low"} // Aggiunta fetchpriority
                 />
               </div>
             </div>
