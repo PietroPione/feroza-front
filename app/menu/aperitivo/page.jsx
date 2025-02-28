@@ -1,15 +1,39 @@
+"use client";
+
+import { LanguageContext } from "@/context/LanguageContext";
 import { createClient } from "@/prismicio";
 import ButtonPrimary from "@/components/buttonPrimary";
 import Aperitivo from "@/components/Aperitivo";
+import { useContext, useEffect, useState } from "react";
 
-export default async function AperitivoPage() {
-    const client = createClient();
+export default function AperitivoPage() {
+    const { language } = useContext(LanguageContext);
+    const [aperitivo, setAperitivo] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    // Recupera l'aperitivo
-    const aperitivoResponse = await client.getByType("aperitivo");
-    const aperitivo = aperitivoResponse.results[0];
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const client = createClient();
+            const aperitivoResponse = await client.getByType("aperitivo", {
+                lang: language,
+            });
+            if (aperitivoResponse?.results.length > 0) {
+                setAperitivo(aperitivoResponse.results[0]);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, [language]);
 
-    // Dati per Aperitivo
+    if (loading) {
+        return (
+            <div className="space-y-10 py-10 min-h-[500px]">
+                <div className="animate-pulse bg-white h-screen rounded"></div>
+            </div>
+        );
+    }
+
     const aperitivoSlice = aperitivo?.data.slices.find(slice => slice.slice_type === "aperitivo");
     const titoloAperitivo = aperitivoSlice?.primary?.titolo || "Aperitivo";
     const sottotitolo = aperitivoSlice?.primary?.sottotitolo || "";
@@ -28,36 +52,37 @@ export default async function AperitivoPage() {
     const immagineBottomSx = aperitivoSlice?.primary?.immagine_bottom_sx?.url;
     const immagineBottomDx = aperitivoSlice?.primary?.immagine_bottom_dx?.url;
 
+    const testoBottone = {
+        "it-it": "Torna al menu",
+        "en-us": "Back to menu",
+        // Aggiungi altre lingue se necessario
+    };
 
     return (
         <div className="space-y-10 py-10">
-
-            {
-                aperitivo && (
-                    <Aperitivo
-                        titolo={titoloAperitivo}
-                        sottotitolo={sottotitolo}
-                        testoBevande={testoBevande}
-                        nomeBevanda={nomeBevanda}
-                        iconaBevanda={iconaBevanda}
-                        testoSalsa={testoSalsa}
-                        salse={salse}
-                        falafel={falafel}
-                        falafelVegetariano={falafelVegetariano}
-                        pane={pane}
-                        prezzo={prezzo}
-                        immagineTopDx={immagineTopDx}
-                        immagineTopSx={immagineTopSx}
-                        immagineBottomSx={immagineBottomSx}
-                        immagineBottomDx={immagineBottomDx}
-                        salseVegetariano={salseVegetariano}
-                    />
-                )
-            }
+            {aperitivo && (
+                <Aperitivo
+                    titolo={titoloAperitivo}
+                    sottotitolo={sottotitolo}
+                    testoBevande={testoBevande}
+                    nomeBevanda={nomeBevanda}
+                    iconaBevanda={iconaBevanda}
+                    testoSalsa={testoSalsa}
+                    salse={salse}
+                    falafel={falafel}
+                    falafelVegetariano={falafelVegetariano}
+                    pane={pane}
+                    prezzo={prezzo}
+                    immagineTopDx={immagineTopDx}
+                    immagineTopSx={immagineTopSx}
+                    immagineBottomSx={immagineBottomSx}
+                    immagineBottomDx={immagineBottomDx}
+                    salseVegetariano={salseVegetariano}
+                />
+            )}
             <div className="text-center">
-                <ButtonPrimary url="/menu/" testo="Torna al menu" />
+                <ButtonPrimary url="/menu/" testo={testoBottone[language]} />
             </div>
-
         </div>
     );
 }
