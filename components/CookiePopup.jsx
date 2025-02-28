@@ -64,7 +64,7 @@ export default function CookiePopup() {
                     <p className="text-12 md:text-15 text-white mb-4">{cookieData.testo}</p>
                     <a
                         href={cookieData.link_tasto.url}
-                        className="inline-block w-auto max-w-max px-8 py-4 border-2 transition text-white bg-secondary rounded-full hover:bg-primary uppercase font-semibold underline"
+                        className="inline-block text-12 md:text-17 w-auto max-w-max px-4 md:px-8 py-2 md:py-4 border-2 transition text-white bg-secondary rounded-full hover:bg-primary uppercase font-semibold underline"
                         onClick={handleClosePopup}
                     >
                         {cookieData.testo_tasto}
