@@ -78,11 +78,11 @@ export default function Footer() {
 
     return (
         <footer className="bg-primary py-10 text-white space-y-4">
-            <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"> {/* Modifica qui */}
-                <div className="space-y-4">
+            <div className="container grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 items-start">
+                <div className="space-y-4 text-center md:text-left">
                     <div className="flex flex-col justify-center md:justify-start items-center md:items-start">
                         {logoUrl && (
-                            <img src={logoUrl} alt="Logo" className="h-24 w-auto object-contain" />
+                            <img src={logoUrl} alt="Logo" className="h-24 w-auto object-contain mx-auto md:mx-0" />
                         )}
                         <div className="text-26 font-semibold">{nomeRistorante}</div>
                     </div>
@@ -93,7 +93,20 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 text-center md:text-left">
+                    <div className="text-22 font-semibold">
+                        {titoloOrari}
+                    </div>
+                    <ul>
+                        {orari.map((item, index) => (
+                            <li key={index}>
+                                {item.giorno} {item.orari}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="space-y-4 text-center md:text-left">
                     <div className="space-y-4">
                         <div className="text-22 font-semibold">{telefonoTitolo}</div>
                         <Link href={telefonoLink}>{telefonoTesto}</Link>
@@ -104,22 +117,9 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="space-y-4">
-                    <div className="text-22 font-semibold">{titoloOrari}</div>
-                    <ul>
-                        {orari.map((item, index) => (
-                            <li key={index}>
-                                {item.giorno} {item.orari}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-
-
-                <div className="space-y-4">
+                <div className="space-y-4 text-center md:text-left">
                     <div className="text-22 font-semibold">{titoloSocial}</div>
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-4 justify-center md:justify-start">
                         {socialLinks.map((social, index) => (
                             <Link key={index} href={social.link?.text || "#"}>
                                 <img
@@ -132,7 +132,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 text-center md:text-left">
                     <div className="text-22 font-semibold">{prenotare}</div>
                     <ButtonPrimary url={buttonLink} testo={buttonText} externalLink />
                 </div>
