@@ -2975,6 +2975,32 @@ export interface InfoFooterSliceDefaultPrimary {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Testo cookie field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.testo_cookie
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_cookie: prismic.KeyTextField;
+
+  /**
+   * Link cookie field in *InfoFooter → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_footer.default.primary.link_cookie
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_cookie: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**

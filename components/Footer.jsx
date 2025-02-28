@@ -73,20 +73,19 @@ export default function Footer() {
     const mailTitolo = infoSlice?.primary?.mail_titolo || "";
     const mailTesto = infoSlice?.primary?.mail_testo || "";
     const mailLink = infoSlice?.primary?.mail_link.url || "";
+    const cookieTesto = infoSlice?.primary?.testo_cookie || "";
+    const cookieLink = infoSlice?.primary?.link_cookie.url || "";
 
     return (
         <footer className="bg-primary py-10 text-white space-y-4">
-            <div className="flex flex-col md:flex-row justify-between container space-y-10 md:space-y-0">
-                <div>
+            <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"> {/* Modifica qui */}
+                <div className="space-y-4">
                     <div className="flex flex-col justify-center md:justify-start items-center md:items-start">
-                        {/* Logo */}
                         {logoUrl && (
-                            <img src={logoUrl} alt="Logo" className="h-24 w-auto" />
+                            <img src={logoUrl} alt="Logo" className="h-24 w-auto object-contain" />
                         )}
                         <div className="text-26 font-semibold">{nomeRistorante}</div>
                     </div>
-
-                    {/* Info generali */}
                     <div className="flex justify-center md:justify-start">
                         <Link href={linkMaps} target="_blank" className="hover:underline">
                             {indirizzo}
@@ -94,8 +93,18 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Orari */}
-                <div className="space-y-4 flex flex-col">
+                <div className="space-y-4">
+                    <div className="space-y-4">
+                        <div className="text-22 font-semibold">{telefonoTitolo}</div>
+                        <Link href={telefonoLink}>{telefonoTesto}</Link>
+                    </div>
+                    <div className="space-y-4">
+                        <div className="text-22 font-semibold">{mailTitolo}</div>
+                        <Link href={mailLink}>{mailTesto}</Link>
+                    </div>
+                </div>
+
+                <div className="space-y-4">
                     <div className="text-22 font-semibold">{titoloOrari}</div>
                     <ul>
                         {orari.map((item, index) => (
@@ -106,20 +115,9 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Info */}
-                <div className="space-y-4 flex flex-col">
-                    <div className="space-y-4 flex flex-col">
-                        <div className="text-22 font-semibold">{telefonoTitolo}</div>
-                        <Link href={telefonoLink}>{telefonoTesto}</Link>
-                    </div>
-                    <div className="space-y-4 flex flex-col">
-                        <div className="text-22 font-semibold">{mailTitolo}</div>
-                        <Link href={mailLink}>{mailTesto}</Link>
-                    </div>
-                </div>
 
-                {/* Social */}
-                <div className="space-y-4 flex flex-col">
+
+                <div className="space-y-4">
                     <div className="text-22 font-semibold">{titoloSocial}</div>
                     <div className="flex space-x-4">
                         {socialLinks.map((social, index) => (
@@ -127,23 +125,25 @@ export default function Footer() {
                                 <img
                                     src={social.logo?.url || ""}
                                     alt={`Social ${index}`}
-                                    className="h-12 w-auto hover:scale-110 hover:duration-300"
+                                    className="h-12 w-auto object-contain"
                                 />
                             </Link>
                         ))}
                     </div>
                 </div>
 
-                {/* Bottone Prenota */}
-                <div className="space-y-4 flex flex-col">
+                <div className="space-y-4">
                     <div className="text-22 font-semibold">{prenotare}</div>
                     <ButtonPrimary url={buttonLink} testo={buttonText} externalLink />
                 </div>
             </div>
-            <div className="container flex flex-col md:flex-row md:space-x-10">
+            <div className="container flex flex-col md:flex-row md:space-x-10 mt-8">
                 <div className="text-10 ">{info}</div>
                 <Link href={developer_link.text} target="_blank">
                     <div className="text-10 ">{developer}</div>
+                </Link>
+                <Link href={cookieLink} target="_blank">
+                    <div className="text-10 ">{cookieTesto}</div>
                 </Link>
             </div>
         </footer>

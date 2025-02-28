@@ -201,6 +201,24 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "testo_cookie": {
+          "type": "Text",
+          "config": {
+            "label": "Testo cookie",
+            "placeholder": ""
+          }
+        },
+        "link_cookie": {
+          "type": "Link",
+          "config": {
+            "label": "Link cookie",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
         }
       },
       "items": {}

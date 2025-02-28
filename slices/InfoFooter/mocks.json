@@ -174,12 +174,26 @@
 				"type": "Text"
 			},
 			"mail_link": {
-				"__TYPE__": "LinkContent",
 				"key": "0880bea5-cc2b-4e77-87f2-d20b53230ded",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io",
 					"text": "perhaps"
+				}
+			},
+			"testo_cookie": {
+				"__TYPE__": "FieldContent",
+				"value": "sets",
+				"type": "Text"
+			},
+			"link_cookie": {
+				"__TYPE__": "LinkContent",
+				"key": "17c08b23-2514-4b6a-9ea2-5416ed4ca7db",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "plant"
 				}
 			}
 		},
