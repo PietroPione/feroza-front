@@ -1,23 +1,46 @@
+"use client";
+
+import { LanguageContext } from "@/context/LanguageContext";
 import { createClient } from "@/prismicio";
 import ButtonPrimary from "@/components/buttonPrimary";
 import DrinkList from "@/components/DrinkList";
-import InfoFinaliCockatil from "@/components/InfoFinaliCocktail";
+import InfoFinaliCocktail from "@/components/InfoFinaliCocktail";
+import { useContext, useEffect, useState } from "react";
 
-export default async function CocktailPage() {
-    const client = createClient();
+export default function CocktailPage() {
+    const { language } = useContext(LanguageContext);
+    const [drinklist, setDrinklist] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    // Recupera il documento principale
-    const drinkResponse = await client.getByType("drinklist");
-    const drinklist = drinkResponse.results[0];
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const client = createClient();
+            const drinkResponse = await client.getByType("drinklist", {
+                lang: language,
+            });
+            if (drinkResponse?.results.length > 0) {
+                setDrinklist(drinkResponse.results[0]);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, [language]);
+
+    if (loading) {
+        return (
+            <div className="space-y-10 py-10 min-h-[500px]">
+                <div className="animate-pulse bg-white h-screen rounded"></div>
+            </div>
+        );
+    }
 
     if (!drinklist) {
         return <div>Nessun dato trovato</div>;
     }
 
-    // Recupera le slice
     const slices = drinklist?.data.slices || [];
 
-    // Drink List
     const drinkSlice = slices.find(slice => slice.slice_type === "drink_list");
     const titoloDrink = drinkSlice?.primary?.titolo || "Drink List";
     const testoDrink = drinkSlice?.primary?.testo || "";
@@ -29,12 +52,16 @@ export default async function CocktailPage() {
     const drinkBottomMid = drinkSlice?.primary?.immagine_bottom_mid?.url;
     const drinkBottomDx = drinkSlice?.primary?.immagine_bottom_dx?.url;
 
-    // Info Finali Drink
     const infoFinaliDrinkSlice = slices.find(slice => slice.slice_type === "info_finali_drink");
     const immagineFinale = infoFinaliDrinkSlice?.primary?.immagine?.url || "";
     const chiusa = infoFinaliDrinkSlice?.primary?.chiusa || [];
     const testoFinale = infoFinaliDrinkSlice?.primary?.testo || [];
 
+    const testoBottone = {
+        "it-it": "Torna al menu",
+        "en-us": "Back to menu",
+        // Aggiungi altre lingue se necessario
+    };
 
     return (
         <div className="space-y-10 py-10">
@@ -51,9 +78,9 @@ export default async function CocktailPage() {
                     drinkTopDx={drinkTopDx}
                 />
             )}
-            {infoFinaliDrinkSlice && <InfoFinaliCockatil immagineFinale={immagineFinale} chiusa={chiusa} testoFinale={testoFinale} />}
+            {infoFinaliDrinkSlice && <InfoFinaliCocktail immagineFinale={immagineFinale} chiusa={chiusa} testoFinale={testoFinale} />}
             <div className="text-center">
-                <ButtonPrimary url="/menu/" testo="Torna al menu" />
+                <ButtonPrimary url="/menu/" testo={testoBottone[language]} />
             </div>
         </div>
     );
