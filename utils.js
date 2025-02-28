@@ -1,18 +1,14 @@
-export function formatData(data) {
+export function formatData(data, language = "it-IT") {
     if (!data) return { giorno: "", meseNome: "", annoAbbreviato: "" };
 
     const [anno, mese, giorno] = data.split("-");
-    const mesi = [
-        "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-        "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
-    ];
+    const dataObj = new Date(anno, mese - 1, giorno);
 
-    const meseNome = mesi[parseInt(mese) - 1];
+    const meseNome = new Intl.DateTimeFormat(language, { month: "long" }).format(dataObj);
     const annoAbbreviato = anno.slice(-2);
 
     return { giorno, meseNome, annoAbbreviato };
 }
-
 export function isEventoPassato(dataEvento) {
     if (!dataEvento) return false;
 
