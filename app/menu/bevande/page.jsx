@@ -29,10 +29,8 @@ export default function BevandePage() {
     if (loading) {
         return (
             <div className="space-y-10 py-10 min-h-[500px]">
-                <div className="animate-pulse bg-white h-64 rounded"></div>
-                <div className="text-center">
-                    <div className="animate-pulse bg-white w-40 h-12 mx-auto rounded"></div>
-                </div>
+                <div className="animate-pulse bg-white h-screen rounded"></div>
+
             </div>
         );
     }

@@ -29,9 +29,8 @@ export default function Contatti() {
     if (loading) {
         return (
             <div className="container mx-auto p-4 space-y-10">
-                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
-                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
-                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                <div className="animate-pulse bg-white invisible h-screen rounded"></div>
+
             </div>
         );
     }

@@ -28,10 +28,7 @@ export default function Eventi() {
     if (loading) {
         return (
             <div className="container space-y-10 pb-10 md:py-10">
-                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
-                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
-                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
-                <div className="animate-pulse bg-white invisible h-20 rounded"></div>
+                <div className="animate-pulse bg-white invisible h-screen rounded"></div>
             </div>
         );
     }
