@@ -4,7 +4,7 @@ import Instafeed from "instafeed.js";
 
 export default function InstagramFeed({ token }) {
   const feedRef = useRef(null);
-  const accessToken = token
+  const accessToken = token;
 
   useEffect(() => {
     const feed = new Instafeed({
@@ -25,6 +25,21 @@ export default function InstagramFeed({ token }) {
                 </div>
               </a>
             `;
+          } else if (item.media_type === "CAROUSEL_ALBUM") {
+            // Carosello con scroll orizzontale
+            output += `
+              <div class="border-2 border-primary block overflow-x-auto flex gap-2 snap-x snap-mandatory">
+                ${item.children.data
+                .map(
+                  (child) => `
+                  <a href="${item.permalink}" target="_blank" class="snap-start flex-none w-full aspect-square">
+                    <img src="${child.media_url}" alt="${child.caption || ""}" class="w-full h-full object-cover" />
+                  </a>
+                `
+                )
+                .join("")}
+              </div>
+            `;
           } else {
             output += `
               <a href="${item.permalink}" target="_blank" class="border-2 border-primary block">
@@ -35,6 +50,7 @@ export default function InstagramFeed({ token }) {
             `;
           }
         });
+
         if (feedRef.current) {
           feedRef.current.innerHTML = output;
         }
