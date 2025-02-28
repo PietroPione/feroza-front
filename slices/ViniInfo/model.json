@@ -25,6 +25,38 @@
             "label": "Disclaimer",
             "placeholder": ""
           }
+        },
+        "tasto_altri_vini": {
+          "type": "Text",
+          "config": {
+            "label": "Tasto altri vini",
+            "placeholder": ""
+          }
+        },
+        "link_altri_vini": {
+          "type": "Link",
+          "config": {
+            "label": "Link altri vini",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "titolo_visita_la_cantina": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo visita la cantina",
+            "placeholder": ""
+          }
+        },
+        "spiega_visita_la_cantina": {
+          "type": "Text",
+          "config": {
+            "label": "Spiega visita la cantina",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

@@ -12,6 +12,30 @@
 				"__TYPE__": "FieldContent",
 				"value": "born",
 				"type": "Text"
+			},
+			"tasto_altri_vini": {
+				"__TYPE__": "FieldContent",
+				"value": "another",
+				"type": "Text"
+			},
+			"link_altri_vini": {
+				"key": "8d238a17-c8c5-410b-8cdd-4084d2ae7a6b",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "ring"
+				}
+			},
+			"titolo_visita_la_cantina": {
+				"__TYPE__": "FieldContent",
+				"value": "region",
+				"type": "Text"
+			},
+			"spiega_visita_la_cantina": {
+				"__TYPE__": "FieldContent",
+				"value": "pie",
+				"type": "Text"
 			}
 		},
 		"items": []

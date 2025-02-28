@@ -3833,6 +3833,52 @@ export interface ViniInfoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   disclaimer: prismic.KeyTextField;
+
+  /**
+   * Tasto altri vini field in *ViniInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini_info.default.primary.tasto_altri_vini
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tasto_altri_vini: prismic.KeyTextField;
+
+  /**
+   * Link altri vini field in *ViniInfo → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini_info.default.primary.link_altri_vini
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_altri_vini: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Titolo visita la cantina field in *ViniInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini_info.default.primary.titolo_visita_la_cantina
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_visita_la_cantina: prismic.KeyTextField;
+
+  /**
+   * Spiega visita la cantina field in *ViniInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vini_info.default.primary.spiega_visita_la_cantina
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  spiega_visita_la_cantina: prismic.KeyTextField;
 }
 
 /**
