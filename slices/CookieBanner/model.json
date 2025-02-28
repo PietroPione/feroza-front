@@ -1,0 +1,51 @@
+{
+  "id": "cookie_banner",
+  "type": "SharedSlice",
+  "name": "CookieBanner",
+  "description": "CookieBanner",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "testo": {
+          "type": "Text",
+          "config": {
+            "label": "Testo",
+            "placeholder": ""
+          }
+        },
+        "testo_tasto": {
+          "type": "Text",
+          "config": {
+            "label": "Testo tasto",
+            "placeholder": ""
+          }
+        },
+        "link_tasto": {
+          "type": "Link",
+          "config": {
+            "label": "Link tasto",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

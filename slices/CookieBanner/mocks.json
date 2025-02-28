@@ -1,0 +1,33 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "solid",
+				"type": "Text"
+			},
+			"testo": {
+				"__TYPE__": "FieldContent",
+				"value": "curious",
+				"type": "Text"
+			},
+			"testo_tasto": {
+				"__TYPE__": "FieldContent",
+				"value": "lower",
+				"type": "Text"
+			},
+			"link_tasto": {
+				"__TYPE__": "LinkContent",
+				"key": "32f9a38b-2d7f-443b-b5d7-6ed244c5709b",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "station"
+				}
+			}
+		},
+		"items": []
+	}
+]

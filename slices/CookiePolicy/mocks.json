@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "sense",
+				"type": "Text"
+			},
+			"paragrafi": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"titolo",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "become",
+									"type": "Text"
+								}
+							],
+							[
+								"testo",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Officia aute cillum magna. Amet aliquip ipsum enim reprehenderit elit incididunt nisi dolore anim laborum officia. Ut ipsum duis duis exercitation aliqua deserunt non adipisicing cupidatat magna veniam amet non eu."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

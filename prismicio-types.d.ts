@@ -272,6 +272,105 @@ export type ContattiDocument<Lang extends string = string> =
     Lang
   >;
 
+type CookiebannerDocumentDataSlicesSlice = CookieBannerSlice;
+
+/**
+ * Content for CookieBanner documents
+ */
+interface CookiebannerDocumentData {
+  /**
+   * Slice Zone field in *CookieBanner*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookiebanner.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CookiebannerDocumentDataSlicesSlice>;
+}
+
+/**
+ * CookieBanner document from Prismic
+ *
+ * - **API ID**: `cookiebanner`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CookiebannerDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CookiebannerDocumentData>,
+    "cookiebanner",
+    Lang
+  >;
+
+type CookiepolicyDocumentDataSlicesSlice = CookiePolicySlice;
+
+/**
+ * Content for CookiePolicy documents
+ */
+interface CookiepolicyDocumentData {
+  /**
+   * Slice Zone field in *CookiePolicy*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookiepolicy.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CookiepolicyDocumentDataSlicesSlice> /**
+   * Meta Title field in *CookiePolicy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: cookiepolicy.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *CookiePolicy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: cookiepolicy.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *CookiePolicy*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookiepolicy.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * CookiePolicy document from Prismic
+ *
+ * - **API ID**: `cookiepolicy`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CookiepolicyDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CookiepolicyDocumentData>,
+    "cookiepolicy",
+    Lang
+  >;
+
 type DrinklistDocumentDataSlicesSlice = InfoFinaliDrinkSlice | DrinkListSlice;
 
 /**
@@ -672,6 +771,8 @@ export type AllDocumentTypes =
   | CantinaDocument
   | ConclusioneMenuDocument
   | ContattiDocument
+  | CookiebannerDocument
+  | CookiepolicyDocument
   | DrinklistDocument
   | EventiDocument
   | FerozaDocument
@@ -1734,6 +1835,169 @@ type ContattiSliceVariation = ContattiSliceDefault;
 export type ContattiSlice = prismic.SharedSlice<
   "contatti",
   ContattiSliceVariation
+>;
+
+/**
+ * Primary content in *CookieBanner → Default → Primary*
+ */
+export interface CookieBannerSliceDefaultPrimary {
+  /**
+   * Titolo field in *CookieBanner → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie_banner.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Testo field in *CookieBanner → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie_banner.default.primary.testo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo: prismic.KeyTextField;
+
+  /**
+   * Testo tasto field in *CookieBanner → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie_banner.default.primary.testo_tasto
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_tasto: prismic.KeyTextField;
+
+  /**
+   * Link tasto field in *CookieBanner → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie_banner.default.primary.link_tasto
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_tasto: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for CookieBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CookieBannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CookieBannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CookieBanner*
+ */
+type CookieBannerSliceVariation = CookieBannerSliceDefault;
+
+/**
+ * CookieBanner Shared Slice
+ *
+ * - **API ID**: `cookie_banner`
+ * - **Description**: CookieBanner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CookieBannerSlice = prismic.SharedSlice<
+  "cookie_banner",
+  CookieBannerSliceVariation
+>;
+
+/**
+ * Item in *CookiePolicy → Default → Primary → Paragrafi*
+ */
+export interface CookiePolicySliceDefaultPrimaryParagrafiItem {
+  /**
+   * Titolo field in *CookiePolicy → Default → Primary → Paragrafi*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie_policy.default.primary.paragrafi[].titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Testo field in *CookiePolicy → Default → Primary → Paragrafi*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie_policy.default.primary.paragrafi[].testo
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testo: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *CookiePolicy → Default → Primary*
+ */
+export interface CookiePolicySliceDefaultPrimary {
+  /**
+   * Titolo field in *CookiePolicy → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie_policy.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Paragrafi field in *CookiePolicy → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie_policy.default.primary.paragrafi[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  paragrafi: prismic.GroupField<
+    Simplify<CookiePolicySliceDefaultPrimaryParagrafiItem>
+  >;
+}
+
+/**
+ * Default variation for CookiePolicy Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CookiePolicySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CookiePolicySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CookiePolicy*
+ */
+type CookiePolicySliceVariation = CookiePolicySliceDefault;
+
+/**
+ * CookiePolicy Shared Slice
+ *
+ * - **API ID**: `cookie_policy`
+ * - **Description**: CookiePolicy
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CookiePolicySlice = prismic.SharedSlice<
+  "cookie_policy",
+  CookiePolicySliceVariation
 >;
 
 /**
@@ -3950,6 +4214,12 @@ declare module "@prismicio/client" {
       ContattiDocument,
       ContattiDocumentData,
       ContattiDocumentDataSlicesSlice,
+      CookiebannerDocument,
+      CookiebannerDocumentData,
+      CookiebannerDocumentDataSlicesSlice,
+      CookiepolicyDocument,
+      CookiepolicyDocumentData,
+      CookiepolicyDocumentDataSlicesSlice,
       DrinklistDocument,
       DrinklistDocumentData,
       DrinklistDocumentDataSlicesSlice,
@@ -4019,6 +4289,15 @@ declare module "@prismicio/client" {
       ContattiSliceDefaultPrimary,
       ContattiSliceVariation,
       ContattiSliceDefault,
+      CookieBannerSlice,
+      CookieBannerSliceDefaultPrimary,
+      CookieBannerSliceVariation,
+      CookieBannerSliceDefault,
+      CookiePolicySlice,
+      CookiePolicySliceDefaultPrimaryParagrafiItem,
+      CookiePolicySliceDefaultPrimary,
+      CookiePolicySliceVariation,
+      CookiePolicySliceDefault,
       DrinkListSlice,
       DrinkListSliceDefaultPrimaryCocktailItem,
       DrinkListSliceDefaultPrimary,
