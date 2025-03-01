@@ -34,7 +34,7 @@ export default function DrinkList({ titolo, testo, cocktails, drinkTopSx, drinkT
                 <div className="flex space-x-2">
 
                   <h2 className="text-15 md:text-22 font-semibold">{drink.nome_drink}</h2>
-                  {drink.iconcina && <div>🍸</div>}
+                  {drink.iconcina && <div className="flex items-center justify-center">🎬</div>}
                 </div>
                 <p className="text-12 md:text-17">{drink.ingredienti}</p>
               </div>
