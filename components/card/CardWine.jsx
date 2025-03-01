@@ -5,7 +5,7 @@ export default function CardWine({ vino, vinoIndex }) {
         <div className="space-y-4 h-full flex flex-col justify-end"> {/* Aggiunto h-full e flex */}
             <div className="flex gap-4">
                 <div className="min-w-[33vw] md:min-w-[15vw]">
-                    <div className="flex font-semibold text-17">
+                    <div className="flex font-semibold uppercase text-17">
                         <div>{vinoIndex + 1 + ". "}</div>
                         <div className="">{vino.nome_vino}</div>
                     </div>
@@ -15,7 +15,7 @@ export default function CardWine({ vino, vinoIndex }) {
                         alt={vino.nome_testuale || "Vino"}
                         width={300}
                         height={200}
-                        className="w-96 h-auto"
+                        className="w-auto pt-4 h-60 md:h-80 "
                     />
                 </div>
                 <div className="flex flex-col justify-end space-y-4">
