@@ -3,12 +3,13 @@ import { PrismicRichText } from "@prismicio/react";
 import CardWine from "./card/CardWine"
 
 export default function CantinaRipetibile({ slice, index }) {
+    console.log("slice", slice)
     return (
         <div className="relative flex items-center">
             <div key={index} className="my-10 md:my-16">
                 <div className="space-y-4 md:space-y-6">
                     <div className="flex md:flex-row flex-col space-y-4 md:space-y-0 justify-between">
-                        <h1 className="text-40 leading-none md:text-60 font-bold uppercase bg-secondary p-4 md:w-[50vw]">{slice.primary.nome}</h1>
+                        <h1 className={`text-40 leading-none md:text-60 font-bold uppercase text-white ${slice.primary.cantina_internazionale ? 'bg-secondary' : 'bg-primary'} p-4 md:w-[50vw]`}>{slice.primary.nome}</h1>
                         {/* Mostra il tasto "Scopri la cantina" */}
                         {slice.primary.tasto_cantina_testo && slice.primary.tasto_cantina_link && (
                             <div className="flex items-center justify-start md:justify-end">
@@ -18,6 +19,7 @@ export default function CantinaRipetibile({ slice, index }) {
                                     testo={slice.primary.tasto_cantina_testo}
                                     externalLink
                                     uppercase
+                                    buttonSecondary={!slice.primary.cantina_internazionale} // Modifica qui
                                 />
                             </div>
                         )}
