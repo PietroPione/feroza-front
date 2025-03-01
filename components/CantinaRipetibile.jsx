@@ -19,7 +19,7 @@ export default function CantinaRipetibile({ slice, index }) {
                                     testo={slice.primary.tasto_cantina_testo}
                                     externalLink
                                     uppercase
-                                    buttonSecondary={!slice.primary.cantina_internazionale} // Modifica qui
+                                    buttonSecondary={!slice.primary.cantina_internazionale}
                                 />
                             </div>
                         )}
