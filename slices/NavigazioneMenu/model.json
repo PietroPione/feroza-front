@@ -33,6 +33,14 @@
                   "thumbnails": []
                 }
               },
+              "immagine_sfondo": {
+                "type": "Image",
+                "config": {
+                  "label": "Immagine sfondo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
               "link": {
                 "type": "Link",
                 "config": {

@@ -37,11 +37,11 @@ export default function LandingMenu() {
           {[1, 2, 3, 4, 5, 6].map((index) => (
             <div
               key={index}
-              className="aspect-square rounded-full border border-gray-300 p-4 animate-pulse bg-white" // Modifica qui
+              className="aspect-square rounded-full  p-4 animate-pulse bg-white"
             ></div>
           ))}
         </div>
-        <div className="animate-pulse bg-white h-20 rounded"></div> // Modifica qui
+        <div className="animate-pulse bg-white h-20 rounded"></div>
       </div>
     );
   }
@@ -67,7 +67,7 @@ export default function LandingMenu() {
             target={item.external_link ? "_blank" : ""}
             rel={item.external_link ? "noopener noreferrer" : ""}
           >
-            <div className="aspect-square rounded-full flex flex-col justify-center items-center lg:gap-y-4 border border-primary p-4 group-hover:bg-primary h-full">
+            <div className="aspect-square relative rounded-full flex flex-col justify-center items-center lg:gap-y-4  p-4 group-hover:bg-primary h-full">
               {item.icona?.url && (
                 <div className="flex justify-center items-center">
                   <Image
@@ -77,6 +77,14 @@ export default function LandingMenu() {
                     height={200}
                     className="w-auto h-20 md:h-32 lg:h-48 object-contain"
                     fetchPriority="high"
+                  />
+                  <Image
+                    src={item.immagine_sfondo.url}
+                    alt={item.immagine_sfondo.alt || item.titolo}
+                    width={200}
+                    height={200}
+                    className="w-auto h-full absolute inset-0"
+
                   />
                 </div>
               )}

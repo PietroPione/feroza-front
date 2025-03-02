@@ -3291,6 +3291,16 @@ export interface NavigazioneMenuSliceDefaultPrimaryNavigazionemenuItem {
   icona: prismic.ImageField<never>;
 
   /**
+   * Immagine sfondo field in *NavigazioneMenu → Default → Primary → NavigazioneMenu*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigazione_menu.default.primary.navigazionemenu[].immagine_sfondo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_sfondo: prismic.ImageField<never>;
+
+  /**
    * Link field in *NavigazioneMenu → Default → Primary → NavigazioneMenu*
    *
    * - **Field Type**: Link
