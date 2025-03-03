@@ -104,14 +104,6 @@
 								}
 							],
 							[
-								"nome_testuale",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "real",
-									"type": "Text"
-								}
-							],
-							[
 								"luogo",
 								{
 									"__TYPE__": "FieldContent",
@@ -132,6 +124,14 @@
 								{
 									"__TYPE__": "FieldContent",
 									"value": "silk",
+									"type": "Text"
+								}
+							],
+							[
+								"tipologia",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "clearly",
 									"type": "Text"
 								}
 							]

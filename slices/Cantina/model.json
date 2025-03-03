@@ -19,6 +19,15 @@
             "placeholder": ""
           }
         },
+        "cantina_internazionale": {
+          "type": "Boolean",
+          "config": {
+            "label": "Cantina internazionale",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
         "tasto_cantina_testo": {
           "type": "Text",
           "config": {
@@ -95,10 +104,10 @@
                   "thumbnails": []
                 }
               },
-              "nome_testuale": {
+              "tipologia": {
                 "type": "Text",
                 "config": {
-                  "label": "Nome testuale",
+                  "label": "Tipologia",
                   "placeholder": ""
                 }
               },
@@ -124,15 +133,6 @@
                 }
               }
             }
-          }
-        },
-        "cantina_internazionale": {
-          "type": "Boolean",
-          "config": {
-            "label": "Cantina internazionale",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": false
           }
         }
       },

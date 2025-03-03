@@ -1329,14 +1329,14 @@ export interface CantinaSliceDefaultPrimaryViniItem {
   immagine_vino: prismic.ImageField<never>;
 
   /**
-   * Nome testuale field in *Cantina → Default → Primary → Vini*
+   * Tipologia field in *Cantina → Default → Primary → Vini*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: cantina.default.primary.vini[].nome_testuale
+   * - **API ID Path**: cantina.default.primary.vini[].tipologia
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  nome_testuale: prismic.KeyTextField;
+  tipologia: prismic.KeyTextField;
 
   /**
    * Luogo field in *Cantina → Default → Primary → Vini*
@@ -1382,6 +1382,17 @@ export interface CantinaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   nome: prismic.KeyTextField;
+
+  /**
+   * Cantina internazionale field in *Cantina → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cantina.default.primary.cantina_internazionale
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  cantina_internazionale: prismic.BooleanField;
 
   /**
    * Tasto cantina testo field in *Cantina → Default → Primary*
@@ -1452,17 +1463,6 @@ export interface CantinaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   vini: prismic.GroupField<Simplify<CantinaSliceDefaultPrimaryViniItem>>;
-
-  /**
-   * Cantina internazionale field in *Cantina → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: cantina.default.primary.cantina_internazionale
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  cantina_internazionale: prismic.BooleanField;
 }
 
 /**

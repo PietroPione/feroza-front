@@ -62,7 +62,7 @@ export default function CantinaRipetibile({ slice, index }) {
 
                 {/* Mostra i vini */}
                 {slice.primary.vini && slice.primary.vini.length > 0 &&
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 gap-y-20 md:gap-y-0">
                         {slice.primary.vini.map((vino, vinoIndex) => (
                             <CardWine key={vinoIndex} vino={vino} vinoIndex={vinoIndex} />
                         ))}
