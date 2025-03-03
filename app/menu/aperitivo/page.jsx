@@ -59,7 +59,7 @@ export default function AperitivoPage() {
     };
 
     return (
-        <div className="space-y-10 py-2 md:py-10">
+        <div className="space-y-10 pb-10 md:py-10">
             {aperitivo && (
                 <Aperitivo
                     titolo={titoloAperitivo}
