@@ -10,13 +10,13 @@ export default function CardWine({ vino, vinoIndex }) {
                         <div className="">{vino.nome_vino}</div>
                     </div>
 
-                    <Image
+                    {vino.immagine_vino && <Image
                         src={vino.immagine_vino?.url}
                         alt={vino.nome_testuale || "Vino"}
                         width={300}
                         height={200}
                         className="w-auto pt-4 h-60 md:h-80 "
-                    />
+                    />}
                 </div>
                 <div className="flex flex-col justify-end space-y-4">
                     {vino.tipologia && <h3 className="italic text-12">{vino.tipologia}</h3>}
