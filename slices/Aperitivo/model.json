@@ -42,6 +42,22 @@
             "placeholder": ""
           }
         },
+        "immagine_top_dx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine top dx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_sinistra": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine sinistra",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "immagine_bottom_dx": {
           "type": "Image",
           "config": {

@@ -89,7 +89,7 @@ export default function LandingMenu() {
                 </div>
               )}
               <div className="flex items-center justify-center w-full mt-2">
-                <h2 className="text-22 md:text-26 lg:text-32 leading-none text-center font-semibold group-hover:underline">
+                <h2 className="text-17 lg:text-32 leading-none px-10 lg:px-20 text-center font-semibold group-hover:underline">
                   {item.titolo}
                 </h2>
               </div>

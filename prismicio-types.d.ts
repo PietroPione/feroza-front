@@ -854,6 +854,26 @@ export interface AperitivoSliceDefaultPrimary {
   prezzo: prismic.KeyTextField;
 
   /**
+   * Immagine top dx field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.immagine_top_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_top_dx: prismic.ImageField<never>;
+
+  /**
+   * Immagine sinistra field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.immagine_sinistra
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_sinistra: prismic.ImageField<never>;
+
+  /**
    * Immagine bottom dx field in *Aperitivo → Default → Primary*
    *
    * - **Field Type**: Image

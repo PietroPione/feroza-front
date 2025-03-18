@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function Aperitivo({ slice }) {
-  const { titolo, sottotitolo, prezzo, immagine_bottom_dx, portate, allineato_a_sinistra } =
+  const { titolo, sottotitolo, prezzo, immagine_sinistra, immagine_top_dx, immagine_bottom_dx, portate, allineato_a_sinistra } =
     slice.primary;
 
   const textAlignClass = allineato_a_sinistra ? "text-left items-start" : "text-center items-center";
@@ -40,7 +40,29 @@ export default function Aperitivo({ slice }) {
               alt={immagine_bottom_dx.alt || ""}
               width={immagine_bottom_dx.dimensions?.width || 300}
               height={immagine_bottom_dx.dimensions?.height || 300}
-              className=" h-60 md:h-96 w-auto"
+              className=" h-60 md:h-40 lg:h-60 w-auto"
+            />
+          )}
+        </div>
+        <div className="md:absolute top-[0vh] md:right-[10vw] lg:right-[15vw]  hidden md:block">
+          {immagine_top_dx?.url && (
+            <Image
+              src={immagine_top_dx.url}
+              alt={immagine_top_dx.alt || ""}
+              width={immagine_top_dx.dimensions?.width || 300}
+              height={immagine_top_dx.dimensions?.height || 300}
+              className="h-60 md:h-40 lg:h-60 w-auto"
+            />
+          )}
+        </div>
+        <div className="md:absolute top-1/4 left-[5vw] hidden md:block">
+          {immagine_sinistra?.url && (
+            <Image
+              src={immagine_sinistra.url}
+              alt={immagine_sinistra.alt || ""}
+              width={immagine_sinistra.dimensions?.width || 300}
+              height={immagine_sinistra.dimensions?.height || 300}
+              className=" h-60 md:h-40 lg:h-60 w-auto"
             />
           )}
         </div>
