@@ -1,84 +1,50 @@
-export default function Aperitivo({
-  titolo,
-  sottotitolo,
-  testoBevande,
-  nomeBevanda,
-  iconaBevanda,
-  testoSalsa,
-  salse,
-  salseVegetariano,
-  falafel,
-  falafelVegetariano,
-  pane,
-  prezzo,
-  immagineTopSx,
-  immagineTopDx,
-  immagineBottomSx,
-  immagineBottomDx
-}) {
+import Image from "next/image";
+
+export default function Aperitivo({ slice }) {
+  const { titolo, sottotitolo, prezzo, immagine_bottom_dx, portate, allineato_a_sinistra } =
+    slice.primary;
+
+  const textAlignClass = allineato_a_sinistra ? "text-left items-start" : "text-center items-center";
 
   return (
-    <div className="relative" >
-      {/* <div className="absolute top-0 left-[10vw]">
-        <img src={immagineTopSx} alt="" className="opacity-35 md:opacity-100 h-auto w-60" />
-      </div> */}
-      <div className="absolute top-[15vh] md:top-0 right-[10vw] md:right-[20vw]">
-        <img src={immagineTopDx} alt="" className="opacity-0 md:opacity-100 h-48 w-auto" />
-      </div>
-      {/* <div className="absolute bottom-[40vh] md:bottom-[20vh] md:left-[20vw]">
-        <img src={immagineBottomSx} alt="" className="opacity-35 md:opacity-100 h-36 w-auto" />
-      </div> */}
-      <div className="absolute bottom-[10vh] right-[10vw]">
-        <img src={immagineBottomDx} alt="" className="opacity-0 md:opacity-100 h-48 w-auto" />
-      </div>
-
-
-      <div className="container mx-auto p-4 space-y-2 md:space-y-2 ">
-
-        <div className="space-y-2 md:marker:pt-2">
-          <h1 className="text-32  font-bold">{titolo}</h1>
-          <h2 className="text-22 ">{sottotitolo}</h2>
+    <div className="relative">
+      <div className={`container mx-auto p-4 space-y-10 flex flex-col ${textAlignClass}`}>
+        <div className={`leading-none space-y-6 md:pt-2 ${textAlignClass}`}>
+          <div className="space-y-2">
+            <h1 className="text-32 font-bold">{titolo}</h1>
+            <h2 className="text-26">{sottotitolo}</h2>
+          </div>
+          <div className="text-22 font-bold">{prezzo}</div>
         </div>
 
-        <ul className=" text-15 md:text-22 space-y-4">
-          {nomeBevanda.map((bevanda, index) => (
-            <li key={index} className={`flex justify-start items-start gap-2s md:gap-10 space-x-6`}>
-              <div>{bevanda.nome_bevanda}</div>
-              {bevanda.icona?.url && <img src={bevanda.icona.url} alt="" className="w-auto h-12" />}
-            </li>
-          ))}
-        </ul>
-        <div className=" text-15 md:text-22">+</div>
-
-        <p className="text-17">{testoSalsa}</p>
-        <ul className=" text-15 md:text-22">
-          {salse.map((item, index) => (
-            <li key={index} className="flex items-start justify-start space-x-2 md:space-x-6">
+        <ul className="text-15 md:text-22 space-y-4">
+          {portate && Array.isArray(portate) && portate.map((item, index) => (
+            <li
+              key={index}
+              className={`flex flex-col justify-center ${textAlignClass} gap-2 md:gap-6`}
+            >
               <div>
-                {item.nome_salsa}
+                <div className="text-22 uppercase font-semibold">{item.alimento}</div>
+                <div>{item.spiega}</div>
               </div>
-              <img src={salseVegetariano} alt="" className="h-6 w-6" />
+              {index < portate.length - 1 && (
+                <div className="text-15 md:text-22">+</div>
+              )}
             </li>
           ))}
         </ul>
-        <div className=" text-15 md:text-22">+</div>
-
-        <ul className=" text-15 md:text-22">
-          {falafel.map((item, index) => (
-            <li key={index} className="flex items-start justify-start space-x-2 md:space-x-6">
-              <div>
-                {item.nome_falafel}
-              </div>
-              <img src={falafelVegetariano} alt="" className="h-6 w-6" />
-            </li>
-          ))}
-        </ul>
-        <div className=" text-15 md:text-22">+</div>
-        <p className=" text-15 md:text-22">{pane}</p>
-        <div className=" text-15 md:text-22">=</div>
-        <p className=" text-15 md:text-22 font-bold">{prezzo}</p>
+        <div className="md:absolute bottom-[0vh] right-[5vw]">
+          {immagine_bottom_dx?.url && (
+            <Image
+              src={immagine_bottom_dx.url}
+              alt={immagine_bottom_dx.alt || ""}
+              width={immagine_bottom_dx.dimensions?.width || 300}
+              height={immagine_bottom_dx.dimensions?.height || 300}
+              className=" h-60 md:h-96 w-auto"
+            />
+          )}
+        </div>
       </div>
     </div>
-
   );
 }

@@ -12,6 +12,15 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "allineato_a_sinistra": {
+          "type": "Boolean",
+          "config": {
+            "label": "Allineato a sinistra",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
         "titolo": {
           "type": "Text",
           "config": {
@@ -19,28 +28,18 @@
             "placeholder": ""
           }
         },
-        "immagine_top_sx": {
-          "type": "Image",
+        "sottotitolo": {
+          "type": "Text",
           "config": {
-            "label": "Immagine top sx",
-            "constraint": {},
-            "thumbnails": []
+            "label": "Sottotitolo",
+            "placeholder": ""
           }
         },
-        "immagine_top_dx": {
-          "type": "Image",
+        "prezzo": {
+          "type": "Text",
           "config": {
-            "label": "Immagine top dx",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "immagine_bottom_sx": {
-          "type": "Image",
-          "config": {
-            "label": "Immagine bottom sx",
-            "constraint": {},
-            "thumbnails": []
+            "label": "Prezzo",
+            "placeholder": ""
           }
         },
         "immagine_bottom_dx": {
@@ -51,111 +50,27 @@
             "thumbnails": []
           }
         },
-        "sottotitolo": {
-          "type": "Text",
-          "config": {
-            "label": "Sottotitolo",
-            "placeholder": ""
-          }
-        },
-        "testo_bevande": {
-          "type": "Text",
-          "config": {
-            "label": "Testo bevande",
-            "placeholder": ""
-          }
-        },
-        "nome_bevanda": {
+        "portate": {
           "type": "Group",
           "config": {
-            "label": "Bevande",
+            "label": "Portate",
             "repeat": true,
             "fields": {
-              "nome_bevanda": {
+              "alimento": {
                 "type": "Text",
                 "config": {
-                  "label": "Nome bevanda",
+                  "label": "Alimento",
                   "placeholder": ""
                 }
               },
-              "icona": {
-                "type": "Image",
-                "config": {
-                  "label": "Icona",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              }
-            }
-          }
-        },
-        "testo_salsa": {
-          "type": "Text",
-          "config": {
-            "label": "Testo salsa",
-            "placeholder": ""
-          }
-        },
-        "salse": {
-          "type": "Group",
-          "config": {
-            "label": "Salse",
-            "repeat": true,
-            "fields": {
-              "nome_salsa": {
+              "spiega": {
                 "type": "Text",
                 "config": {
-                  "label": "Nome salsa",
+                  "label": "Spiega",
                   "placeholder": ""
-                }
-              },
-              "vegetariano": {
-                "type": "Image",
-                "config": {
-                  "label": "Vegetariano",
-                  "constraint": {},
-                  "thumbnails": []
                 }
               }
             }
-          }
-        },
-        "falafel": {
-          "type": "Group",
-          "config": {
-            "label": "Falafel",
-            "repeat": true,
-            "fields": {
-              "nome_falafel": {
-                "type": "Text",
-                "config": {
-                  "label": "Nome falafel",
-                  "placeholder": ""
-                }
-              },
-              "vegetariano": {
-                "type": "Image",
-                "config": {
-                  "label": "Vegetariano",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              }
-            }
-          }
-        },
-        "pane": {
-          "type": "Text",
-          "config": {
-            "label": "Pane",
-            "placeholder": ""
-          }
-        },
-        "prezzo": {
-          "type": "Text",
-          "config": {
-            "label": "Prezzo",
-            "placeholder": ""
           }
         }
       },

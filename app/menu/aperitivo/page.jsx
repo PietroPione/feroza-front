@@ -34,23 +34,9 @@ export default function AperitivoPage() {
         );
     }
 
-    const aperitivoSlice = aperitivo?.data.slices.find(slice => slice.slice_type === "aperitivo");
-    const titoloAperitivo = aperitivoSlice?.primary?.titolo || "Aperitivo";
-    const sottotitolo = aperitivoSlice?.primary?.sottotitolo || "";
-    const testoBevande = aperitivoSlice?.primary?.testo_bevande || "";
-    const nomeBevanda = aperitivoSlice?.primary?.nome_bevanda || [];
-    const iconaBevanda = nomeBevanda.map(bevanda => bevanda.icona?.url);
-    const testoSalsa = aperitivoSlice?.primary?.testo_salsa || "";
-    const salse = aperitivoSlice?.primary?.salse || [];
-    const salseVegetariano = salse.map(salse => salse.vegetariano?.url);
-    const falafel = aperitivoSlice?.primary?.falafel || [];
-    const falafelVegetariano = falafel.map(falafel => falafel.vegetariano?.url);
-    const pane = aperitivoSlice?.primary?.pane || "";
-    const prezzo = aperitivoSlice?.primary?.prezzo || "";
-    const immagineTopSx = aperitivoSlice?.primary?.immagine_top_sx?.url;
-    const immagineTopDx = aperitivoSlice?.primary?.immagine_top_dx?.url;
-    const immagineBottomSx = aperitivoSlice?.primary?.immagine_bottom_sx?.url;
-    const immagineBottomDx = aperitivoSlice?.primary?.immagine_bottom_dx?.url;
+    const aperitivoSlice = aperitivo?.data.slices.find(
+        (slice) => slice.slice_type === "aperitivo"
+    );
 
     const testoBottone = {
         "it-it": "Torna al menu",
@@ -60,26 +46,7 @@ export default function AperitivoPage() {
 
     return (
         <div className="space-y-10 pb-10 md:py-10">
-            {aperitivo && (
-                <Aperitivo
-                    titolo={titoloAperitivo}
-                    sottotitolo={sottotitolo}
-                    testoBevande={testoBevande}
-                    nomeBevanda={nomeBevanda}
-                    iconaBevanda={iconaBevanda}
-                    testoSalsa={testoSalsa}
-                    salse={salse}
-                    falafel={falafel}
-                    falafelVegetariano={falafelVegetariano}
-                    pane={pane}
-                    prezzo={prezzo}
-                    immagineTopDx={immagineTopDx}
-                    immagineTopSx={immagineTopSx}
-                    immagineBottomSx={immagineBottomSx}
-                    immagineBottomDx={immagineBottomDx}
-                    salseVegetariano={salseVegetariano}
-                />
-            )}
+            {aperitivoSlice && <Aperitivo slice={aperitivoSlice} />}
             <div className="text-center">
                 <ButtonPrimary url="/menu/" testo={testoBottone[language]} />
             </div>

@@ -8,75 +8,6 @@
 				"value": "point",
 				"type": "Text"
 			},
-			"immagine_top_sx": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
-					"width": 5616,
-					"height": 3744
-				},
-				"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
-				"width": 5616,
-				"height": 3744,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					},
-					"background": "transparent"
-				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"immagine_top_dx": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5",
-					"width": 5848,
-					"height": 3899
-				},
-				"url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5",
-				"width": 5848,
-				"height": 3899,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					},
-					"background": "transparent"
-				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"immagine_bottom_sx": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
-					"width": 12288,
-					"height": 16384
-				},
-				"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
-				"width": 12288,
-				"height": 16384,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					},
-					"background": "transparent"
-				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
 			"immagine_bottom_dx": {
 				"origin": {
 					"id": "main",
@@ -105,155 +36,40 @@
 				"value": "shore",
 				"type": "Text"
 			},
-			"testo_bevande": {
-				"__TYPE__": "FieldContent",
-				"value": "lie",
-				"type": "Text"
-			},
-			"nome_bevanda": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"nome_bevanda",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "change",
-									"type": "Text"
-								}
-							],
-							[
-								"icona",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
-										"width": 3456,
-										"height": 3456
-									},
-									"url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
-									"width": 3456,
-									"height": 3456,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"credits": null,
-									"alt": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							]
-						]
-					}
-				]
-			},
-			"testo_salsa": {
-				"__TYPE__": "FieldContent",
-				"value": "student",
-				"type": "Text"
-			},
-			"salse": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"nome_salsa",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "zulu",
-									"type": "Text"
-								}
-							],
-							[
-								"vegetariano",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-										"width": 3212,
-										"height": 3880
-									},
-									"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-									"width": 3212,
-									"height": 3880,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"credits": null,
-									"alt": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							]
-						]
-					}
-				]
-			},
-			"pane": {
-				"__TYPE__": "FieldContent",
-				"value": "blank",
-				"type": "Text"
-			},
 			"prezzo": {
 				"__TYPE__": "FieldContent",
 				"value": "pond",
 				"type": "Text"
 			},
-			"falafel": {
+			"portate": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"nome_falafel",
+								"alimento",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "actual",
+									"value": "variety",
 									"type": "Text"
 								}
 							],
 							[
-								"vegetariano",
+								"spiega",
 								{
-									"__TYPE__": "ImageContent",
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
-										"width": 3024,
-										"height": 3778
-									},
-									"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
-									"width": 3024,
-									"height": 3778,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"thumbnails": {}
+									"__TYPE__": "FieldContent",
+									"value": "tune",
+									"type": "Text"
 								}
 							]
 						]
 					}
 				]
+			},
+			"allineato_a_sinistra": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []

@@ -784,84 +784,45 @@ export type AllDocumentTypes =
   | ViniDocument;
 
 /**
- * Item in *Aperitivo → Default → Primary → Bevande*
+ * Item in *Aperitivo → Default → Primary → Portate*
  */
-export interface AperitivoSliceDefaultPrimaryNomeBevandaItem {
+export interface AperitivoSliceDefaultPrimaryPortateItem {
   /**
-   * Nome bevanda field in *Aperitivo → Default → Primary → Bevande*
+   * Alimento field in *Aperitivo → Default → Primary → Portate*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.nome_bevanda[].nome_bevanda
+   * - **API ID Path**: aperitivo.default.primary.portate[].alimento
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  nome_bevanda: prismic.KeyTextField;
+  alimento: prismic.KeyTextField;
 
   /**
-   * Icona field in *Aperitivo → Default → Primary → Bevande*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.nome_bevanda[].icona
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  icona: prismic.ImageField<never>;
-}
-
-/**
- * Item in *Aperitivo → Default → Primary → Salse*
- */
-export interface AperitivoSliceDefaultPrimarySalseItem {
-  /**
-   * Nome salsa field in *Aperitivo → Default → Primary → Salse*
+   * Spiega field in *Aperitivo → Default → Primary → Portate*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.salse[].nome_salsa
+   * - **API ID Path**: aperitivo.default.primary.portate[].spiega
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  nome_salsa: prismic.KeyTextField;
-
-  /**
-   * Vegetariano field in *Aperitivo → Default → Primary → Salse*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.salse[].vegetariano
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  vegetariano: prismic.ImageField<never>;
-}
-
-/**
- * Item in *Aperitivo → Default → Primary → Falafel*
- */
-export interface AperitivoSliceDefaultPrimaryFalafelItem {
-  /**
-   * Nome falafel field in *Aperitivo → Default → Primary → Falafel*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.falafel[].nome_falafel
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  nome_falafel: prismic.KeyTextField;
-
-  /**
-   * Vegetariano field in *Aperitivo → Default → Primary → Falafel*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.falafel[].vegetariano
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  vegetariano: prismic.ImageField<never>;
+  spiega: prismic.KeyTextField;
 }
 
 /**
  * Primary content in *Aperitivo → Default → Primary*
  */
 export interface AperitivoSliceDefaultPrimary {
+  /**
+   * Allineato a sinistra field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: aperitivo.default.primary.allineato_a_sinistra
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  allineato_a_sinistra: prismic.BooleanField;
+
   /**
    * Titolo field in *Aperitivo → Default → Primary*
    *
@@ -871,46 +832,6 @@ export interface AperitivoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   titolo: prismic.KeyTextField;
-
-  /**
-   * Immagine top sx field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.immagine_top_sx
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  immagine_top_sx: prismic.ImageField<never>;
-
-  /**
-   * Immagine top dx field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.immagine_top_dx
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  immagine_top_dx: prismic.ImageField<never>;
-
-  /**
-   * Immagine bottom sx field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.immagine_bottom_sx
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  immagine_bottom_sx: prismic.ImageField<never>;
-
-  /**
-   * Immagine bottom dx field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.immagine_bottom_dx
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  immagine_bottom_dx: prismic.ImageField<never>;
 
   /**
    * Sottotitolo field in *Aperitivo → Default → Primary*
@@ -923,70 +844,6 @@ export interface AperitivoSliceDefaultPrimary {
   sottotitolo: prismic.KeyTextField;
 
   /**
-   * Testo bevande field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.testo_bevande
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  testo_bevande: prismic.KeyTextField;
-
-  /**
-   * Bevande field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.nome_bevanda[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  nome_bevanda: prismic.GroupField<
-    Simplify<AperitivoSliceDefaultPrimaryNomeBevandaItem>
-  >;
-
-  /**
-   * Testo salsa field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.testo_salsa
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  testo_salsa: prismic.KeyTextField;
-
-  /**
-   * Salse field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.salse[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  salse: prismic.GroupField<Simplify<AperitivoSliceDefaultPrimarySalseItem>>;
-
-  /**
-   * Falafel field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.falafel[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  falafel: prismic.GroupField<
-    Simplify<AperitivoSliceDefaultPrimaryFalafelItem>
-  >;
-
-  /**
-   * Pane field in *Aperitivo → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.pane
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  pane: prismic.KeyTextField;
-
-  /**
    * Prezzo field in *Aperitivo → Default → Primary*
    *
    * - **Field Type**: Text
@@ -995,6 +852,28 @@ export interface AperitivoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   prezzo: prismic.KeyTextField;
+
+  /**
+   * Immagine bottom dx field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.immagine_bottom_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_dx: prismic.ImageField<never>;
+
+  /**
+   * Portate field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.portate[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  portate: prismic.GroupField<
+    Simplify<AperitivoSliceDefaultPrimaryPortateItem>
+  >;
 }
 
 /**
@@ -4285,9 +4164,7 @@ declare module "@prismicio/client" {
       ViniDocumentDataSlicesSlice,
       AllDocumentTypes,
       AperitivoSlice,
-      AperitivoSliceDefaultPrimaryNomeBevandaItem,
-      AperitivoSliceDefaultPrimarySalseItem,
-      AperitivoSliceDefaultPrimaryFalafelItem,
+      AperitivoSliceDefaultPrimaryPortateItem,
       AperitivoSliceDefaultPrimary,
       AperitivoSliceVariation,
       AperitivoSliceDefault,
