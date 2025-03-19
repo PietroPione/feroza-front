@@ -50,6 +50,14 @@
             "thumbnails": []
           }
         },
+        "immagine_bottom_dx": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bottom dx",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "immagine_sinistra": {
           "type": "Image",
           "config": {
@@ -58,10 +66,10 @@
             "thumbnails": []
           }
         },
-        "immagine_bottom_dx": {
+        "immagine_sx_top": {
           "type": "Image",
           "config": {
-            "label": "Immagine bottom dx",
+            "label": "Immagine sx top",
             "constraint": {},
             "thumbnails": []
           }

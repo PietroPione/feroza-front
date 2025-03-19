@@ -864,6 +864,16 @@ export interface AperitivoSliceDefaultPrimary {
   immagine_top_dx: prismic.ImageField<never>;
 
   /**
+   * Immagine bottom dx field in *Aperitivo → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aperitivo.default.primary.immagine_bottom_dx
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bottom_dx: prismic.ImageField<never>;
+
+  /**
    * Immagine sinistra field in *Aperitivo → Default → Primary*
    *
    * - **Field Type**: Image
@@ -874,14 +884,14 @@ export interface AperitivoSliceDefaultPrimary {
   immagine_sinistra: prismic.ImageField<never>;
 
   /**
-   * Immagine bottom dx field in *Aperitivo → Default → Primary*
+   * Immagine sx top field in *Aperitivo → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: aperitivo.default.primary.immagine_bottom_dx
+   * - **API ID Path**: aperitivo.default.primary.immagine_sx_top
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  immagine_bottom_dx: prismic.ImageField<never>;
+  immagine_sx_top: prismic.ImageField<never>;
 
   /**
    * Portate field in *Aperitivo → Default → Primary*
