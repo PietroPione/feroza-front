@@ -47,6 +47,22 @@ export default function Eventi() {
     )?.primary;
     const eventiSlices = mappedSlices.filter((slice) => slice.type === "eventi");
 
+    // Ordina gli eventi
+    const sortedEventi = eventiSlices.flatMap((slice) =>
+        slice.primary.eventi.map((evento) => ({
+            evento,
+            passato: isEventoPassato(evento.data),
+        }))
+    ).sort((a, b) => {
+        if (a.passato && !b.passato) {
+            return 1; // Eventi passati dopo quelli futuri
+        }
+        if (!a.passato && b.passato) {
+            return -1; // Eventi futuri prima di quelli passati
+        }
+        return 0; // Mantieni l'ordine se entrambi sono futuri o passati
+    });
+
     return (
         <div className="container p-4 space-y-10">
             {heroEventiSlice && (
@@ -69,16 +85,14 @@ export default function Eventi() {
 
             {/* Lista Eventi */}
             <div className="flex flex-col gap-y-10">
-                {eventiSlices.length > 0 ? (
-                    eventiSlices.map((slice, index) => (
-                        slice.primary.eventi.map((evento, eventoIndex) => (
-                            <CardEventi
-                                key={`${index}-${eventoIndex}`} // Aggiunto key per React
-                                evento={evento}
-                                eventoIndex={eventoIndex}
-                                passato={isEventoPassato(evento.data)}
-                            />
-                        ))
+                {sortedEventi.length > 0 ? (
+                    sortedEventi.map(({ evento, passato }, index) => (
+                        <CardEventi
+                            key={index}
+                            evento={evento}
+                            eventoIndex={index}
+                            passato={passato}
+                        />
                     ))
                 ) : (
                     <p className="col-span-full text-center">Nessun evento disponibile.</p>
