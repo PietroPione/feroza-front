@@ -75,7 +75,7 @@ export default function LandingMenu() {
                     alt={item.icona.alt || item.titolo}
                     width={200}
                     height={200}
-                    className="w-auto h-20 md:h-32 lg:h-48 object-contain"
+                    className="w-auto h-20 md:h-32 lg:h-36 object-contain"
                     fetchPriority="high"
                   />
                   <Image
@@ -89,7 +89,7 @@ export default function LandingMenu() {
                 </div>
               )}
               <div className="flex items-center justify-center w-full mt-2">
-                <h2 className="text-17 lg:text-32 leading-none px-10 lg:px-20 text-center font-semibold group-hover:underline">
+                <h2 className="text-17 lg:text-28 leading-none px-10 lg:px-20 text-center font-semibold group-hover:underline">
                   {item.titolo}
                 </h2>
               </div>
